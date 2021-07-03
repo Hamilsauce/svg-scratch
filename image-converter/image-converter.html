@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Conv</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./image-converter.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1 class="header-title">El Convertarino!</h1>
+      <div class="nav"></div>
+    </header>
+    <div class="form-container">
+      <form class="image-form">
+
+        <div class="form-section">
+          <div class="select-container">
+            <select class="select-control" id="exampleFormControlSelect1">
+              <option>JPEG</option>
+              <option>PNG</option>
+              <option>BMP</option>
+            </select>
+          </div>
+          <div class="select-container">
+            <select class="select-control" id="exampleFormControlSelect2">
+              <option>PNG</option>
+              <option>JPEG</option>
+              <option>BMP</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-section file-options">
+          <div class="control-group">
+            <label for="zip-checkbox">Zip files</label>
+            <input class="form-check-input" name="zip-checkbox" id="tozip" type="checkbox">
+          </div>
+          <input type="file" class="file-upload-wrapper" accept="image/*" id="images" type="file" name="pwd" multiple>
+        </div>
+        <input type="submit" class="convert-button" value="Convert"></input>
+      </form>
+    </div>
+    <div id="dropzone" class="jumbotron" style="text-align:left;">
+      <h2>Drop Files Here!</h2>
+    </div>
+  </div>
+  <script src="./image-converter.js"></script>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
