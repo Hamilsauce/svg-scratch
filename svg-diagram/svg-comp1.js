@@ -1,0 +1,18 @@
+export const markup = `
+	<svg class="arrow-line" width="3.508mm" height="22.732mm" version="1.1" viewBox="0 0 3.508 22.732" xmlns="http://www.w3.org/2000/svg">
+		<g transform="translate(-107.46 -64.592)">
+			<path id="line-path1" d="m109.02 65.119v18.734 2.3418 0.87891 0.18359 0.04883 0.01367 2e-3 2e-3c0 2.56e-4 0.0995 1.29e-4 0.19922 0 0.0987 1.24e-4 0.19726 2.53e-4 0.19726 0v-2e-3 -0.01563-0.23242-3.2207-18.734z" color="#000000" style="-inkscape-stroke:none" />
+			<path id="arrow-path1" d="m107.46 69.362 1.754-4.7698 1.754 4.7698c-1.0356-0.76202-2.4524-0.75763-3.508 0z" color="#000000" fill-rule="evenodd" stroke-linejoin="round" stroke-width=".27285" style="-inkscape-stroke:none" />
+		</g>
+	</svg>
+`;
+export const arrowLine = () => {
+	const svgEl = document.createElement('svg')
+	svgEl.insertAdjacentHTML("beforeend", markup)
+	svgEl.classList.add('arrow-line')
+	return svgEl
+}
+
+{
+	arrowLine
+}

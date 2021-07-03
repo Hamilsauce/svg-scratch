@@ -1,0 +1,10 @@
+<svg class="node" width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg">
+	<g>
+		<rect x="0" y="0" width="68" height="38" fill="#006680" stroke="#fff" stroke-dashoffset=".35528"
+			stroke-linejoin="round" stroke-width="1.1" style="paint-order:stroke fill markers" />
+		<text x="18" y="22" fill="#dbe3de" font-family="sans-serif" font-size="10.583px" letter-spacing="0px"
+			stroke-width=".26458" word-spacing="0px" style="line-height:1.25" xml:space="preserve">
+			<tspan x="18" y="22" fill="#dbe3de" stroke-width=".26458">NODE</tspan>
+		</text>
+	</g>
+</svg>

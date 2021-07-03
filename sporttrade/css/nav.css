@@ -1,0 +1,66 @@
+.app-nav {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	/* width: 200px; */
+	width: 0%;
+	height: 100%;
+	/* background: #4C4C58; */
+	/* background: #4D57C8; */
+	backdrop-filter: blur(7px);
+	color: #FFFFFF00;
+	border-right: 1px solid rgba(255, 255, 255, 0);
+	overflow-x: hidden;
+	transition: 0.4s;
+	z-index: 200;
+}
+
+.navExpand {
+	/* width: 250px; */
+	color: white;
+	box-shadow: 3px 0px 10px 0px #08143340;
+	border-right: 1px solid #21295F82;
+}
+
+.navExpand {
+	width: 100%;
+	color: white;
+	z-index: 600;
+}
+
+.nav-head {
+	display: flex;
+	justify-content: flex-end;
+	height: 40px;
+}
+
+.close-nav {
+	font-size: 1.5em;
+	font-weight: 700;
+	padding: 6px 16px;
+}
+
+.close-nav:active {
+	text-shadow: 0 0 10 #000;
+	color: #2E2E2E;
+}
+
+.nav-link {
+	padding: 10px 20px;
+	white-space: nowrap;
+	color: white;
+	font-size: 1.5em;
+	font-weight: 500;
+	text-decoration: none;
+	transition: 0.2s ease;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.nav-link:hover {
+	background: #9191A0;
+	background: #383F95;
+	margin-right: 0px;
+	text-align: right;
+	transition: 0.3s ease;
+	color: #FFFFFF;
+}
