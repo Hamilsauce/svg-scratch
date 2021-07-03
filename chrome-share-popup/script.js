@@ -12,6 +12,7 @@ const displayTypes = {
 	show: 'show'
 }
 
+
 menus.forEach((_, i) => {
 	_.dataset.displayState = displayTypes.hide;
 	_.classList.add(displayTypes.hide)
