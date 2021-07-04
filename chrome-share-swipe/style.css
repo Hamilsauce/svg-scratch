@@ -27,9 +27,15 @@
 	padding: 6px;
 	background: #9CC061;
 	overflow: scroll;
-	transition: 0.2s;
+	transition: 0.7s ease;
 }
-
+.option-container{
+	display: flex;
+	flex-direction: row;
+	column-gap: 10px;
+	width: 100%;
+	height: 100px;
+}
 
 .menu-option {
 	background: #FFFFFF94;
@@ -52,4 +58,8 @@
 .hide {
 	height: 0px;
 	padding: 0;
+}
+
+.expand {
+	height: 500px;
 }
