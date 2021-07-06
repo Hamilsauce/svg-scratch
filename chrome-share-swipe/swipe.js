@@ -79,7 +79,7 @@ const startTouch = (e) => {
 	}
 }
 
-menu.addEventListener('touchstart', startTouch)
+// menu.addEventListener('touchstart', startTouch)
 
 const addSwipeAction = (el, dir, swipeFunc) => {}
 

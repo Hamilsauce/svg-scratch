@@ -19,24 +19,38 @@
 .footer-menu {
 	position: fixed;
 	bottom: 0;
+	display: grid;
+	
+	grid-template-rows: 24px 1fr;
+	grid-template-columns: 1fr;
+row-gap: 5px;
+	width: 100%;
+	height: 110px;
+	padding: 0px 0px;
+	background: #9CC061;
+	transition: 0.7s ease;
+}
+
+.menu-top-bar {
+	width: 100%;
+	padding: 0px;
+	text-align: center;
+	/* font-size: 1.3em; */
+	/* font-weight: bold; */
+	color: white;
+}
+
+.option-container {
 	display: flex;
 	flex-direction: row;
 	column-gap: 10px;
 	width: 100%;
-	height: 40px;
-	padding: 6px;
-	background: #9CC061;
+	height: 70px;
+	padding: 5px 5px;
+	margin: 0 4px;
+	border-radius: 5px;
+	backdrop-filter: brightness(120%);
 	overflow: scroll;
-	transition: 0.7s ease;
-}
-.option-container{
-	display: flex;
-	flex-direction: row;
-	column-gap: 10px;
-	width: fit-content;
-	height: 100px;
-	padding: 10px;
-backdrop-filter: brightness(120%);
 }
 
 .menu-option {
@@ -50,10 +64,10 @@ backdrop-filter: brightness(120%);
 }
 
 .menu-option:active {
-		background: #FFFFFFBA;
+	background: #FFFFFFBA;
 	border: 1px solid #79797994;
 	box-shadow: 0 0 7px 0 #00000050;
-		
+
 
 }
 
@@ -63,5 +77,5 @@ backdrop-filter: brightness(120%);
 }
 
 .expand {
-	height: 500px;
+	height: 300px;
 }

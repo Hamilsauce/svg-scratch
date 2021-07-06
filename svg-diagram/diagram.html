@@ -15,23 +15,27 @@
 		}
 
 		.app {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 50px 200px;
 			height: 100vh;
 			width: 100vw;
 		}
 
 		.graph-container {
-			height: 100%;
+			height: 40vh;
 			width: 100%;
 		}
 
 		#graph {
 			display: block;
-			margin: auto;
-			height: 100%;
+			/* margin: auto; */
+			height: 40vh;
 			width: 100%;
-			/* bg from http://lea.verou.me/css3patterns/ */
-			background-color: #269;
-			background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+			overflow: hidden;
+			/* bg from http://lea.verou.me/css3patterns*/
+			background-color: #269; 
+			/* background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; */
 			background-position: -1px -1px, -1px -1px, 0 0px, 0 0;
 			background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
 		}
@@ -43,9 +47,10 @@
 			stroke-linecap: round;
 			box-shadow: 0 0 10px 10px #000000;
 		}
+
 		.rect {
-			stroke: red;
-			fill: green;
+			stroke: #717171;
+			fill: #D6D6D6;
 			stroke-width: 2;
 			/* stroke-linecap: round; */
 			box-shadow: 0 0 10px 10px #000000;
@@ -56,10 +61,10 @@
 <body>
 	<div class="app">
 		<!-- <div class="title">Graph</div> -->
-			<div class="toggle-container">
-				<label for="draw-rect-toggle">draw rect</label>
-				<input type="checkbox" name="draw-rect-toggle" id="draw-rect-toggle" />
-			</div>
+		<div class="toggle-container">
+			<label for="draw-rect-toggle">draw rect</label>
+			<input type="checkbox" name="draw-rect-toggle" id="draw-rect-toggle" />
+		</div>
 		<div class="graph-container">
 			<svg id="graph"></svg>
 		</div>

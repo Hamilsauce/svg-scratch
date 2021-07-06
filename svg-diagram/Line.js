@@ -43,6 +43,7 @@ class Rect {
 		this.el.setAttribute('stroke', 'red');
 		this.el.setAttribute('stroke-width', '2');
 		this.setCoords(pos);
+		this.setSize(pos);
 	}
 
 	setCoords(pos) {
@@ -59,8 +60,6 @@ class Rect {
 		return {
 			x: this.el.getAttribute('x'),
 			y: this.el.getAttribute('y'),
-			// width: this.el.getAttribute('width'),
-			// height: this.el.getAttribute('height'),
 		};
 	}
 
@@ -84,7 +83,6 @@ class Graph {
 		this.elements = [];
 		this.mode = 'line';
 		this.setSize();
-
 		this.el.ontouchstart = this.mouseDown.bind(this);
 		this.el.ontouchend = this.mouseUp.bind(this);
 		this.el.onmouseout = this.mouseUp.bind(this);
@@ -92,10 +90,8 @@ class Graph {
 	}
 
 	setMode() {
-		console.log('in graph set mode', this.mode);
-		// this.mode = mode;
+		this.mode = mode;
 	}
-
 
 	mouseDown(event) {
 		this.drawStart = true;
@@ -108,8 +104,6 @@ class Graph {
 			});
 			this.current = line;
 			this.el.appendChild(line.getHtmlEl());
-			console.log(line);
-
 		} else {
 			let rect = new Rect({
 				x: event.touches[0].clientX,
@@ -119,7 +113,6 @@ class Graph {
 			});
 			this.current = rect;
 			this.el.appendChild(rect.getHtmlEl());
-			console.log(rect);
 		}
 	}
 
@@ -131,7 +124,6 @@ class Graph {
 		});
 		this.current = rect;
 		this.el.appendChild(rect.getHtmlEl());
-		console.log(rect);
 	}
 
 	mouseUp(event) {
@@ -140,26 +132,19 @@ class Graph {
 	}
 
 	mouseMove(event) {
-		console.log(event.touches);
 		if (this.drawStart && this.current) {
 			if (this.mode === 'line') {
-
 				let pos = this.current.getPosition();
+		
 				pos.x2 = event.touches[0].clientX;
 				pos.y2 = event.touches[0].clientY;
-				// pos.x2 = event.pageX;
-				// pos.y2 = event.pageY;
 				this.current.setPosition(pos);
 			} else {
 				let pos = this.current.getPosition();
-				pos.width = +pos.x + +event.touches[0].clientX;
-				pos.height = +pos.y + +event.touches[0].clientY;
-			console.log('pos', pos);
-				// pos.x2 = event.pageX;
-				// pos.y2 = event.pageY;
-			
+	
+				pos.width = +event.touches[0].clientX;
+				pos.height = +event.touches[0].clientY;
 				this.current.setSize(pos.width,pos.height);
-
 			}
 		}
 	}
@@ -182,11 +167,8 @@ window.onload = () => {
 		const mode = e.detail.drawRect
 		if (mode) {
 			window.graph.mode = 'rect'
-
 		} else {
 			window.graph.mode = 'line'
-
 		}
-		console.log(window.graph);
 	});
 };
