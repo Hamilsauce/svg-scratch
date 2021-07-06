@@ -143,6 +143,7 @@ let JpgToPngConvertor = function() {
 	}
 	return convertor;
 }
+
 let conv = new JpgToPngConvertor();
 let converted = 0;
 window.convert = function() {

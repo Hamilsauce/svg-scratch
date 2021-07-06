@@ -1,3 +1,6 @@
+import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js'
+
+
 let arrowMode = false;
 document.querySelector('.arrow-checkbox')
 	.addEventListener('change', e => {
@@ -7,7 +10,7 @@ document.querySelector('.arrow-checkbox')
 	})
 
 
-
+console.log('fuc');
 
 let timerFunction = null;
 let rowHeight = 20;

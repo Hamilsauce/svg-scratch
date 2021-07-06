@@ -1,61 +1,45 @@
-// import { arrowLine } from './svg-comp1.js';
+import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js'
 
-// console.log('arrowLine');
-// console.log(arrowLine);
+console.log(ham);
+// ham.log('fuck')
+// console.log('fuck');
 
-// const app = document.querySelector('.app')
-// app.appendChild(arrowLine)
-// app.insertAdjacentElement("beforeend",arrowLine())
-// console.log(app);
-console.log('f');
-let timerFunction = null;
-
-export const startAnimation = () => {
-	if (timerFunction == null) {
-		timerFunction = setInterval(animate, 20);
-	}
+const createLine = (e) => {
+	const newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+	newLine.setAttribute('x1', '0');
+	newLine.setAttribute('y1', '0');
+	newLine.setAttribute('x2', '200');
+	newLine.setAttribute('y2', '200');
+	newLine.setAttribute("stroke", "black")
+	document.querySelector("#viewBox").appendChild(newLine);
+	console.log('fuck3');
 }
+// createLine()
+// document.querySelector("#viewBox").addEventListener('click', createLine)
 
-const stopAnimation = () => {
-	if (timerFunction != null) {
-		clearInterval(timerFunction);
-		timerFunction = null;
-	}
-}
+// ham.log(ham.qs('#draw-rect-toggle'))
+ham.qs('#draw-rect-toggle')
+	.addEventListener('change', e => {
+		console.log(e.target);
+		const evt = new CustomEvent('drawchange', {bubbles: true, detail: {drawRect: e.target.checked}})
+		console.log(evt);
+	 e.target.dispatchEvent(evt);
+	})
 
-const animate = () => {
-	console.log('ani');
-	let circle = document.getElementById("line1");
-	let x = circle.getAttribute("cx");
-	let newX = 2 + parseInt(x);
-	if (newX > 500) {
-		newX = 20;
-	}
-	circle.setAttribute("cx", newX);
-}
-
-// const stopAnimation = () => {
-// 	if (timerFunction != null) {
-// 		clearInterval(timerFunction);
-// 		timerFunction = null;
-// 	}
-// }
-
-const translateLine = () => {
-	const svg = document.querySelector('#line1')
-	console.log(svg) ;
-	let trans = 'rotate(300);'
-	svg.setAttribute('transform', trans);
-	  
+ham.qs('.app')
+	.addEventListener('drawchange', e => {
+		console.log(e);
+		// const evt = new CustomEvent('drawModeChange', {detail: e.target.checked})
+		// console.log(evt);
+		// console.log( e.target.dispatchEvent(evt));
+	})
 
 
-}
-
-translateLine()
+// translateLine()
 
 
 // startAnimation()
 
-{
-	startAnimation
-}
+// {
+// 	startAnimation
+// }

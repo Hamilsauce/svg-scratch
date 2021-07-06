@@ -2,3 +2,8 @@
 	background: #4E6394;
 	transform: rotate(90);
 }
+
+#viewBox {
+	border: 2px solid black;
+	background: #EBF2DE;
+}

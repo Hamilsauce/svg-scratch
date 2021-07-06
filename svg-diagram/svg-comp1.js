@@ -1,3 +1,4 @@
+
 export const markup = `
 	<svg class="arrow-line" width="3.508mm" height="22.732mm" version="1.1" viewBox="0 0 3.508 22.732" xmlns="http://www.w3.org/2000/svg">
 		<g transform="translate(-107.46 -64.592)">
