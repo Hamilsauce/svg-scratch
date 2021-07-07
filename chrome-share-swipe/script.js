@@ -72,18 +72,21 @@ app.addEventListener('touchstart', startDrag);
 const doubleClickMenuBar = (e) => {
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
-	const currentHeight = parseInt(getComputedStyle(footer).height)
-	const appHeight = parseInt(getComputedStyle(app).height)
-	const touch = e.changedTouches[0].pageY
+	
+	// const currentHeight = parseInt(getComputedStyle(footer).height)
+	// const appHeight = parseInt(getComputedStyle(app).height)
+	// const touch = e.changedTouches[0].pageY
 
 	if (footer.dataset.expanded === 'true') {
 		footer.style.height = `${135}px`;
+	footer.dataset.expanded = 'false';
 
 	} else {
 		footer.style.height = `${400}px`;
+	footer.dataset.expanded = 'true';
 	}
-
-	footer.dataset.expanded = !Boolean(footer.dataset.expanded)
+	
+	
 	console.log(footer);
 }
 
