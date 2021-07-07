@@ -25,20 +25,23 @@ const svg = document.querySelector('svg');
 // document.addEventListener('touchstart', createLine)
 
 
+	const app = document.querySelector('.app');
 
 let showFooterMenu = false;
 
 const startDrag = (e) => {
 e.preventDefault()
 e.stopPropagation()
+	// const app = document.querySelector('.app');
+
 	const topBarCheck = e.path.some(el => el.id === 'menu-top-bar');
 	if (topBarCheck) {
 		const footer = e.path.find(el => el.id === 'footer-menu');
 		const topBar = e.path.find(el => el.id === 'menu-top-bar');
 		topBar.classList.add('pressed')
 
-		document.addEventListener('touchmove', dragMenu, true)
-		document.addEventListener('touchend', stopDrag, true)
+		app.addEventListener('touchmove', dragMenu, true)
+		app.addEventListener('touchend', stopDrag, true)
 	} else {
 		return;
 	}
@@ -51,8 +54,8 @@ e.stopPropagation()
 	e.path.find(el => el.id === 'menu-top-bar')
 		.classList.remove('pressed')
 
-	document.removeEventListener('touchmove', dragMenu, true)
-	document.removeEventListener('touchend', stopDrag, true)
+	app.removeEventListener('touchmove', dragMenu, true)
+	app.removeEventListener('touchend', stopDrag, true)
 }
 
 const dragMenu = (e) => {
@@ -60,7 +63,7 @@ e.preventDefault()
 e.stopPropagation()
 
 
-	const app = document.querySelector('.app');
+	// const app = document.querySelector('.app');
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
 	const currentHeight = parseInt(getComputedStyle(footer).height)
@@ -75,4 +78,4 @@ e.stopPropagation()
 	topBar.focused = false
 }
 
-document.addEventListener('touchstart', startDrag)
+app.addEventListener('touchstart', startDrag)
