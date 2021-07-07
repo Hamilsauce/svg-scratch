@@ -1,33 +1,7 @@
 const footerMenu = document.querySelector('.footer-menu');
 const toggle = document.querySelector('.toggle-button');
 const svg = document.querySelector('svg');
-
-// const createLine = event => {
-// 	var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-// 	svg.style.backgroundColor = 'red'
-// 	const touch = event.touches[0]
-
-// 	line.x1 = touch.clientX;
-// 	line.setAttributeNS('x1', touch.clientX)
-// 	line.setAttributeNS('y1', touch.clientY)
-// 	line.setAttributeNS('x2', touch.clientX + 100)
-// 	line.setAttributeNS('y2', touch.clientY + 100)
-// 	line.y1 = touch.clientY;
-// 	line.x2 = touch.clientX + 100;
-// 	line.y2 = touch.clientY + 100;
-// 	line.strokeWidth = '1px';
-// 	line.stroke = '#000';
-// 	svg.appendChild(line)
-// 	console.log(touch);
-// 	console.log(line);
-// }
-
-// document.addEventListener('touchstart', createLine)
-
-
 const app = document.querySelector('.app');
-
-let showFooterMenu = false;
 
 const startDrag = (e) => {
 	const topBarCheck = e.path.some(el => el.id === 'menu-top-bar');
@@ -54,12 +28,13 @@ const dragMenu = (e) => {
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
 	const currentHeight = parseInt(getComputedStyle(footer).height)
+	const maxHeight = 450;
 	const appHeight = parseInt(getComputedStyle(app).height)
 	const touch = e.changedTouches[0].pageY
 
-	if ((touch > (appHeight - 130))) {
+	if ((touch > (appHeight - 144))) {
 		return;
-	} else if (touch <= 130) {
+	} else if (touch <= (appHeight - maxHeight)) {
 		footer.style.height = `${currentHeight}px`;
 	} else {
 		footer.style.height = `${(appHeight - touch)}px`;
@@ -72,22 +47,14 @@ app.addEventListener('touchstart', startDrag);
 const doubleClickMenuBar = (e) => {
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
-	
-	// const currentHeight = parseInt(getComputedStyle(footer).height)
-	// const appHeight = parseInt(getComputedStyle(app).height)
-	// const touch = e.changedTouches[0].pageY
 
 	if (footer.dataset.expanded === 'true') {
-		footer.style.height = `${135}px`;
-	footer.dataset.expanded = 'false';
-
+		footer.style.height = `${145}px`;
+		footer.dataset.expanded = 'false';
 	} else {
-		footer.style.height = `${400}px`;
-	footer.dataset.expanded = 'true';
+		footer.style.height = `${425}px`;
+		footer.dataset.expanded = 'true';
 	}
-	
-	
-	console.log(footer);
 }
 
 document.querySelector('#menu-top-bar')
