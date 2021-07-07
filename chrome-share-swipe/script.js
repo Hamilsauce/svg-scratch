@@ -30,11 +30,8 @@ const app = document.querySelector('.app');
 let showFooterMenu = false;
 
 const startDrag = (e) => {
-	// e.preventDefault()
-	// e.stopPropagation()
-	// const app = document.querySelector('.app');
-
 	const topBarCheck = e.path.some(el => el.id === 'menu-top-bar');
+
 	if (topBarCheck) {
 		const footer = e.path.find(el => el.id === 'footer-menu');
 		const topBar = e.path.find(el => el.id === 'menu-top-bar');
@@ -42,15 +39,10 @@ const startDrag = (e) => {
 
 		app.addEventListener('touchmove', dragMenu, true)
 		app.addEventListener('touchend', stopDrag, true)
-	} else {
-		return;
-	}
+	} else return;
 };
 
 const stopDrag = (e) => {
-	// e.preventDefault()
-	// e.stopPropagation()
-
 	e.path.find(el => el.id === 'menu-top-bar')
 		.classList.remove('pressed')
 
@@ -59,23 +51,41 @@ const stopDrag = (e) => {
 }
 
 const dragMenu = (e) => {
-	// e.preventDefault()
-	// e.stopPropagation()
-
-
-	// const app = document.querySelector('.app');
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
 	const currentHeight = parseInt(getComputedStyle(footer).height)
 	const appHeight = parseInt(getComputedStyle(app).height)
 	const touch = e.changedTouches[0].pageY
 
-	if ((touch > (appHeight - 130))) {} else if (touch <= 130) {
-		footer.style.height = `${currentHeight}px`
+	if ((touch > (appHeight - 130))) {
+		return;
+	} else if (touch <= 130) {
+		footer.style.height = `${currentHeight}px`;
 	} else {
-		footer.style.height = `${(appHeight - touch)}px`
+		footer.style.height = `${(appHeight - touch)}px`;
 	}
-	topBar.focused = false
 }
 
-app.addEventListener('touchstart', startDrag)
+app.addEventListener('touchstart', startDrag);
+
+
+const doubleClickMenuBar = (e) => {
+	const topBar = e.path.find(el => el.id === 'menu-top-bar');
+	const footer = e.path.find(el => el.id === 'footer-menu');
+	const currentHeight = parseInt(getComputedStyle(footer).height)
+	const appHeight = parseInt(getComputedStyle(app).height)
+	const touch = e.changedTouches[0].pageY
+
+	if (footer.dataset.expanded === 'true') {
+		footer.style.height = `${135}px`;
+
+	} else {
+		footer.style.height = `${400}px`;
+	}
+
+	footer.dataset.expanded = !Boolean(footer.dataset.expanded)
+	console.log(footer);
+}
+
+document.querySelector('#menu-top-bar')
+	.addEventListener('dblclick', doubleClickMenuBar);
