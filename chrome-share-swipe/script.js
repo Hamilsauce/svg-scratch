@@ -25,13 +25,13 @@ const svg = document.querySelector('svg');
 // document.addEventListener('touchstart', createLine)
 
 
-	const app = document.querySelector('.app');
+const app = document.querySelector('.app');
 
 let showFooterMenu = false;
 
 const startDrag = (e) => {
-e.preventDefault()
-e.stopPropagation()
+	// e.preventDefault()
+	// e.stopPropagation()
 	// const app = document.querySelector('.app');
 
 	const topBarCheck = e.path.some(el => el.id === 'menu-top-bar');
@@ -48,9 +48,9 @@ e.stopPropagation()
 };
 
 const stopDrag = (e) => {
-e.preventDefault()
-e.stopPropagation()
-	
+	// e.preventDefault()
+	// e.stopPropagation()
+
 	e.path.find(el => el.id === 'menu-top-bar')
 		.classList.remove('pressed')
 
@@ -59,8 +59,8 @@ e.stopPropagation()
 }
 
 const dragMenu = (e) => {
-e.preventDefault()
-e.stopPropagation()
+	// e.preventDefault()
+	// e.stopPropagation()
 
 
 	// const app = document.querySelector('.app');
