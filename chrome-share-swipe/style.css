@@ -4,11 +4,16 @@
 	margin: 0;
 	z-index: 1;
 }
+body {
+	height: 90%;
+	overflow: hidden;
+}
 
 .app {
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
+	height: 90vh;
+	overflow: hidden;
 
 }
 
@@ -17,7 +22,7 @@
 .toggle-button {}
 
 .footer-menu {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	display: grid;
 	

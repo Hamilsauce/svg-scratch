@@ -29,6 +29,8 @@ const svg = document.querySelector('svg');
 let showFooterMenu = false;
 
 const startDrag = (e) => {
+e.preventDefault()
+e.stopPropagation()
 	const topBarCheck = e.path.some(el => el.id === 'menu-top-bar');
 	if (topBarCheck) {
 		const footer = e.path.find(el => el.id === 'footer-menu');
@@ -43,13 +45,21 @@ const startDrag = (e) => {
 };
 
 const stopDrag = (e) => {
+e.preventDefault()
+e.stopPropagation()
+	
 	e.path.find(el => el.id === 'menu-top-bar')
 		.classList.remove('pressed')
 
 	document.removeEventListener('touchmove', dragMenu, true)
+	document.removeEventListener('touchend', stopDrag, true)
 }
 
 const dragMenu = (e) => {
+e.preventDefault()
+e.stopPropagation()
+
+
 	const app = document.querySelector('.app');
 	const topBar = e.path.find(el => el.id === 'menu-top-bar');
 	const footer = e.path.find(el => el.id === 'footer-menu');
@@ -60,7 +70,7 @@ const dragMenu = (e) => {
 	if ((touch > (appHeight - 130))) {} else if (touch <= 130) {
 		footer.style.height = `${currentHeight}px`
 	} else {
-		footer.style.height = `${(appHeight - touch) + 20}px`
+		footer.style.height = `${(appHeight - touch)}px`
 	}
 	topBar.focused = false
 }
