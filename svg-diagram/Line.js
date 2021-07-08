@@ -35,7 +35,6 @@ class Line {
 	}
 }
 
-
 class Rect {
 	constructor(pos) {
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -51,15 +50,18 @@ class Rect {
 		this.el.setAttribute('y', pos.y);
 	}
 
-	setSize(x, y) {
-		this.el.setAttribute('width', x) ;
-		this.el.setAttribute('height', y) ;
+	setSize(width, height) {
+		const {x, y} = this.getPosition();
+		this.el.setAttribute('width', width) ;
+		this.el.setAttribute('height', height) ;
 	}
 
 	getPosition() {
 		return {
 			x: this.el.getAttribute('x'),
 			y: this.el.getAttribute('y'),
+			width: this.el.getAttribute('width'),
+			height: this.el.getAttribute('height'),
 		};
 	}
 
@@ -133,12 +135,14 @@ class Graph {
 
 	mouseMove(event) {
 		if (this.drawStart && this.current) {
+		
 			if (this.mode === 'line') {
 				let pos = this.current.getPosition();
 		
 				pos.x2 = event.touches[0].clientX;
 				pos.y2 = event.touches[0].clientY;
 				this.current.setPosition(pos);
+		
 			} else {
 				let pos = this.current.getPosition();
 	
