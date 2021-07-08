@@ -1,38 +1,48 @@
 import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js'
 
-console.log(ham);
-// ham.log('fuck')
-// console.log('fuck');
-
-const createLine = (e) => {
-	const newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-	newLine.setAttribute('x1', '0');
-	newLine.setAttribute('y1', '0');
-	newLine.setAttribute('x2', '200');
-	newLine.setAttribute('y2', '200');
-	newLine.setAttribute("stroke", "black")
-	document.querySelector("#viewBox").appendChild(newLine);
-	console.log('fuck3');
-}
-// createLine()
-// document.querySelector("#viewBox").addEventListener('click', createLine)
-
-// ham.log(ham.qs('#draw-rect-toggle'))
 ham.qs('#draw-rect-toggle')
 	.addEventListener('change', e => {
-		console.log(e.target);
-		const evt = new CustomEvent('drawchange', {bubbles: true, detail: {drawRect: e.target.checked}})
+		const evt = new CustomEvent('drawchange', { bubbles: true, detail: { drawRect: e.target.checked } })
+		e.target.dispatchEvent(evt);
+	})
+
+ham.qs('#select-mode-toggle')
+	.addEventListener('change', e => {
+		const evt = new CustomEvent('selectModeChange', { bubbles: true, detail: { selectMode: e.target.checked } })
+		e.target.dispatchEvent(evt);
 		console.log(evt);
-	 e.target.dispatchEvent(evt);
+	})
+
+ham.qs('#shape-color-picker')
+	.addEventListener('input', e => {
+		const evt = new CustomEvent('shapeColorChange', { bubbles: true, detail: { color: e.target.value } })
+		e.target.dispatchEvent(evt);
+		console.log(evt);
 	})
 
 ham.qs('.app')
 	.addEventListener('drawchange', e => {
-		console.log(e);
-		// const evt = new CustomEvent('drawModeChange', {detail: e.target.checked})
-		// console.log(evt);
-		// console.log( e.target.dispatchEvent(evt));
+		console.log('drawchange');
 	})
+
+
+const handleColorChange = (e) => {
+	window.graph.shapeColor = e.detail.color;
+}
+
+
+ham.qs('.app')
+	.addEventListener('shapeColorChange', e => {
+		window.graph.shapeColor = e.detail.color;
+	})
+	
+ham.qs('.app')
+	.addEventListener('selectModeChange', e => {
+		window.graph.selectMode = e.detail.selectMode;
+	})
+
+
+
 
 
 // translateLine()

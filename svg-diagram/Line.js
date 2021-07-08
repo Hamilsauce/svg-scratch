@@ -1,8 +1,8 @@
 class Line {
-	constructor(pos) {
+	constructor(pos, color) {
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		this.el.classList.add('line');
-		this.el.setAttribute('stroke', 'red');
+		this.el.setAttribute('stroke', color);
 		this.el.setAttribute('stroke-width', '');
 		this.setPosition(pos);
 	}
@@ -36,13 +36,21 @@ class Line {
 }
 
 class Rect {
-	constructor(pos) {
+	constructor(pos, color) {
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		this.el.classList.add('rect');
 		this.el.setAttribute('stroke', 'red');
+		this.el.setAttribute('fill', color);
 		this.el.setAttribute('stroke-width', '2');
 		this.setCoords(pos);
 		this.setSize(pos);
+		this.el.addEventListener('dblclick', this.handleDblClick);
+	}
+
+	handleDblClick(e) {
+		const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
+		e.target.dispatchEvent(evt);
+		console.log('shape click', evt);
 	}
 
 	setCoords(pos) {
@@ -51,9 +59,8 @@ class Rect {
 	}
 
 	setSize(width, height) {
-		const {x, y} = this.getPosition();
-		this.el.setAttribute('width', width) ;
-		this.el.setAttribute('height', height) ;
+		this.el.setAttribute('width', width);
+		this.el.setAttribute('height', height);
 	}
 
 	getPosition() {
@@ -62,7 +69,7 @@ class Rect {
 			y: this.el.getAttribute('y'),
 			width: this.el.getAttribute('width'),
 			height: this.el.getAttribute('height'),
-		};
+		}
 	}
 
 	setRotate(angle) {
@@ -81,16 +88,62 @@ class Rect {
 
 class Graph {
 	constructor(el) {
+		this._shapeColor = 'grey';
 		this.el = el;
 		this.elements = [];
 		this.mode = 'line';
+		this._selectMode = false;
 		this.setSize();
+		
+		this.el.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
 		this.el.ontouchstart = this.mouseDown.bind(this);
 		this.el.ontouchend = this.mouseUp.bind(this);
 		this.el.onmouseout = this.mouseUp.bind(this);
 		this.el.ontouchmove = this.mouseMove.bind(this);
 	}
 
+	set shapeColor(c) {
+		this._shapeColor = c;
+		console.log('hraph color', this._shapeColor);
+	}
+	
+	set selectMode(s) {
+		this._selectMode = s;
+		this.toggleSelectMode(s)
+		console.log('s',s);
+		return
+		if (s) {
+			this.el.addEventListener('shapeSelected', this.handleShapeSelect);
+		} else {
+			this.el.removeEventListener('shapeSelected', this.handleShapeSelect);
+			console.log('removed');
+		}
+		console.log(' selectmode grqph', this._selectMode);
+	}
+	
+	toggleSelectMode(selectMode) {
+		if (selectMode) {
+			console.log('toggle on', this.el.children);
+		} else {
+			console.log('toggle off', this.el.children);
+			
+		}
+	}
+
+	handleShapeSelect(e) {
+		this.selectedShape = e.target
+		console.log('shape click in gtaph', e);
+		console.log(this.selectedShape);
+		if (this.selectMode) {
+			
+		}
+	}
+
+
+	handleColorChange(e) {
+		const color = e.detail.color
+		console.log('handlecolorchsnge in graph', color);
+	}
 	setMode() {
 		this.mode = mode;
 	}
@@ -99,11 +152,12 @@ class Graph {
 		this.drawStart = true;
 		if (this.mode === 'line') {
 			let line = new Line({
-				x1: event.touches[0].clientX,
-				y1: event.touches[0].clientY,
-				x2: event.touches[0].clientX,
-				y2: event.touches[0].clientY
-			});
+				x1: event.touches[0].pageX,
+				y1: event.touches[0].pageY,
+				x2: event.touches[0].pageX,
+				y2: event.touches[0].pageY
+			}, this._shapeColor);
+
 			this.current = line;
 			this.el.appendChild(line.getHtmlEl());
 		} else {
@@ -112,7 +166,7 @@ class Graph {
 				y: event.touches[0].clientY,
 				width: event.touches[0].clientX,
 				height: event.touches[0].clientY
-			});
+			}, this._shapeColor);
 			this.current = rect;
 			this.el.appendChild(rect.getHtmlEl());
 		}
@@ -135,20 +189,20 @@ class Graph {
 
 	mouseMove(event) {
 		if (this.drawStart && this.current) {
-		
+
 			if (this.mode === 'line') {
 				let pos = this.current.getPosition();
-		
+
 				pos.x2 = event.touches[0].clientX;
 				pos.y2 = event.touches[0].clientY;
 				this.current.setPosition(pos);
-		
+
 			} else {
 				let pos = this.current.getPosition();
-	
+
 				pos.width = +event.touches[0].clientX;
 				pos.height = +event.touches[0].clientY;
-				this.current.setSize(pos.width,pos.height);
+				this.current.setSize(pos.width, pos.height);
 			}
 		}
 	}
