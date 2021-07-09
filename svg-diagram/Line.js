@@ -96,6 +96,7 @@ class Graph {
 	constructor(el) {
 		this._shapeColor = 'grey';
 		this._selectedShape = undefined;
+		this._selectedShapePosition = null;
 		this._selectMode = false;
 		this.el = el;
 		this.elements = [];
@@ -110,87 +111,91 @@ class Graph {
 		this.el.ontouchmove = this.mouseMove.bind(this);
 	}
 
-	set shapeColor(c) {
-		this._shapeColor = c;
-		console.log('hraph color', this._shapeColor);
-	}
+	set shapeColor(c) { this._shapeColor = c }
 
 	set selectMode(s) {
 		this._selectMode = s;
 		this.toggleSelectMode(s)
 	}
-	get selectMode() {
-		return this._selectMode;
-	}
+	get selectMode() { return this._selectMode }
 
 	set selectedShape(el) {
 		if (this._selectedShape != el) {
 			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
 			this._selectedShape = el;
 			this._selectedShape.classList.add('selected-shape')
-
+			this._selectedShapePosition = [...this.el.children].indexOf((c) => {
+				console.log('c',c);
+				return c == el
+			})
+			console.log('ind', this._selectedShapePosition);
+			this.el.removeChild(this._selectedShape);
+			this.el.insertBefore(this._selectedShape, this.el.children[-1]);
+			console.log('reposition', this.el);
 		} else {
 			this._selectedShape.classList.remove('selected-shape')
 			this._selectedShape = undefined;
 		}
+		console.log(this);
 	}
-	
-	get selectedShape() {
-		return this._selectedShape;
-	}
+	get selectedShape() { return this._selectedShape }
 
 	toggleSelectMode(s) {
-		console.log('toggleSelect S', s);
-		console.log('toggleSelect this', this);
 		if (this.selectMode) {
 			// this.selectedShape = e.target
-			console.log(this);
-			console.log('toggle on', this.el.children);
+			console.log('toggle on', this);
 		} else {
-			console.log('toggle off', this.el.children);
-
+			console.log('toggle off', this);
 		}
 	}
 
 	handleShapeSelect(e) {
-		if (this.selectMode) {
-			console.log('shape click in gtaph', e);
-			this.selectedShape = e.target
-			console.log(this.selectedShape);
-
-		}
+		if (this.selectMode) this.selectedShape = e.target
 	}
 
+	moveBox(e) {
+		const targ = e.target;
+		let xPos = Math.round(parseInt(e.touches[0].pageX));
+		let yPos = e.touches[0].pageY;
+		let currX = targ.style.left.replace('px', '');
+		let currY = targ.style.top;
 
-	handleColorChange(e) {
-		const color = e.detail.color
-		console.log('handlecolorchsnge in graph', color);
+		targ.style.left = `${parseInt(xPos) - 75}px`
+		targ.style.top = `${parseInt(yPos) - 75}px`
+
+		// this.graph.children.forEach(b => b.style.zIndex = 0)
+		targ.style.zIndex = 30;
 	}
-	setMode() {
-		this.mode = mode;
-	}
+
+	handleColorChange(e) { const color = e.detail.color }
+
+	setMode() { this.mode = mode }
 
 	mouseDown(event) {
-		this.drawStart = true;
-		if (this.mode === 'line') {
-			let line = new Line({
-				x1: event.touches[0].pageX,
-				y1: event.touches[0].pageY,
-				x2: event.touches[0].pageX,
-				y2: event.touches[0].pageY
-			}, this._shapeColor, this);
+		if (!this._selectMode) {
+			this.drawStart = true;
+			if (this.mode === 'line') {
+				let line = new Line({
+					x1: event.touches[0].pageX,
+					y1: event.touches[0].pageY,
+					x2: event.touches[0].pageX,
+					y2: event.touches[0].pageY
+				}, this._shapeColor, this);
 
-			this.current = line;
-			this.el.appendChild(line.getHtmlEl());
+				this.current = line;
+				this.el.appendChild(line.getHtmlEl());
+			} else {
+				let rect = new Rect({
+					x: event.touches[0].pageX,
+					y: event.touches[0].pageY,
+					width: event.touches[0].clientX,
+					height: event.touches[0].clientY
+				}, this._shapeColor, this);
+				this.current = rect;
+				this.el.appendChild(rect.getHtmlEl());
+			}
 		} else {
-			let rect = new Rect({
-				x: event.touches[0].clientX,
-				y: event.touches[0].clientY,
-				width: event.touches[0].clientX,
-				height: event.touches[0].clientY
-			}, this._shapeColor, this);
-			this.current = rect;
-			this.el.appendChild(rect.getHtmlEl());
+			this.moveBox(event)
 		}
 	}
 
@@ -210,22 +215,28 @@ class Graph {
 	}
 
 	mouseMove(event) {
-		if (this.drawStart && this.current) {
+		if (!this._selectMode) {
 
-			if (this.mode === 'line') {
-				let pos = this.current.getPosition();
+			if (this.drawStart && this.current) {
 
-				pos.x2 = event.touches[0].clientX;
-				pos.y2 = event.touches[0].clientY;
-				this.current.setPosition(pos);
+				if (this.mode === 'line') {
+					let pos = this.current.getPosition();
 
-			} else {
-				let pos = this.current.getPosition();
+					pos.x2 = event.touches[0].clientX;
+					pos.y2 = event.touches[0].clientY;
+					this.current.setPosition(pos);
 
-				pos.width = +event.touches[0].clientX;
-				pos.height = +event.touches[0].clientY;
-				this.current.setSize(pos.width, pos.height);
+				} else {
+					let pos = this.current.getPosition();
+
+					pos.width = event.touches[0].pageX;
+					pos.height = event.touches[0].pageY;
+					this.current.setSize(pos.width, pos.height);
+				}
 			}
+		} else {
+			this._selectedShape.setAttribute('x', event.touches[0].pageX - (parseInt(this._selectedShape.getAttribute('width')) / 2));
+			this._selectedShape.setAttribute('y', event.touches[0].pageY - (parseInt(this._selectedShape.getAttribute('height'))));
 		}
 	}
 
