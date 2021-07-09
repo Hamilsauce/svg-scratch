@@ -1,5 +1,6 @@
 class Line {
-	constructor(pos, color) {
+	constructor(pos, color, graph) {
+		this.graph = graph;
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		this.el.classList.add('line');
 		this.el.setAttribute('stroke', color);
@@ -36,7 +37,8 @@ class Line {
 }
 
 class Rect {
-	constructor(pos, color) {
+	constructor(pos, color, graph) {
+		this.graph = graph;
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		this.el.classList.add('rect');
 		this.el.setAttribute('stroke', 'red');
@@ -44,13 +46,17 @@ class Rect {
 		this.el.setAttribute('stroke-width', '2');
 		this.setCoords(pos);
 		this.setSize(pos);
-		this.el.addEventListener('dblclick', this.handleDblClick);
+		this.el.addEventListener('click', this.handleClick.bind(this));
 	}
 
-	handleDblClick(e) {
-		const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
-		e.target.dispatchEvent(evt);
-		console.log('shape click', evt);
+	handleClick(e) {
+		console.log('e', e);
+		console.log('rect graph', this);
+		if (this.graph.selectMode) {
+			const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
+			e.target.dispatchEvent(evt);
+			console.log('shape click w select mide on', evt);
+		}
 	}
 
 	setCoords(pos) {
@@ -89,12 +95,14 @@ class Rect {
 class Graph {
 	constructor(el) {
 		this._shapeColor = 'grey';
+		this._selectedShape = undefined;
+		this._selectMode = false;
 		this.el = el;
 		this.elements = [];
 		this.mode = 'line';
-		this._selectMode = false;
 		this.setSize();
-		
+
+		this.el.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
 		this.el.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
 		this.el.ontouchstart = this.mouseDown.bind(this);
 		this.el.ontouchend = this.mouseUp.bind(this);
@@ -106,36 +114,50 @@ class Graph {
 		this._shapeColor = c;
 		console.log('hraph color', this._shapeColor);
 	}
-	
+
 	set selectMode(s) {
 		this._selectMode = s;
 		this.toggleSelectMode(s)
-		console.log('s',s);
-		return
-		if (s) {
-			this.el.addEventListener('shapeSelected', this.handleShapeSelect);
+	}
+	get selectMode() {
+		return this._selectMode;
+	}
+
+	set selectedShape(el) {
+		if (this._selectedShape != el) {
+			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
+			this._selectedShape = el;
+			this._selectedShape.classList.add('selected-shape')
+
 		} else {
-			this.el.removeEventListener('shapeSelected', this.handleShapeSelect);
-			console.log('removed');
+			this._selectedShape.classList.remove('selected-shape')
+			this._selectedShape = undefined;
 		}
-		console.log(' selectmode grqph', this._selectMode);
 	}
 	
-	toggleSelectMode(selectMode) {
-		if (selectMode) {
+	get selectedShape() {
+		return this._selectedShape;
+	}
+
+	toggleSelectMode(s) {
+		console.log('toggleSelect S', s);
+		console.log('toggleSelect this', this);
+		if (this.selectMode) {
+			// this.selectedShape = e.target
+			console.log(this);
 			console.log('toggle on', this.el.children);
 		} else {
 			console.log('toggle off', this.el.children);
-			
+
 		}
 	}
 
 	handleShapeSelect(e) {
-		this.selectedShape = e.target
-		console.log('shape click in gtaph', e);
-		console.log(this.selectedShape);
 		if (this.selectMode) {
-			
+			console.log('shape click in gtaph', e);
+			this.selectedShape = e.target
+			console.log(this.selectedShape);
+
 		}
 	}
 
@@ -156,7 +178,7 @@ class Graph {
 				y1: event.touches[0].pageY,
 				x2: event.touches[0].pageX,
 				y2: event.touches[0].pageY
-			}, this._shapeColor);
+			}, this._shapeColor, this);
 
 			this.current = line;
 			this.el.appendChild(line.getHtmlEl());
@@ -166,7 +188,7 @@ class Graph {
 				y: event.touches[0].clientY,
 				width: event.touches[0].clientX,
 				height: event.touches[0].clientY
-			}, this._shapeColor);
+			}, this._shapeColor, this);
 			this.current = rect;
 			this.el.appendChild(rect.getHtmlEl());
 		}
