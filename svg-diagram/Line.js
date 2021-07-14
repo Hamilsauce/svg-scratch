@@ -50,8 +50,6 @@ class Rect {
 	}
 
 	handleClick(e) {
-		console.log('e', e);
-		console.log('rect graph', this);
 		if (this.graph.selectMode) {
 			const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
 			e.target.dispatchEvent(evt);
@@ -96,7 +94,7 @@ class Graph {
 	constructor(el) {
 		this._shapeColor = 'grey';
 		this._selectedShape = undefined;
-		this._selectedShapePosition = null;
+		this._selectedShapeZPosition = null;
 		this._selectMode = false;
 		this.el = el;
 		this.elements = [];
@@ -111,45 +109,57 @@ class Graph {
 		this.el.ontouchmove = this.mouseMove.bind(this);
 	}
 
-	set shapeColor(c) { this._shapeColor = c }
+	set shapeColor(c) { this._shapeColor = c };
 
 	set selectMode(s) {
 		this._selectMode = s;
-		this.toggleSelectMode(s)
+		this.toggleSelectMode(s);
 	}
-	get selectMode() { return this._selectMode }
+	get selectMode() { return this._selectMode };
+
+	set selectedShapeZPosition(z) {this._selectedShapeZPosition = z};
+	get selectedShapeZPosition() { return this._selectedShapeZPosition }
 
 	set selectedShape(el) {
 		if (this._selectedShape != el) {
 			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
 			this._selectedShape = el;
 			this._selectedShape.classList.add('selected-shape')
-			this._selectedShapePosition = [...this.el.children].indexOf((c) => {
-				console.log('c',c);
+			this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
 				return c == el
 			})
-			console.log('ind', this._selectedShapePosition);
 			this.el.removeChild(this._selectedShape);
 			this.el.insertBefore(this._selectedShape, this.el.children[-1]);
-			console.log('reposition', this.el);
 		} else {
-			this._selectedShape.classList.remove('selected-shape')
-			this._selectedShape = undefined;
+			this.selectedShape.classList.remove('selected-shape')
+			this.selectedShape = undefined;
 		}
-		console.log(this);
-	}
-	get selectedShape() { return this._selectedShape }
+	};
+	get selectedShape() {return this._selectedShape};
+
 
 	toggleSelectMode(s) {
 		if (this.selectMode) {
-			// this.selectedShape = e.target
 			console.log('toggle on', this);
 		} else {
+			if (this.selectedShape) this.selectedShape.classList.remove('selected-shape')
+			this.selectedShape = undefined;
 			console.log('toggle off', this);
 		}
 	}
 
 	handleShapeSelect(e) {
+		if (this.selectedShape != undefined) {
+			const refNode = this.el.children[this.selectedShapeZPosition]
+			this.selectedShape.classList.remove('selected-shape')
+			this.selectedShape.classList.add('prev-selected-shape')
+			this.el.insertBefore(this.selectedShape, refNode)
+		}
+		this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
+			return c = e.target
+		})
+		console.log('sel sh pos', this.selectedShapeZPosition);
+
 		if (this.selectMode) this.selectedShape = e.target
 	}
 
