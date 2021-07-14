@@ -96,54 +96,37 @@ class Graph {
 		this._selectedShape = undefined;
 		this._selectedShapeZPosition = null;
 		this._selectMode = false;
+		this._drawMode = 'line';
 		this.el = el;
 		this.elements = [];
-		this.mode = 'line';
 		this.setSize();
 
 		this.el.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
-		this.el.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
+		// this.el.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
 		this.el.ontouchstart = this.mouseDown.bind(this);
 		this.el.ontouchend = this.mouseUp.bind(this);
 		this.el.onmouseout = this.mouseUp.bind(this);
 		this.el.ontouchmove = this.mouseMove.bind(this);
 	}
 
-	set shapeColor(c) { this._shapeColor = c };
-
-	set selectMode(s) {
-		this._selectMode = s;
-		this.toggleSelectMode(s);
-	}
-	get selectMode() { return this._selectMode };
-
-	set selectedShapeZPosition(z) {this._selectedShapeZPosition = z};
-	get selectedShapeZPosition() { return this._selectedShapeZPosition }
-
-	set selectedShape(el) {
-		if (this._selectedShape != el) {
-			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
-			this._selectedShape = el;
-			this._selectedShape.classList.add('selected-shape')
-			this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
-				return c == el
-			})
-			this.el.removeChild(this._selectedShape);
-			this.el.insertBefore(this._selectedShape, this.el.children[-1]);
-		} else {
-			this.selectedShape.classList.remove('selected-shape')
-			this.selectedShape = undefined;
-		}
-	};
-	get selectedShape() {return this._selectedShape};
-
+	// handleColorChange(e) { const color = e.detail.color }
+	// setMode() { this.drawMode = mode }
+	// mouseDownRect(event) {
+	// 		this.drawStart = true;
+	// 		let rect = new Rect({
+	// 			x: event.touches[0].clientX,
+	// 			y: event.touches[0].clientY,
+	// 		});
+	// 		this.current = rect;
+	// 		this.el.appendChild(rect.getHtmlEl());
+	// 	}
 
 	toggleSelectMode(s) {
 		if (this.selectMode) {
 			console.log('toggle on', this);
 		} else {
 			if (this.selectedShape) this.selectedShape.classList.remove('selected-shape')
-			this.selectedShape = undefined;
+			// this.selectedShape = undefined;
 			console.log('toggle off', this);
 		}
 	}
@@ -155,15 +138,12 @@ class Graph {
 			this.selectedShape.classList.add('prev-selected-shape')
 			this.el.insertBefore(this.selectedShape, refNode)
 		}
-		this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
-			return c = e.target
-		})
-		console.log('sel sh pos', this.selectedShapeZPosition);
 
+		this.selectedShapeZPosition = [...this.el.children].findIndex((c) => c = e.target);
 		if (this.selectMode) this.selectedShape = e.target
 	}
 
-	moveBox(e) {
+	moveSelectedShape(e) {
 		const targ = e.target;
 		let xPos = Math.round(parseInt(e.touches[0].pageX));
 		let yPos = e.touches[0].pageY;
@@ -172,20 +152,14 @@ class Graph {
 
 		targ.style.left = `${parseInt(xPos) - 75}px`
 		targ.style.top = `${parseInt(yPos) - 75}px`
-
-		// this.graph.children.forEach(b => b.style.zIndex = 0)
 		targ.style.zIndex = 30;
 	}
-
-	handleColorChange(e) { const color = e.detail.color }
-
-	setMode() { this.mode = mode }
 
 	mouseDown(event) {
 		if (!this._selectMode) {
 			this.drawStart = true;
 			if (this.mode === 'line') {
-				let line = new Line({
+				const line = new Line({
 					x1: event.touches[0].pageX,
 					y1: event.touches[0].pageY,
 					x2: event.touches[0].pageX,
@@ -194,8 +168,8 @@ class Graph {
 
 				this.current = line;
 				this.el.appendChild(line.getHtmlEl());
-			} else {
-				let rect = new Rect({
+			} else if (this.mode === 'rect') {
+				const rect = new Rect({
 					x: event.touches[0].pageX,
 					y: event.touches[0].pageY,
 					width: event.touches[0].clientX,
@@ -205,19 +179,10 @@ class Graph {
 				this.el.appendChild(rect.getHtmlEl());
 			}
 		} else {
-			this.moveBox(event)
+			this.moveSelectedShape(event)
 		}
 	}
 
-	mouseDownRect(event) {
-		this.drawStart = true;
-		let rect = new Rect({
-			x: event.touches[0].clientX,
-			y: event.touches[0].clientY,
-		});
-		this.current = rect;
-		this.el.appendChild(rect.getHtmlEl());
-	}
 
 	mouseUp(event) {
 		this.drawStart = false;
@@ -225,10 +190,8 @@ class Graph {
 	}
 
 	mouseMove(event) {
-		if (!this._selectMode) {
-
+		if (!this.selectMode) {
 			if (this.drawStart && this.current) {
-
 				if (this.mode === 'line') {
 					let pos = this.current.getPosition();
 
@@ -245,8 +208,8 @@ class Graph {
 				}
 			}
 		} else {
-			this._selectedShape.setAttribute('x', event.touches[0].pageX - (parseInt(this._selectedShape.getAttribute('width')) / 2));
-			this._selectedShape.setAttribute('y', event.touches[0].pageY - (parseInt(this._selectedShape.getAttribute('height'))));
+			this.selectedShape.setAttribute('x', event.touches[0].pageX - (parseInt(this._selectedShape.getAttribute('width')) / 2));
+			this.selectedShape.setAttribute('y', event.touches[0].pageY - (parseInt(this._selectedShape.getAttribute('height'))));
 		}
 	}
 
@@ -254,22 +217,51 @@ class Graph {
 		this.el.setAttribute('width', window.innerWidth);
 		this.el.setAttribute('height', window.innerHeight);
 	}
+
+	get shapeColor() { return this._shapeColor };
+	set shapeColor(c) { this._shapeColor = c };
+
+	get drawMode() { return this._drawMode };
+	set drawMode(m) { this._drawMode = m };
+
+	get selectedShapeZPosition() { return this._selectedShapeZPosition }
+	set selectedShapeZPosition(z) { this._selectedShapeZPosition = z };
+
+	get selectMode() { return this._selectMode };
+	set selectMode(s) {
+		this._selectMode = s;
+		this.toggleSelectMode(s);
+	}
+
+	get selectedShape() { return this._selectedShape };
+	set selectedShape(el) {
+		if (this._selectedShape != el) {
+			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
+			this._selectedShape = el;
+			this._selectedShape.classList.add('selected-shape')
+			this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
+				return c == el
+			})
+			this.el.removeChild(this._selectedShape);
+			this.el.insertBefore(this._selectedShape, this.el.children[-1]);
+		} else {
+			this.selectedShape.classList.remove('selected-shape')
+			this.selectedShape = undefined;
+		}
+	};
+
 }
-
-
-
-
 
 
 window.onload = () => {
 	window.graph = new Graph(document.getElementById('graph'));
 
 	window.addEventListener('drawchange', e => {
-		const mode = e.detail.drawRect
-		if (mode) {
-			window.graph.mode = 'rect'
+		const drawMode = e.detail.drawRect
+		if (drawMode) {
+			window.graph._drawMode = 'rect'
 		} else {
-			window.graph.mode = 'line'
+			window.graph._drawMode = 'line'
 		}
 	});
 };
