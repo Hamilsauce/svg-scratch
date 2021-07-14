@@ -96,9 +96,9 @@ class Graph {
 		this._selectedShape = undefined;
 		this._selectedShapeZPosition = null;
 		this._selectMode = false;
-		this._drawMode = 'line';
 		this.el = el;
 		this.elements = [];
+		this.mode = 'line';
 		this.setSize();
 
 		this.el.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
@@ -221,9 +221,6 @@ class Graph {
 	get shapeColor() { return this._shapeColor };
 	set shapeColor(c) { this._shapeColor = c };
 
-	get drawMode() { return this._drawMode };
-	set drawMode(m) { this._drawMode = m };
-
 	get selectedShapeZPosition() { return this._selectedShapeZPosition }
 	set selectedShapeZPosition(z) { this._selectedShapeZPosition = z };
 
@@ -257,11 +254,11 @@ window.onload = () => {
 	window.graph = new Graph(document.getElementById('graph'));
 
 	window.addEventListener('drawchange', e => {
-		const drawMode = e.detail.drawRect
-		if (drawMode) {
-			window.graph._drawMode = 'rect'
+		const mode = e.detail.drawRect
+		if (mode) {
+			window.graph.mode = 'rect'
 		} else {
-			window.graph._drawMode = 'line'
+			window.graph.mode = 'line'
 		}
 	});
 };
