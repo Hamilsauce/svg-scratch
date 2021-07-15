@@ -4,6 +4,7 @@ class Line {
 		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		this.el.classList.add('line');
 		this.el.setAttribute('stroke', color);
+		this.el.setAttribute('width', 9);
 		this.el.setAttribute('stroke-width', '');
 		this.setPosition(pos);
 	}
@@ -109,37 +110,29 @@ class Graph {
 		this.el.ontouchmove = this.mouseMove.bind(this);
 	}
 
-	// handleColorChange(e) { const color = e.detail.color }
-	// setMode() { this.drawMode = mode }
-	// mouseDownRect(event) {
-	// 		this.drawStart = true;
-	// 		let rect = new Rect({
-	// 			x: event.touches[0].clientX,
-	// 			y: event.touches[0].clientY,
-	// 		});
-	// 		this.current = rect;
-	// 		this.el.appendChild(rect.getHtmlEl());
-	// 	}
+	resetShapeZPosition() {
+		const refNode = this.el.children[this.selectedShapeZPosition]
+		this.selectedShape.classList.remove('selected-shape')
+		this.selectedShape.classList.add('prev-selected-shape')
+		this.el.insertBefore(this.selectedShape, refNode)
+	}
 
 	toggleSelectMode(s) {
 		if (this.selectMode) {
 			console.log('toggle on', this);
 		} else {
-			if (this.selectedShape) this.selectedShape.classList.remove('selected-shape')
-			// this.selectedShape = undefined;
-			console.log('toggle off', this);
+			if (this.selectedShape) {
+				this.selectedShape.classList.remove('selected-shape')
+				this.resetShapeZPosition();
+			}
 		}
 	}
 
 	handleShapeSelect(e) {
-		if (this.selectedShape != undefined) {
-			const refNode = this.el.children[this.selectedShapeZPosition]
-			this.selectedShape.classList.remove('selected-shape')
-			this.selectedShape.classList.add('prev-selected-shape')
-			this.el.insertBefore(this.selectedShape, refNode)
-		}
+		if (this.selectedShape) this.resetShapeZPosition();
 
 		this.selectedShapeZPosition = [...this.el.children].findIndex((c) => c = e.target);
+
 		if (this.selectMode) this.selectedShape = e.target
 	}
 
@@ -172,15 +165,14 @@ class Graph {
 				const rect = new Rect({
 					x: event.touches[0].pageX,
 					y: event.touches[0].pageY,
-					width: event.touches[0].clientX,
-					height: event.touches[0].clientY
+					width: 30,
+					height: 30,
 				}, this._shapeColor, this);
+
 				this.current = rect;
 				this.el.appendChild(rect.getHtmlEl());
 			}
-		} else {
-			this.moveSelectedShape(event)
-		}
+		} else this.moveSelectedShape(event)
 	}
 
 
@@ -194,16 +186,14 @@ class Graph {
 			if (this.drawStart && this.current) {
 				if (this.mode === 'line') {
 					let pos = this.current.getPosition();
-
 					pos.x2 = event.touches[0].clientX;
 					pos.y2 = event.touches[0].clientY;
 					this.current.setPosition(pos);
-
-				} else {
+		
+				} else if (this.mode === 'rect') {
 					let pos = this.current.getPosition();
-
-					pos.width = event.touches[0].pageX;
-					pos.height = event.touches[0].pageY;
+					pos.width = event.touches[0].pageX - (pos.x + 300);
+					pos.height = event.touches[0].pageY - (pos.y + 300);
 					this.current.setSize(pos.width, pos.height);
 				}
 			}
