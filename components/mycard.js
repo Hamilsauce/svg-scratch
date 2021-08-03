@@ -1,41 +1,26 @@
-export class Nav {
-	constructor(root, linkData) {
-		this.root = root;
-		this.linkData = linkData;
+export class Card {
+	constructor(props) {
+		this.root = document.createElement('div');
+		this.props = props;
 	}
 
 	_data = {
-		// links: this.linkData,
-		isExpanded: false
+		date: this.props.date,
+		hours: this.props.hours,
+		detail: this.props.detail,
+		iSelected: false
 	}
 
 	get data() {
 		return this._data;
 	}
 
-	get isExpanded() {
-		return this._data.isExpanded;
+	get isSelected() {
+		return this._data.isSelected;
 	}
 
-	set isExpanded(val) {
-		this._data.isExpanded = val;
-	}
-
-	toggleNav() {
-		if (this.root.classList.contains('navExpand')) {
-			setTimeout(() => {
-				this.root.classList.remove('navExpand')
-			}, 200)
-		} else {
-			setTimeout(() => {
-				this.root.classList.add('navExpand')
-			}, 200)
-		}
-	}
-
-	closeNav() {
-		const nav = document.querySelector('.nav');
-		this.root.classList.toggle('navExpand')
+	set isSelected(val) {
+		this._data.isSelected = val;
 	}
 
 	template() {
