@@ -12,7 +12,7 @@ export default class {
 		this.drawMode = 'line';
 		this.setSize();
 
-		this.svg.addEventListener('option-change', this.handleOptionChange.bind(this))
+		// this.svg.addEventListener('option-change', this.handleOptionChange.bind(this))
 		this.svg.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
 		this.svg.ontouchstart = this.mouseDown.bind(this);
 		this.svg.ontouchend = this.mouseUp.bind(this);
@@ -20,16 +20,10 @@ export default class {
 		this.svg.ontouchmove = this.mouseMove.bind(this);
 	}
 	
-	handleOptionChange(e) {
-	  console.log(e);
-	  const {data, type} = e.detail
-	  if (type === 'draw-mode') {
-	    this.drawMode = data;
-	    console.log('habdled', this.drawMode);
-	  } else {
-	    
-	  }
+	undo() {
+	  console.log('undo');
 	}
+	
 
 	resetShapeZPosition() {
 		const refNode = this.svg.children[this.selectedShapeZPosition]

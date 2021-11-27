@@ -1,27 +1,45 @@
-// import Line from './Line.js';
+import EventBus from '../EventBus.js';
 import Graph from './Graph.js';
-// import {Graph, Rect, Line} from './index.js';
-console.log({Graph});
+import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js'
+const { DOM } = ham
 
 // APP
 export default class {
-	constructor(graphEl) {
-		// this.svg = el;
-		this.graph = new Graph(graphEl);
-		// this._shapeColor = '#ffffff';
-		// this._selectedShape = undefined;
-		// this._selectedShapeZPosition = null;
-		// this._selectMode = false;
-		// this.svgements = [];
-		// this.drawMode = 'line';
-		// this.setSize();
+  constructor(graphEl) {
+    this.root = document.querySelector('#app')
+    this.graph = new Graph(graphEl);
+   
+    this.options = [
+      ['drawRectToggle', DOM.qs('#draw-rect-toggle')],
+      ['selectModeToggle', DOM.qs('#select-mode-toggle')],
+      ['shapeColorPicker', DOM.qs('#shape-color-picker')],
+      ['undoButton', DOM.qs('#undo-button')],
+    ];
 
-		// this.svg.addEventListener('option-change', this.handleOptionChange.bind(this))
-		// this.svg.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
-		// this.svg.ontouchstart = this.mouseDown.bind(this);
-		// this.svg.ontouchend = this.mouseUp.bind(this);
-		// this.svg.onmouseout = this.mouseUp.bind(this);
-		// this.svg.ontouchmove = this.mouseMove.bind(this);
-console.log(this);
-	}
+    this.els = {
+      'drawRectToggle': DOM.qs('#draw-rect-toggle'),
+      'selectModeToggle': DOM.qs('#select-mode-toggle'),
+      'shapeColorPicker': DOM.qs('#shape-color-picker'),
+      'undoButton': DOM.qs('#undo-button'),
+    }
+
+    this.eventBus = new EventBus(this.els);
+    this.root.addEventListener('option-change', this.handleOptionChange.bind(this))
+    console.log(this);
+  }
+  
+  handleOptionChange(e) {
+    console.log(e);
+    const { data, type } = e.detail
+    if (type === 'draw-mode') {
+      this.graph.drawMode = data;
+    } else if (type === 'select-mode') {
+      this.graph.selectMode = data;
+    } else if (type === 'color-selection') {
+      this.graph.shapeColor = data;
+    } else if (type === 'undo') {
+      this.graph.undo()
+    }
+  }
+
 }
