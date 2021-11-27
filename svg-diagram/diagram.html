@@ -2,108 +2,123 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="stylesheet" href="./diagram.css" type="text/css" media="all" />
-	<style type="text/css" media="all">
-		* {
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-		}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="./diagram.css" type="text/css" media="all" />
+  <style type="text/css" media="all">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-		.app {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: 50px 200px;
-			height: 100vh;
-			width: 100vw;
-		}
+    .app {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px 600px 50px;
+      height: 100vh;
+      width: 100vw;
+    }
 
-		.options-bar {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-evenly;
-			align-items: center;
-			gap: 10px;
-			padding: 10px 5px;
-		}
+    .options-bar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 5px;
+    }
 
-		.control-group {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: center;
-			gap: 10px;
-			padding: 10px 5px;
-		}
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 5px;
+    }
 
-		.graph-container {
-			height: fit-content;
-			width: 100%;
-		}
+    .graph-container {
+      height: fit-content;
+      width: 100%;
+    }
 
-		#graph {
-			display: block;
-			height: 80vh;
-			width: 100%;
-			overflow: hidden;
-			background-color: #269;
-			background-position: -1px -1px, -1px -1px, 0 0px, 0 0;
-			background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
-		}
+    #graph {
+      display: block;
+      height: 80vh;
+      width: 100%;
+      overflow: hidden;
+      background-color: #269;
+      background-position: -1px -1px, -1px -1px, 0 0px, 0 0;
+      background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+    }
 
-		.line {
-			fill: green;
-			stroke-width: 3;
-			stroke-linecap: round;
-			box-shadow: 0 0 10px 10px #000000;
-		}
+    .line {
+      fill: green;
+      stroke-width: 3;
+      stroke-linecap: round;
+      box-shadow: 0 0 10px 10px #000000;
+    }
 
-		.rect {
-			stroke: #717171;
-			stroke-width: 2;
-			stroke-linecap: round;
-			box-shadow: 0 0 10px 10px #000000;
-			z-index: 0;
-		}
+    .rect {
+      stroke-width: 2;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0.1em 0.1em #0909099C);
+      opacity: 0.98;
+      z-index: 0;
+    }
 
-		.selected-shape {
-			outline: 1px solid #FFAD00;
-			z-index: 500;
-		}
-	</style>
+    .selected-shape {
+      outline: 1px solid #FFAD00;
+      z-index: 500;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="app">
-		<!-- <div class="title">Graph</div> -->
-		<div class="options-bar">
-			<div class="control-group">
-				<label for="draw-rect-toggle">draw rect</label>
-				<input type="checkbox" name="draw-rect-toggle" id="draw-rect-toggle" />
-			</div>
-			<div class="control-group">
-				<label for="select-mode-toggle">Select Mode</label>
-				<input type="checkbox" name="select-mode-toggle" id="select-mode-toggle" />
-			</div>
-			<div class="control-group">
-				<label for="shape-color-picker">Shape Color</label>
-				<input type="color" name="shape-color-picker" id="shape-color-picker" />
-			</div>
-		</div>
-		<div class="graph-container">
-			<svg id="graph"></svg>
-		</div>
-		<!-- 	<div class="buttons">
+  <div id="app" class="app">
+    <!-- <div class="title">Graph</div> -->
+    <div class="options-bar">
+      <div class="control-group">
+        <label for="draw-rect-toggle">draw rect</label>
+        <input type="checkbox" name="draw-rect-toggle" id="draw-rect-toggle" />
+      </div>
+      <div class="control-group">
+        <label for="select-mode-toggle">Select Mode</label>
+        <input type="checkbox" name="select-mode-toggle" id="select-mode-toggle" />
+      </div>
+      <div class="control-group">
+        <label for="shape-color-picker">Shape Color</label>
+        <input type="color" name="shape-color-picker" id="shape-color-picker" />
+      </div>
+    </div>
+    <div class="graph-container">
+      <svg id="graph" xmlns="http://www.w3.org/2000/svg"></svg>
+      <!-- xmlns:xlink="http://www.w3.org/1999/xlink" -->
+      <!-- xml:space="preserve" -->
+    </div>
+    <div class="options-bar bottom-bar">
+      <div class="control-group">
+        <label for="erase-button">erase</label>
+        <input type="checkbox" name="erase-button" id="erase-button" />
+      </div>
+      <div class="control-group">
+        <label for="delete-button">Delete</label>
+        <input type="checkbox" name="delete-button" id="delete-button" />
+      </div>
+      <div class="control-group">
+        <input type="button" name="undo-button" id="undo-button" value="undo" />
+      </div>
+    </div>
+    <!-- 	<div class="buttons">
 		<input type="button" value="Start Animation" onclick="startAnimation();">
 		<input type="button" value="Stop Animation" onclick="stopAnimation();">
 	</div> -->
-		<!-- <div class="output"></div> -->
-	</div>
-	<script src="./diagram.js" type="module"></script>
-	<script src="./Line.js" type="module"></script>
+    <!-- <div class="output"></div> -->
+  </div>
+  <script src="./diagram.js" type="module"></script>
+  <!-- <script src="./Line.js" type="module"></script> -->
 </body>
 <!-- 	<div class="app">
 	<div class="title">App</div>

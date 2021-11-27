@@ -58,7 +58,7 @@ function paintWithFinger(e) {
 	const touches = e.touches
 
 	if ((targ.id === 'svg' || targ.classList.contains('circle')) && !eraseMode) {
-		if (targ.children.length > 250) {
+		if (targ.children.length > 20) {
 			const firstCircleChild = [...targ.children].find(child => child.classList.contains('circle'));
 			targ.removeChild(firstCircleChild);
 		}

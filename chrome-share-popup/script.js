@@ -8,43 +8,47 @@ const svg = document.querySelector('svg');
 // const toggle = document.querySelector('.toggle-button');
 
 const displayTypes = {
-	hide: 'hide',
-	show: 'show'
+  hide: 'hide',
+  show: 'show'
 }
 
 
 menus.forEach((_, i) => {
-	_.dataset.displayState = displayTypes.hide;
-	_.classList.add(displayTypes.hide)
-	_.dataset.id = i
+  _.dataset.displayState = displayTypes.hide;
+  _.classList.add(displayTypes.hide)
+  _.dataset.id = i
 })
 
 toggles.forEach((btn, i) => {
-	btn.dataset.id = i;
-	btn.addEventListener('click', ({ target }) => {
-		const { hide, show } = displayTypes
-		const menu = [...menus].find(_ => _.dataset.id === target.dataset.id)
-		const hideState = menu.dataset.displayState
+  btn.dataset.id = i;
+  btn.addEventListener('click', ({ target }) => {
+    const { hide, show } = displayTypes
+    const menu = [...menus].find(_ => _.dataset.id === target.dataset.id)
+    const hideState = menu.dataset.displayState
 
-		if (hideState === hide) {
-			menu.classList.remove(hide)
-			menu.dataset.id === '0' ? menus[1].classList.add(hide) : menus[0].classList.add(hide)
-			menu.dataset.displayState = show
-		} else {
-			menu.classList.add(hide)
-			menu.dataset.id === '0' ? menus[1].classList.remove(hide) : menus[0].classList.remove(hide)
-			menu.dataset.displayState = hide
-		}
-		btn.classList.remove('inactive-button')
-		btn.dataset.id === '0' ? toggles[1].classList.add('inactive-button') : toggles[0].classList.add('inactive-button')
-		
-// console.log(men);
-		// menu.dataset.hide = !hideState
-		// console.log(hideState);
-		// const	hideState = Boolean(menu.dataset.hide) === true ? Boolean(menu.dataset.hide) :
-		// const hideState = !Boolean(menu.dataset.hide) = !Boolean(menu.dataset.hide)
-	})
-} )
+    if (hideState === show) {
+      menu.classList.remove(show)
+      menu.dataset.id === '0' ? menus[1].classList.add(hide) : menus[0].classList.add(hide)
+      menu.dataset.displayState = show
+    } else if (hideState === hide) {
+      menu.classList.remove(hide)
+      menu.dataset.id === '0' ? menus[1].classList.add(hide) : menus[0].classList.add(hide)
+      menu.dataset.displayState = show
+    } else {
+      menu.classList.add(hide)
+      menu.dataset.id === '0' ? menus[1].classList.remove(hide) : menus[0].classList.remove(hide)
+      menu.dataset.displayState = hide
+    }
+    btn.classList.remove('inactive-button')
+    btn.dataset.id === '0' ? toggles[1].classList.add('inactive-button') : toggles[0].classList.add('inactive-button')
+
+    // console.log(men);
+    // menu.dataset.hide = !hideState
+    // console.log(hideState);
+    // const	hideState = Boolean(menu.dataset.hide) === true ? Boolean(menu.dataset.hide) :
+    // const hideState = !Boolean(menu.dataset.hide) = !Boolean(menu.dataset.hide)
+  })
+})
 
 
 
