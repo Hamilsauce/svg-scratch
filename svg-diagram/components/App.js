@@ -8,7 +8,7 @@ export default class {
   constructor(graphEl) {
     this.root = document.querySelector('#app')
     this.graph = new Graph(graphEl);
-   
+
     this.options = [
       ['drawRectToggle', DOM.qs('#draw-rect-toggle')],
       ['selectModeToggle', DOM.qs('#select-mode-toggle')],
@@ -31,7 +31,7 @@ export default class {
     this.root.addEventListener('option-change', this.handleOptionChange.bind(this))
     console.log(this);
   }
-  
+
   handleOptionChange(e) {
     console.log(e);
     const { data, type } = e.detail
@@ -43,17 +43,17 @@ export default class {
       this.graph.shapeColor = data;
     } else if (type === 'undo') {
       this.graph.undo();
-    
+
     } else if (type === 'redo') {
       this.graph.redo();
-    
+
     } else if (type === 'add-edge-mode') {
       this.graph.addEdgeMode = !this.graph.addEdgeMode;
-    
+      e.target.style.backgroundColor = this.graph.addEdgeMode ? 'red' : '';
     } else if (type === 'add-edge-confirm') {
-      this.graph.addEdge(...this.graph.selectedAdjacents);
+      this.graph.addEdge(...this.graph.selectedVertices);
     }
-  console.log('this.graph in app', this.graph)
+    console.log('this.graph in app', this.graph)
   }
 
 }

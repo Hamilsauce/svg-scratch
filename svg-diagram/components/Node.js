@@ -29,4 +29,6 @@ export default class {
   }
   get adjacents() { return this._adjacentList };
   set adjacents(newValue) { this._adjacentList = newValue }
+  get value() { return this._value };
+  set value(newValue) { this._value = newValue }
 }

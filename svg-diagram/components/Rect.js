@@ -5,28 +5,26 @@ const _SVG_NS = 'http://www.w3.org/2000/svg';
 // RECT
 export default class extends Node {
   constructor(pos, color, graph) {
-    super();
+    super(document.createElementNS(_SVG_NS, 'rect'));
     this.graph = graph;
-    this.el = document.createElementNS(_SVG_NS, 'rect');
-    this.el.classList.add('rect');
-    this.el.setAttributeNS(null, 'stroke-width', '2');
-    this.el.setAttributeNS(null, 'stroke', color);
-    this.el.setAttributeNS(null, 'fill', color);
+    this.element = this.value
+    this.element.classList.add('rect');
+    this.element.setAttributeNS(null, 'stroke-width', '2');
+    this.element.setAttributeNS(null, 'stroke', color);
+    this.element.setAttributeNS(null, 'fill', color);
 
-    // this.el.setAttributeNS(null, 'stroke-width', '2');
-    // this.el.setAttributeNS(null, 'stroke-fill', 'red');
-    // this.el.setAttribute(null, 'fill', color);
+    // this.element.setAttributeNS(null, 'stroke-width', '2');
+    // this.element.setAttributeNS(null, 'stroke-fill', 'red');
+    // this.element.setAttribute(null, 'fill', color);
     this.setCoords(pos);
     this.setSize(pos);
-    this.el.addEventListener('click', this.handleClick.bind(this));
+    this.element.addEventListener('click', this.handleClick.bind(this));
   }
 
   get centroid() {
-    // console.log('[this.width,this.height]', [this.width, this.height])
-    // console.log('[this.x,this.y]', [this.x, this.y])
     return {
-      x: this.x + (this.width / 2),
-      y: this.y + (this.height / 2),
+      x: parseInt(this.x) + (parseInt(this.width) / 2),
+      y: parseInt(this.y) + (parseInt(this.height) / 2),
     }
   }
 
@@ -50,8 +48,8 @@ export default class extends Node {
     console.log('width, width', width)
     this.width = width
     this.height =  height
-    // this.el.setAttribute('width', width || 0);
-    // this.el.setAttribute('height', height || 0);
+    // this.element.setAttribute('width', width || 0);
+    // this.element.setAttribute('height', height || 0);
   }
 
   // TODO Replace getPosition with get position
@@ -82,10 +80,10 @@ export default class extends Node {
   }
   // getPosition() {
   //   return {
-  //     x: this.el.getAttribute('x'),
-  //     y: this.el.getAttribute('y'),
-  //     width: this.el.getAttribute('width'),
-  //     height: this.el.getAttribute('height'),
+  //     x: this.element.getAttribute('x'),
+  //     y: this.element.getAttribute('y'),
+  //     width: this.element.getAttribute('width'),
+  //     height: this.element.getAttribute('height'),
   //   }
   // }
 
@@ -97,16 +95,16 @@ export default class extends Node {
   }
 
   getHtmlEl() {
-    return this.el;
+    return this.element;
   }
 
-  get x() { return this.el.getAttribute('x') }
-  set x(newValue) { this.el.setAttribute('x', newValue) }
-  get y() { return this.el.getAttribute('y') }
-  set y(newValue) { this.el.setAttribute('y', newValue) }
-  get width() { return this.el.getAttribute('width') }
-  set width(newValue) { this.el.setAttribute('width', newValue) }
-  get height() { return this.el.getAttribute('height') }
-  set height(newValue) { this.el.setAttribute('height', newValue) }
+  get x() { return this.element.getAttribute('x') }
+  set x(newValue) { this.element.setAttribute('x', newValue) }
+  get y() { return this.element.getAttribute('y') }
+  set y(newValue) { this.element.setAttribute('y', newValue) }
+  get width() { return this.element.getAttribute('width') }
+  set width(newValue) { this.element.setAttribute('width', newValue) }
+  get height() { return this.element.getAttribute('height') }
+  set height(newValue) { this.element.setAttribute('height', newValue) }
 
 }

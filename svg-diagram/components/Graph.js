@@ -1,6 +1,7 @@
 import Line from './Line.js';
 import Rect from './Rect.js';
 
+// Graph
 export default class {
   constructor(el) {
     this.svg = el;
@@ -8,38 +9,60 @@ export default class {
     this._selectedShape = undefined;
     this._selectedShapeZPosition = null;
     this._selectMode = false;
+    this.selectedVertices = [];
 
+    this._nodes = new Map();
     this.svgElements = [];
-    this._nodes = [];
     this.edgeDirection = 'UNDIRECTED';
 
     this._redoList = [];
     this.drawMode = 'line';
 
-    this._addEdgeMode = false;
-    this.selectedVertices = [];
+    this._addEdgeMode;
+    this.addEdgeMode = false;
 
     this.setSize();
     // this.svg.addEventListener('option-change', this.handleOptionChange.bind(this))
     this.svg.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
+    this.svg.addEventListener('click', this.handleClick.bind(this))
     this.svg.ontouchstart = this.mouseDown.bind(this);
     this.svg.ontouchend = this.mouseUp.bind(this);
     this.svg.onmouseout = this.mouseUp.bind(this);
     this.svg.ontouchmove = this.mouseMove.bind(this);
-
-
   }
 
+  handleClick(e) {
+    if (this.addEdgeMode === true && this.nodes.has(e.target)) {
+      this.selectedVertices.push(this.nodes.get(e.target))
+      this.nodes.get(e.target).value.classList.add('selected-shape')
+
+      if (this.selectedVertices.length === 2) {
+        const [src, dest] = this.selectedVertices
+        this.addEdge(src, dest)
+        this.addEdgeMode = false;
+        this.selectedVertices = [];
+      }
+    }
+  }
+
+
   get addEdgeMode() { return this._addEdgeMode }
-  set addEdgeMode(newValue) { this._addEdgeMode = newValue }
+  set addEdgeMode(newValue) {
+    this._addEdgeMode = newValue
+    if (newValue === false) {
+      this.selectedVertices.forEach(v => {
+        v.value.classList.remove('selected-shape')
+      });
+      this.selectedVertices = []
+    }
+  }
 
 
   // TODO Use this to create new svg nodes
-  addVertex(value) {
+  addVertex(value, vertex) {
     if (this.nodes.has(value)) {
       return this.nodes.get(value);
     } else {
-      const vertex = new Node(value);
       this.nodes.set(value, vertex);
       return vertex;
     }
@@ -56,12 +79,21 @@ export default class {
   }
 
   addEdge(source, destination) {
-    const sourceNode = this.addVertex(source);
-    const destinationNode = this.addVertex(destination);
+    const sourceNode = this.addVertex(source.element);
+    const destinationNode = this.addVertex(destination.element);
     sourceNode.addAdjacent(destinationNode);
-    if (this.edgeDirection === Graph.UNDIRECTED) destinationNode.addAdjacent(sourceNode);
-    this.addEdgeMode = !this.addEdgeMode;
 
+    if (this.edgeDirection === 'UNDIRECTED') destinationNode.addAdjacent(sourceNode);
+ 
+    const line = new Line({
+      x1: sourceNode.centroid.x,
+      y1: sourceNode.centroid.y,
+      x2: destinationNode.centroid.x,
+      y2: destinationNode.centroid.y,
+    }, this._shapeColor, this);
+
+    this.svg.appendChild(line.getHtmlEl());
+    this.addEdgeMode = !this.addEdgeMode;
     return [sourceNode, destinationNode];
   }
 
@@ -69,12 +101,11 @@ export default class {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
     if (!(sourceNode || destinationNode)) return;
+   
     sourceNode.removeAdjacent(destinationNode);
     if (this.edgeDirection === Graph.UNDIRECTED) destinationNode.removeAdjacent(sourceNode)
     return [sourceNode, destinationNode];
   }
-
-
 
 
   undo() { if (this.svg.lastChild) this.redoList.push(this.svg.removeChild(this.svg.lastChild)) }
@@ -99,7 +130,6 @@ export default class {
   }
 
   handleShapeSelect(e) {
-    console.log({ e });
     if (this.selectedShape) this.resetShapeZPosition();
     this.selectedShapeZPosition = [...this.svg.children].findIndex((c) => c = e.target);
     if (this.selectMode) this.selectedShape = e.target
@@ -118,7 +148,7 @@ export default class {
   }
 
   mouseDown(event) {
-    if (!this._selectMode) {
+    if (!(this._selectMode || this.addEdgeMode)) {
       this.drawStart = true;
       if (this.drawMode === 'line') {
         const line = new Line({
@@ -129,6 +159,7 @@ export default class {
         }, this._shapeColor, this);
 
         this.current = line;
+        this.addVertex(line.element, line)
         this.svg.appendChild(line.getHtmlEl());
       } else if (this.drawMode === 'rect') {
         const rect = new Rect({
@@ -139,6 +170,7 @@ export default class {
         }, this._shapeColor, this);
 
         this.current = rect;
+        this.addVertex(rect.element, rect)
         this.svg.appendChild(rect.getHtmlEl());
       }
     } else this.moveSelectedShape(event)

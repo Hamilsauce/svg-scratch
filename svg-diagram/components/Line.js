@@ -2,9 +2,9 @@ import Node from './Node.js';
 
 export default class extends Node {
   constructor(pos, color, graph) {
-    super()
+    super(document.createElementNS('http://www.w3.org/2000/svg', 'line'))
     this.graph = graph;
-    this.element = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    this.element = this.value
     this.element.classList.add('line');
     this.element.setAttribute('stroke', color);
     this.element.setAttribute('width', 9);
