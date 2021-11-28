@@ -5,10 +5,3 @@ const { DOM } = ham
 window.onload = () => {
   window.app = new App(document.getElementById('graph'));
 };
-
-const map = new Map();
-
-map.set('poop')
-map.set('pee')
-map.set('poop')
-console.log('map', [...map])

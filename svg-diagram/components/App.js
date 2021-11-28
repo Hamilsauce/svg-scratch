@@ -14,6 +14,7 @@ export default class {
       ['selectModeToggle', DOM.qs('#select-mode-toggle')],
       ['shapeColorPicker', DOM.qs('#shape-color-picker')],
       ['undoButton', DOM.qs('#undo-button')],
+      ['redoButton', DOM.qs('#redo-button')],
     ];
 
     this.els = {
@@ -21,6 +22,9 @@ export default class {
       'selectModeToggle': DOM.qs('#select-mode-toggle'),
       'shapeColorPicker': DOM.qs('#shape-color-picker'),
       'undoButton': DOM.qs('#undo-button'),
+      'redoButton': DOM.qs('#redo-button'),
+      'addEdgeConfirmButton': DOM.qs('#add-edge-confirm-button'),
+      'addEdgeButton': DOM.qs('#add-edge-button'),
     }
 
     this.eventBus = new EventBus(this.els);
@@ -38,8 +42,18 @@ export default class {
     } else if (type === 'color-selection') {
       this.graph.shapeColor = data;
     } else if (type === 'undo') {
-      this.graph.undo()
+      this.graph.undo();
+    
+    } else if (type === 'redo') {
+      this.graph.redo();
+    
+    } else if (type === 'add-edge-mode') {
+      this.graph.addEdgeMode = !this.graph.addEdgeMode;
+    
+    } else if (type === 'add-edge-confirm') {
+      this.graph.addEdge(...this.graph.selectedAdjacents);
     }
+  console.log('this.graph in app', this.graph)
   }
 
 }

@@ -21,6 +21,16 @@ export default class {
     this.els.undoButton.addEventListener('click', e => {
       this.dispatch({ source: e.target, type: 'undo', data: null })
     });
+    this.els.redoButton.addEventListener('click', e => {
+      this.dispatch({ source: e.target, type: 'redo', data: null })
+    });
+    
+    this.els.addEdgeButton.addEventListener('click', e => {
+      this.dispatch({ source: e.target, type: 'add-edge-mode', data: null })
+    });
+    this.els.addEdgeConfirmButton.addEventListener('click', e => {
+      this.dispatch({ source: e.target, type: 'add-edge-confirm', data: null })
+    });
   }
 
   add(eventType = 'click', func) {}

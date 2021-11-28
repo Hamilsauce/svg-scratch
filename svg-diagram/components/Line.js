@@ -1,93 +1,100 @@
-export default class {
-	constructor(pos, color, graph) {
-		this.graph = graph;
-		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-		this.el.classList.add('line');
-		this.el.setAttribute('stroke', color);
-		this.el.setAttribute('width', 9);
-		this.el.setAttribute('stroke-width', '');
-		this.setPosition(pos);
-	}
+import Node from './Node.js';
 
-	setPosition(pos) {
-		this.el.setAttribute('x1', pos.x1);
-		this.el.setAttribute('y1', pos.y1);
-		this.el.setAttribute('x2', pos.x2);
-		this.el.setAttribute('y2', pos.y2);
-	}
+export default class extends Node {
+  constructor(pos, color, graph) {
+    super()
+    this.graph = graph;
+    this.element = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    this.element.classList.add('line');
+    this.element.setAttribute('stroke', color);
+    this.element.setAttribute('width', 9);
+    this.element.setAttribute('stroke-width', '');
+    this.setPosition(pos);
+    console.log('line.', this);
+  }
 
-	getPosition() {
-		return {
-			x1: this.el.getAttribute('x1'),
-			y1: this.el.getAttribute('y1'),
-			x2: this.el.getAttribute('x2'),
-			y2: this.el.getAttribute('y2'),
-		};
-	}
+  get element() { return this._element };
+  set element(newValue) { this._element = newValue }
 
-	setRotate(angle) {
-		let newPos = pos = this.getPosition();
-		newPos.x2 = pos - radius * Math.cos(angle);
-		newPos.y2 = pos - radius * Math.sin(angle);
-		this.setPosition(newPos);
-	}
+  setPosition(pos) {
+    this.element.setAttribute('x1', pos.x1);
+    this.element.setAttribute('y1', pos.y1);
+    this.element.setAttribute('x2', pos.x2);
+    this.element.setAttribute('y2', pos.y2);
+  }
 
-	getHtmlEl() {
-		return this.el;
-	}
+  getPosition() {
+    return {
+      x1: this.element.getAttribute('x1'),
+      y1: this.element.getAttribute('y1'),
+      x2: this.element.getAttribute('x2'),
+      y2: this.element.getAttribute('y2'),
+    };
+  }
+
+  setRotate(angle) {
+    let newPos = pos = this.getPosition();
+    newPos.x2 = pos - radius * Math.cos(angle);
+    newPos.y2 = pos - radius * Math.sin(angle);
+    this.setPosition(newPos);
+  }
+
+  getHtmlEl() {
+    return this.element;
+  }
 }
 
-class Rect {
-	constructor(pos, color, graph) {
-		this.graph = graph;
-		this.el = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-		this.el.classList.add('rect');
-		this.el.setAttribute('stroke', 'red');
-		this.el.setAttribute('fill', color);
-		this.el.setAttribute('stroke-width', '2');
-		this.setCoords(pos);
-		this.setSize(pos);
-		this.el.addEventListener('click', this.handleClick.bind(this));
-	}
+// class Rect {
+//   constructor(pos, color, graph) {
+//     this.graph = graph;
+//     this.element = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+//     this.element.classList.add('rect');
+//     this.element.setAttribute('stroke', 'red');
+//     this.element.setAttribute('fill', color);
+//     this.element.setAttribute('stroke-width', '2');
+//     this.setCoords(pos);
+//     this.setSize(pos);
+//     this.element.addEventListener('click', this.handleClick.bind(this));
+//   }
 
-	handleClick(e) {
-		if (this.graph.selectMode) {
-			const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
-			e.target.dispatchEvent(evt);
-			console.log('shape click w select mide on', evt);
-		}
-	}
+//   handleClick(e) {
+//     if (this.graph.selectMode) {
+//       const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
+//       e.target.dispatchEvent(evt);
+//       console.log('shape click w select mide on', evt);
+//     }
+//   }
 
-	setCoords(pos) {
-		this.el.setAttribute('x', pos.x);
-		this.el.setAttribute('y', pos.y);
-	}
+//   setCoords(pos) {
+//     this.element.setAttribute('x', pos.x);
+//     this.element.setAttribute('y', pos.y);
+//   }
 
-	setSize(width, height) {
-		this.el.setAttribute('width', width);
-		this.el.setAttribute('height', height);
-	}
+//   setSize(width, height) {
+//     this.element.setAttribute('width', width);
+//     this.element.setAttribute('height', height);
+//   }
 
-	getPosition() {
-		return {
-			x: this.el.getAttribute('x'),
-			y: this.el.getAttribute('y'),
-			width: this.el.getAttribute('width'),
-			height: this.el.getAttribute('height'),
-		}
-	}
+//   getPosition() {
+//     return {
+//       x: this.element.getAttribute('x'),
+//       y: this.element.getAttribute('y'),
+//       width: this.element.getAttribute('width'),
+//       height: this.element.getAttribute('height'),
+//     }
+//   }
 
-	setRotate(angle) {
-		let newPos = pos = this.getPosition();
-		newPos.x2 = pos - radius * Math.cos(angle);
-		newPos.y2 = pos - radius * Math.sin(angle);
-		this.setPosition(newPos);
-	}
+//   setRotate(angle) {
+//     let newPos = pos = this.getPosition();
+//     newPos.x2 = pos - radius * Math.cos(angle);
+//     newPos.y2 = pos - radius * Math.sin(angle);
+//     this.setPosition(newPos);
+//   }
 
-	getHtmlEl() {
-		return this.el;
-	}
-}
+//   getHtmlEl() {
+//     return this.element;
+//   }
+// }
 
 // Graph
 
@@ -97,24 +104,24 @@ class Rect {
 // 		this._selectedShape = undefined;
 // 		this._selectedShapeZPosition = null;
 // 		this._selectMode = false;
-// 		this.el = el;
+// 		this.element = el;
 // 		this.elements = [];
 // 		this.drawMode = 'line';
 // 		this.setSize();
 
-// 		this.el.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
-// 		// this.el.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
-// 		this.el.ontouchstart = this.mouseDown.bind(this);
-// 		this.el.ontouchend = this.mouseUp.bind(this);
-// 		this.el.onmouseout = this.mouseUp.bind(this);
-// 		this.el.ontouchmove = this.mouseMove.bind(this);
+// 		this.element.addEventListener('shapeSelected', this.handleShapeSelect.bind(this))
+// 		// this.element.addEventListener('shapeColorChange', this.handleColorChange.bind(this))
+// 		this.element.ontouchstart = this.mouseDown.bind(this);
+// 		this.element.ontouchend = this.mouseUp.bind(this);
+// 		this.element.onmouseout = this.mouseUp.bind(this);
+// 		this.element.ontouchmove = this.mouseMove.bind(this);
 // 	}
 
 // 	resetShapeZPosition() {
-// 		const refNode = this.el.children[this.selectedShapeZPosition]
+// 		const refNode = this.element.children[this.selectedShapeZPosition]
 // 		this.selectedShape.classList.remove('selected-shape')
 // 		this.selectedShape.classList.add('prev-selected-shape')
-// 		this.el.insertBefore(this.selectedShape, refNode)
+// 		this.element.insertBefore(this.selectedShape, refNode)
 // 	}
 
 // 	toggleSelectMode(s) {
@@ -131,7 +138,7 @@ class Rect {
 // 	handleShapeSelect(e) {
 // 		if (this.selectedShape) this.resetShapeZPosition();
 
-// 		this.selectedShapeZPosition = [...this.el.children].findIndex((c) => c = e.target);
+// 		this.selectedShapeZPosition = [...this.element.children].findIndex((c) => c = e.target);
 
 // 		if (this.selectMode) this.selectedShape = e.target
 // 	}
@@ -160,7 +167,7 @@ class Rect {
 // 				}, this._shapeColor, this);
 
 // 				this.current = line;
-// 				this.el.appendChild(line.getHtmlEl());
+// 				this.element.appendChild(line.getHtmlEl());
 // 			} else if (this.drawMode === 'rect') {
 // 				const rect = new Rect({
 // 					x: event.touches[0].pageX,
@@ -170,7 +177,7 @@ class Rect {
 // 				}, this._shapeColor, this);
 
 // 				this.current = rect;
-// 				this.el.appendChild(rect.getHtmlEl());
+// 				this.element.appendChild(rect.getHtmlEl());
 // 			}
 // 		} else this.moveSelectedShape(event)
 // 	}
@@ -189,7 +196,7 @@ class Rect {
 // 					pos.x2 = event.touches[0].clientX;
 // 					pos.y2 = event.touches[0].clientY;
 // 					this.current.setPosition(pos);
-		
+
 // 				} else if (this.drawMode === 'rect') {
 // 					let pos = this.current.getPosition();
 // 					pos.width = event.touches[0].pageX - (pos.x + 300);
@@ -204,8 +211,8 @@ class Rect {
 // 	}
 
 // 	setSize() {
-// 		this.el.setAttribute('width', window.innerWidth);
-// 		this.el.setAttribute('height', window.innerHeight);
+// 		this.element.setAttribute('width', window.innerWidth);
+// 		this.element.setAttribute('height', window.innerHeight);
 // 	}
 
 // 	get shapeColor() { return this._shapeColor };
@@ -226,11 +233,11 @@ class Rect {
 // 			if (this._selectedShape != undefined) this._selectedShape.classList.remove('selected-shape')
 // 			this._selectedShape = el;
 // 			this._selectedShape.classList.add('selected-shape')
-// 			this.selectedShapeZPosition = [...this.el.children].findIndex((c) => {
+// 			this.selectedShapeZPosition = [...this.element.children].findIndex((c) => {
 // 				return c == el
 // 			})
-// 			this.el.removeChild(this._selectedShape);
-// 			this.el.insertBefore(this._selectedShape, this.el.children[-1]);
+// 			this.element.removeChild(this._selectedShape);
+// 			this.element.insertBefore(this._selectedShape, this.element.children[-1]);
 // 		} else {
 // 			this.selectedShape.classList.remove('selected-shape')
 // 			this.selectedShape = undefined;
@@ -238,5 +245,3 @@ class Rect {
 // 	};
 
 // }
-
-
