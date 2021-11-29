@@ -12,7 +12,7 @@ export default class extends Node {
     this.element.setAttributeNS(null, 'stroke-width', '2');
     this.element.setAttributeNS(null, 'stroke', color);
     this.element.setAttributeNS(null, 'fill', color);
-
+this.edges = new Map();
     // this.element.setAttributeNS(null, 'stroke-width', '2');
     // this.element.setAttributeNS(null, 'stroke-fill', 'red');
     // this.element.setAttribute(null, 'fill', color);
@@ -33,9 +33,9 @@ export default class extends Node {
     if (this.graph.selectMode) {
       const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
       e.target.dispatchEvent(evt);
-      console.log('shape click w select mide on', evt);
+      // console.log('shape click w select mide on', evt);
     }
-    console.log('this.centroid', this.centroid)
+    // console.log('this.centroid', this.centroid)
   }
 
   setCoords({ x, y }) {
@@ -44,8 +44,8 @@ export default class extends Node {
   }
 
   setSize({width, height}) {
-    console.log('height', height)
-    console.log('width, width', width)
+    // console.log('height', height)
+    // console.log('width, width', width)
     this.width = width
     this.height =  height
     // this.element.setAttribute('width', width || 0);

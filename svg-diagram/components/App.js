@@ -29,11 +29,11 @@ export default class {
 
     this.eventBus = new EventBus(this.els);
     this.root.addEventListener('option-change', this.handleOptionChange.bind(this))
-    console.log(this);
+    // console.log(this);
   }
 
   handleOptionChange(e) {
-    console.log(e);
+    // console.log(e);
     const { data, type } = e.detail
     if (type === 'draw-mode') {
       this.graph.drawMode = data;
@@ -53,7 +53,7 @@ export default class {
     } else if (type === 'add-edge-confirm') {
       this.graph.addEdge(...this.graph.selectedVertices);
     }
-    console.log('this.graph in app', this.graph)
+    // console.log('this.graph in app', this.graph)
   }
 
 }

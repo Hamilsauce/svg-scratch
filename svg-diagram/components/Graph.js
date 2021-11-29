@@ -16,7 +16,7 @@ export default class {
     this.edgeDirection = 'UNDIRECTED';
 
     this._redoList = [];
-    this.drawMode = 'line';
+    this.drawMode = 'rect';
 
     this._addEdgeMode;
     this.addEdgeMode = false;
@@ -84,7 +84,7 @@ export default class {
     sourceNode.addAdjacent(destinationNode);
 
     if (this.edgeDirection === 'UNDIRECTED') destinationNode.addAdjacent(sourceNode);
- 
+
     const line = new Line({
       x1: sourceNode.centroid.x,
       y1: sourceNode.centroid.y,
@@ -92,7 +92,10 @@ export default class {
       y2: destinationNode.centroid.y,
     }, this._shapeColor, this);
 
-    this.svg.appendChild(line.getHtmlEl());
+    this.svg.appendChild(line.element);
+    sourceNode.edges.set(line.element, { nodeOrder: 0, element: line.element })
+    destinationNode.edges.set(line.element, { nodeOrder: 1, element: line.element })
+    // destinationNode.edge = { nodeOrder: 1, element: line.element }
     this.addEdgeMode = !this.addEdgeMode;
     return [sourceNode, destinationNode];
   }
@@ -101,7 +104,7 @@ export default class {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
     if (!(sourceNode || destinationNode)) return;
-   
+
     sourceNode.removeAdjacent(destinationNode);
     if (this.edgeDirection === Graph.UNDIRECTED) destinationNode.removeAdjacent(sourceNode)
     return [sourceNode, destinationNode];
@@ -120,7 +123,7 @@ export default class {
 
   toggleSelectMode(s) {
     if (this.selectMode) {
-      console.log('toggle on', this);
+      // console.log('toggle on', this);
     } else {
       if (this.selectedShape) {
         this.selectedShape.classList.remove('selected-shape')
@@ -183,6 +186,7 @@ export default class {
   }
 
   mouseMove(event) {
+    event.preventDefault();
     if (!this.selectMode) {
       if (this.drawStart && this.current) {
         if (this.drawMode === 'line') {
@@ -201,6 +205,23 @@ export default class {
     } else {
       this.selectedShape.setAttribute('x', event.touches[0].pageX - (parseInt(this._selectedShape.getAttribute('width')) / 2));
       this.selectedShape.setAttribute('y', event.touches[0].pageY - (parseInt(this._selectedShape.getAttribute('height'))));
+      const node = this.nodes.get(this.selectedShape)
+      if (node.edges.size > 0) {
+        node.edges.forEach((edge, edgeValue) => {
+          if (edge.nodeOrder === 0) {
+            edge.element.setAttribute('x1', node.centroid.x)
+            edge.element.setAttribute('y1', node.centroid.y)
+
+          } else {
+            edge.element.setAttribute('x2', node.centroid.x)
+            edge.element.setAttribute('y2', node.centroid.y)
+
+          }
+        })
+
+
+
+      }
     }
   }
 
