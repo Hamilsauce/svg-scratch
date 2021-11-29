@@ -64,17 +64,18 @@ export default class {
       return this.nodes.get(value);
     } else {
       this.nodes.set(value, vertex);
+      this.svg.appendChild(value);
       return vertex;
     }
   }
   // TODO Use this to Remove new svg nodes
   removeVertex(value) {
-    // TRY MAKING VALUE BE SVG ELEMENT
     const current = this.nodes.get(value);
     if (!current) return;
     for (const node of this.nodes.values()) {
       node.removeAdjacent(current);
     }
+    this.svg.removeChild(value)
     return this.nodes.delete(value);
   }
 
@@ -95,7 +96,6 @@ export default class {
     this.svg.appendChild(line.element);
     sourceNode.edges.set(line.element, { nodeOrder: 0, element: line.element })
     destinationNode.edges.set(line.element, { nodeOrder: 1, element: line.element })
-    // destinationNode.edge = { nodeOrder: 1, element: line.element }
     this.addEdgeMode = !this.addEdgeMode;
     return [sourceNode, destinationNode];
   }
@@ -111,8 +111,20 @@ export default class {
   }
 
 
-  undo() { if (this.svg.lastChild) this.redoList.push(this.svg.removeChild(this.svg.lastChild)) }
-  redo() { if (this.redoList.length > 0) this.svg.appendChild(this.redoList.pop()) }
+  undo() {
+    if (this.svg.lastChild && this.nodes.has(this.svg.lastChild)) {
+      const target = this.nodes.get(this.svg.lastChild)
+      this.redoList.push(target)
+      this.removeVertex(target.element)
+    }
+  }
+  
+  redo() {
+    if (this.redoList.length > 0) {
+      const node = this.redoList.pop();
+      this.addVertex(node.element, node) //this.svg.appendChild(this.redoList.pop())
+    }
+  }
 
   resetShapeZPosition() {
     const refNode = this.svg.children[this.selectedShapeZPosition]
@@ -163,7 +175,7 @@ export default class {
 
         this.current = line;
         this.addVertex(line.element, line)
-        this.svg.appendChild(line.getHtmlEl());
+        // this.svg.appendChild(line.getHtmlEl());
       } else if (this.drawMode === 'rect') {
         const rect = new Rect({
           x: event.touches[0].pageX,
@@ -173,8 +185,8 @@ export default class {
         }, this._shapeColor, this);
 
         this.current = rect;
-        this.addVertex(rect.element, rect)
-        this.svg.appendChild(rect.getHtmlEl());
+        this.addVertex(rect.group, rect)
+        // this.svg.appendChild(rect.element);
       }
     } else this.moveSelectedShape(event)
   }
@@ -233,8 +245,14 @@ export default class {
   get redoList() { return this._redoList };
   set redoList(newValue) { this._redoList = newValue };
 
-  get nodes() { return this._nodes };
-  set nodes(newValue) { this._nodes = newValue };
+  get nodes() {
+    console.log('this._nodes get', this._nodes);
+    return this._nodes
+  };
+  set nodes(newValue) {
+    console.log('this._nodes set', this._nodes);
+    this._nodes = newValue
+  };
 
   get shapeColor() { return this._shapeColor };
   set shapeColor(c) { this._shapeColor = c };
