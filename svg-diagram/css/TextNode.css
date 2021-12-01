@@ -1,0 +1,52 @@
+/* 
+
+.text-node {
+  display: inline-block;
+}
+
+#thesvg {
+  border: 1px solid black;
+}
+
+#viewBox {
+  border: 2px solid black;
+  background: #EBF2DE;
+}
+
+*/
+
+.rect {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+
+.node-text-editor-wrapper {
+  text-align: left;
+  alignment-baseline: baseline;
+}
+
+.text-editor {
+  display: inline-block;
+}
+
+.node-text-editor {
+  display: inline-block;
+}
+
+
+.foreign {
+  text-align: left;
+  alignment-baseline: baseline;
+}
+
+.insideforeign {
+  display: inline-block;
+}
+
+svg {
+  border: 1px solid black;
+}

@@ -1,4 +1,5 @@
 import Node from './Node.js';
+import TextNode from './TextNode.js';
 
 const _SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -9,9 +10,12 @@ export default class extends Node {
     this.graph = graph;
     this.element = this.value
     this.rect = document.createElementNS(_SVG_NS, 'rect')
-    this.textWrapper = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
-    this.text = document.createElement('div')
-    this.textContent = document.createTextNode('Text Mondo');
+    
+    this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
+    
+    // this.textNode.element = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
+    // this.text = document.createElement('div')
+    // this.textContent = document.createTextNode.element('Text Mondo');
    
     this.init(pos, color)
 
@@ -32,19 +36,19 @@ export default class extends Node {
     this.rect.setAttributeNS(null, 'fill', color);
     this.rect.setAttributeNS(null, 'fill', color);
 
-    // this.text.textContent = 'texter!'
+    this.textNode.element.textContent = 'texter!'
     console.log('this.textContent', this.textContent)
     // this.textContent.classList.add('text-content');
-    this.text.classList.add('text');
-    this.textWrapper.classList.add('text-wrapper');
-    // this.textWrapper.style.fill = 'black'
-    this.textWrapper.setAttributeNS(null, 'text-anchor', 'middle');
-    this.text.appendChild(this.textContent);
-    this.textWrapper.appendChild(this.text);
+    // this.textNode.element.classList.add('text');
+    // this.textNode.element.classList.add('text-wrapper');
+    // this.textNode.element.style.fill = 'black'
+    this.textNode.element.setAttributeNS(null, 'text-anchor', 'middle');
+    // this.textNode.element.appendChild(this.textContent);
+    // this.textNode.element.appendChild(this.text);
     
 
     this.element.appendChild(this.rect);
-    this.element.appendChild(this.textWrapper);
+    this.element.appendChild(this.textNode.element);
     // this.wrapper.appendChild(this.element);
     this.setCoords(pos);
     this.setSize(pos);
@@ -62,13 +66,13 @@ export default class extends Node {
  
   handleDoubleClick(e) {
     
-    if (this.textWrapper === e.target) {
+    // if (this.element === e.target) {
    console.log('suk');
-    this.graph.wrapper.contentEditable = true
+    this.textNode.editMode = !this.textNode.editMode
     // setAttribute('contentEditable', 'true')
       // const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this.element } })
       // this.element.dispatchEvent(evt);
-    }
+    // }
     e.preventDefault();
     e.stopImmediatePropagation();
   }
@@ -83,8 +87,8 @@ export default class extends Node {
   setCoords({ x, y }) {
     this.x = x
     this.y = y
-    this.textWrapper.setAttribute('x', this.centroid.x - ((parseInt(this.text.width) || 0) / 2))
-    this.textWrapper.setAttribute('y', this.centroid.y + ((parseInt(this.text.height) || 0) / 2));
+    this.textNode.element.setAttribute('x', this.centroid.x - ((parseInt(this.textNode.element.getAttribute('width')) || 0) / 2))
+    this.textNode.element.setAttribute('y', this.centroid.y + ((parseInt(this.textNode.element.getAttribute('height')) || 0) / 2));
   }
 
   setSize({ width, height }) {
@@ -94,13 +98,13 @@ export default class extends Node {
 
   getTextAttribute(attr) {}
   setTextAttribute(attr, value) {
-    this.textWrapper.setAttribute('x', this.centroid.x - ((parseInt(this.text.getAttribute('width')) || 0) / 2))
-    this.textWrapper.setAttribute('y', this.centroid.y + ((parseInt(this.text.getAttribute('height')) || 0) / 2));
+    this.textNode.element.setAttribute('x', this.centroid.x - ((parseInt(this.textNode.element.getAttribute('width')) || 0) / 2))
+    this.textNode.element.setAttribute('y', this.centroid.y + ((parseInt(this.textNode.element.getAttribute('height')) || 0) / 2));
   }
 
   updateTextPosition(alignment = 'center') {
-    this.textWrapper.setAttribute('x', this.centroid.x)
-    this.textWrapper.setAttribute('y', this.centroid.y)
+    this.textNode.element.setAttribute('x', this.centroid.x)
+    this.textNode.element.setAttribute('y', this.centroid.y)
   }
 
 
