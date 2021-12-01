@@ -2,26 +2,45 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <style type="text/css" media="all">
-    	body {
-    		display: flex;
-    		flex-direction: column;
-    		gap: 15px;
-    		padding: 15px;
-    	}
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Sweet Title</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-	<a class="nav-link" href="chrome-share-popup/index.html">Popup footer no touch</a>
-	<a class="nav-link" href="chrome-share-swipe/index.html">Popup footer w touch</a>
-	<a class="nav-link" href="sporttrade/index.html">Sporttrade Clone</a>
-	<a class="nav-link" href="svg-diagram/diagram.html">SVG Diagram</a>
-	<a class="nav-link" href="svg-diagram/svg-draw.html">SVG Draw</a>
-
+  <div class="app">
+    <div class="app-body">
+      <div class="container">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <!-- Using g to inherit presentation attributes -->
+          <g fill="pink" stroke="green" stroke-width="5">
+            <circle cx="90" cy="90" r="25" />
+            <!-- <circle cx="40" cy="90" r="25" fill="blue" /> -->
+            <circle cx="130" cy="130" r="25" fill="purple" />
+          </g>
+          <g  
+         
+          class="node rect selected-shape" 
+          data-node-type="rect" 
+          data-node-id="node1" 
+          stroke-width="2">
+            <rect   width="100" height="100" y="200" x="200" fill="yellow" >
+            </rect>
+            <text x="230" y="255" style="fill: pink;">texter!</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    
+      
+    
+  </div>
+  <script src="./script.js" type="module"></script>
 </body>
 
 </html>
+<g class="node rect selected-shape" data-node-type="rect" data-node-id="node1" stroke-width="2" x="60.28125" y="83.5888900756836" width="164.437497" height="107.50000762939449"> <rect fill="#ffffff" x="60.28125" y="83.5888900756836" width="164.437497" height="107.50000762939449"></rect><text x="142" y="136.5" style="fill: pink;">
+  texter!
+  </text>
+  </g>

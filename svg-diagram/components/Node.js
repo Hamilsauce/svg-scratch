@@ -3,7 +3,6 @@ export default class {
   constructor(value = null, adjacentList = []) {
     this._value = value;
     this._adjacentList = adjacentList;
-
   }
 
   addAdjacent(node) {
@@ -20,13 +19,12 @@ export default class {
 
   locateAdjacent(node) {
     return this._adjacentList.indexOf(node);
-
   }
 
   isAdjacent(node) {
     return this._adjacentList.indexOf(node) > -1;
-
   }
+  
   get adjacents() { return this._adjacentList };
   set adjacents(newValue) { this._adjacentList = newValue }
   get value() { return this._value };

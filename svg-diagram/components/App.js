@@ -37,10 +37,13 @@ export default class {
     const { data, type } = e.detail
     if (type === 'draw-mode') {
       this.graph.drawMode = data;
+  
     } else if (type === 'select-mode') {
       this.graph.selectMode = data;
+    
     } else if (type === 'color-selection') {
       this.graph.shapeColor = data;
+   
     } else if (type === 'undo') {
       this.graph.undo();
 
@@ -50,6 +53,7 @@ export default class {
     } else if (type === 'add-edge-mode') {
       this.graph.addEdgeMode = !this.graph.addEdgeMode;
       e.target.style.backgroundColor = this.graph.addEdgeMode ? 'red' : '';
+    
     } else if (type === 'add-edge-confirm') {
       this.graph.addEdge(...this.graph.selectedVertices);
     }

@@ -28,6 +28,7 @@ export default class {
     this.els.addEdgeButton.addEventListener('click', e => {
       this.dispatch({ source: e.target, type: 'add-edge-mode', data: null })
     });
+    
     this.els.addEdgeConfirmButton.addEventListener('click', e => {
       this.dispatch({ source: e.target, type: 'add-edge-confirm', data: null })
     });

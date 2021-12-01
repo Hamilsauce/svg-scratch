@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  /* min-width:100vw;min-height:100vh; */
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: white;
+}
+
+
+
+.app {
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #444A92;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #75AA52;
+}
+
+.rect {
+  stroke: #75AA52;
+  outline-width: 5px;
+  outline: #75AA52;
+  /* stroke-width: 5px; */
+  overflow: hidden;
+}

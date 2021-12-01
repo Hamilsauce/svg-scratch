@@ -5,46 +5,72 @@ const _SVG_NS = 'http://www.w3.org/2000/svg';
 // RECT
 export default class extends Node {
   constructor(pos, color, graph) {
-    super(
-      document.createElementNS(_SVG_NS, 'rect')
-    );
-    this.element = this.value
-    this.group = document.createElementNS(_SVG_NS, 'g')
-    this.text = document.createElementNS(_SVG_NS, 'text')
+    super(document.createElementNS(_SVG_NS, 'g'));
     this.graph = graph;
+    this.element = this.value
+    this.rect = document.createElementNS(_SVG_NS, 'rect')
+    this.textWrapper = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
+    this.text = document.createElement('div')
+    this.textContent = document.createTextNode('Text Mondo');
+   
     this.init(pos, color)
 
     this.edges = new Map();
+    this.element.addEventListener('dblclick', this.handleDoubleClick.bind(this));
     this.element.addEventListener('click', this.handleClick.bind(this));
+    this.element.addEventListener('touchstart', this.handleClick.bind(this));
   }
 
   init(pos, color) {
-    this.element.classList.add('rect');
+    this.element.classList.add('node');
+    this.element.dataset.nodeType = 'rect'
+    this.element.dataset.nodeId = 'node1'
 
-    // const rect = document.createElementNS(_SVG_NS, 'rect')
-    // const g = document.createElementNS(_SVG_NS, 'g')
-    this.group.classList.add('node');
+    this.rect.classList.add('rect');
+    this.rect.setAttributeNS(null, 'stroke-width', '2');
+    this.rect.setAttributeNS(null, 'stroke', color);
+    this.rect.setAttributeNS(null, 'fill', color);
+    this.rect.setAttributeNS(null, 'fill', color);
 
-    // rect.classList.add('rect');
-    this.element.setAttributeNS(null, 'stroke-width', '2');
-    this.element.setAttributeNS(null, 'stroke', color);
-    this.element.setAttributeNS(null, 'fill', color);
+    // this.text.textContent = 'texter!'
+    console.log('this.textContent', this.textContent)
+    // this.textContent.classList.add('text-content');
+    this.text.classList.add('text');
+    this.textWrapper.classList.add('text-wrapper');
+    // this.textWrapper.style.fill = 'black'
+    this.textWrapper.setAttributeNS(null, 'text-anchor', 'middle');
+    this.text.appendChild(this.textContent);
+    this.textWrapper.appendChild(this.text);
+    
+
+    this.element.appendChild(this.rect);
+    this.element.appendChild(this.textWrapper);
+    // this.wrapper.appendChild(this.element);
     this.setCoords(pos);
     this.setSize(pos);
-
-    this.text.textContent = 'texter!'
-    this.text.style.fill = 'pink'
-
-    this.group.appendChild(this.element);
-    this.group.appendChild(this.text);
-    // this.group = g;
+ 
   }
 
   handleClick(e) {
+   console.log('heard in rect');
     if (this.graph.selectMode) {
-      const evt = new CustomEvent('shapeSelected', { bubbles: true, detail: { event: e } })
-      e.target.dispatchEvent(evt);
+      const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this.element } })
+      this.element.dispatchEvent(evt);
     }
+    e.stopPropagation();
+  }
+ 
+  handleDoubleClick(e) {
+    
+    if (this.textWrapper === e.target) {
+   console.log('suk');
+    this.graph.wrapper.contentEditable = true
+    // setAttribute('contentEditable', 'true')
+      // const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this.element } })
+      // this.element.dispatchEvent(evt);
+    }
+    e.preventDefault();
+    e.stopImmediatePropagation();
   }
 
   setRotate(angle) {
@@ -57,53 +83,67 @@ export default class extends Node {
   setCoords({ x, y }) {
     this.x = x
     this.y = y
-    this.group.setAttribute('x', x)
-    this.group.setAttribute('y', y)
-
-
+    this.textWrapper.setAttribute('x', this.centroid.x - ((parseInt(this.text.width) || 0) / 2))
+    this.textWrapper.setAttribute('y', this.centroid.y + ((parseInt(this.text.height) || 0) / 2));
   }
 
   setSize({ width, height }) {
     this.width = width
     this.height = height
-    this.group.width = width
-    this.group.height = height
-    this.text.setAttribute('x', this.centroid.x)// - (parseInt(this.text.getAttribute('width')) / 2))
-    this.text.setAttribute('y', this.centroid.y)// - (parseInt(this.text.getAttribute('height')) / 2))
-    // this.text.setAttribute('y', this.centroid.y)
-
-
-
   }
 
-  get position() {
+  getTextAttribute(attr) {}
+  setTextAttribute(attr, value) {
+    this.textWrapper.setAttribute('x', this.centroid.x - ((parseInt(this.text.getAttribute('width')) || 0) / 2))
+    this.textWrapper.setAttribute('y', this.centroid.y + ((parseInt(this.text.getAttribute('height')) || 0) / 2));
+  }
+
+  updateTextPosition(alignment = 'center') {
+    this.textWrapper.setAttribute('x', this.centroid.x)
+    this.textWrapper.setAttribute('y', this.centroid.y)
+  }
+
+
+  get centroid() {
     return {
-      x: this.x,
-      y: this.y,
-      width: this.width,
-      height: this.height,
+      x: (this.x + this.width / 2) || 0,
+      y: (this.y + this.height / 2) || 0,
     }
   }
+  
+  get size() { return { width: this.width, height: this.height, } }
 
+  get coords() { return { x: this.x, y: this.y, } }
+
+  get position() { return { x: this.x, y: this.y, width: this.width, height: this.height, } }
   set position({ x, y, width, height }) {
-    this._position = {
-      x: x ? x : this.position.x,
-      y: y ? y : this.position.y,
-      width: width ? width : this.position.width,
-      height: height ? height : this.position.height,
-    }
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
   }
 
-  get x() { return this.element.getAttribute('x') }
-  set x(newValue) { this.element.setAttribute('x', newValue) }
-  get y() { return this.element.getAttribute('y') }
-  set y(newValue) { this.element.setAttribute('y', newValue) }
-  get width() { return this.element.getAttribute('width') }
-  set width(newValue) { this.element.setAttribute('width', newValue) }
-  get height() { return this.element.getAttribute('height') }
-  set height(newValue) { this.element.setAttribute('height', newValue) }
+  get x() { return parseInt(this.rect.getAttribute('x')) || 0 }
+  set x(newValue) {
+    this.rect.setAttribute('x', newValue)
+    this.updateTextPosition();
+  }
+  
+  get y() { return parseInt(this.rect.getAttribute('y')) || 0 }
+  set y(newValue) {
+    this.rect.setAttribute('y', newValue)
+    this.updateTextPosition();
+  }
 
-  get size() { return { width: parseInt(this.width), height: parseInt(this.height), } }
-  get coords() { return { x: parseInt(this.x), y: parseInt(this.y), } }
-  get centroid() { return { x: parseInt(this.x) + (parseInt(this.width) / 2), y: parseInt(this.y) + (parseInt(this.height) / 2), } }
+  get width() { return parseInt(this.rect.getAttribute('width')) || 0 }
+  set width(newValue) {
+    this.rect.setAttribute('width', newValue)
+    this.updateTextPosition();
+  }
+  
+  get height() { return parseInt(this.rect.getAttribute('height')) || 0; } //return this.rect.getAttribute('height') }
+  set height(newValue) {
+    this.rect.setAttribute('height', newValue)
+    this.updateTextPosition();
+  }
 }
