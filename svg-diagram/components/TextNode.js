@@ -17,86 +17,47 @@ export default class {
     this._textValue = 'this.element.nodeValue;'
     this._editMode = false;
 
-    this.textWrapper = null; // = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
-    this.textEditor = null; // = document.createElement("div")=null;
-    this.text = null; // = document.createtext(text);
-
-
+    this.textWrapper = null;
+    this.textEditor = null; 
+    this.text = null;
   };
 
   editText(text) {
-    // this.element.setAttribute('display', 'none')
-    // this.parent.element.removeChild(this.element)
-    console.log('this.parent 5', this.element)
-    // this.textValue = 'fuck'
-    console.log('this.parent 7', this.element)
     this.textWrapper = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
     this.textEditor = document.createElement("div");
     this.text = document.createTextNode(text);
-console.log('this.textEditor.getAttribute(width)', this.textEditor.getAttribute('width'))
 
     this.textEditor.appendChild(this.text);
     this.textEditor.setAttribute("contentEditable", "true");
-    // this.textEditor.setAttribute("width", "auto");
+    this.textEditor.setAttribute("width", `${this.parent.width}px`)
+    this.textEditor.classList.add('node-text-editor'); //to make div fit text
 
-    this.textWrapper.setAttribute("width", "100%");
+    this.textWrapper.setAttribute("width", this.parent.width);
     this.textWrapper.setAttribute("height", "100%");
-
-    // this.textWrapper.setAttribute('x', this.element.getAttribute('x')) // - ((parseInt(this.element.getAttribute('width')) || 0) / 2))
-    // this.textWrapper.setAttribute('y', this.element.getAttribute('y')) //+ ((parseInt(this.element.getAttribute('height')) || 0) / 2));
-
-    // this.textWrapper.setAttribute('x', this.parent.centroid.x  - ((parseInt(this.element.getAttribute('width')) || 0) / 2))
-    // this.textWrapper.setAttribute('y', this.parent.centroid.y + ((parseInt(this.element.getAttribute('height')) || 0) / 2));
-
-
-
+    this.textWrapper.setAttribute('x', this.parent.x)
+    this.textWrapper.setAttribute('y', this.parent.centroid.y - 20)
     this.textWrapper.classList.add("node-text-editor-wrapper");
 
-    this.textEditor.classList.add('node-text-editor'); //to make div fit text
-    this.textEditor.onblur = this.editAccept.bind(this);
-console.log('this.element.getAttribute(width)', this.element.getAttributeNS(null,'width'))
-    this.textWrapper.setAttributeNS(null, "transform", `translate(${100} ${this.parent.centroid.y})`)
-    // this.textWrapper.setAttributeNS(null, "transform", `translate(${this.parent.centroid.x - 50} ${this.parent.centroid.y + 50})`)
-    // this.textWrapper.setAttributeNS(null, "transform", `translate(${this.parent.centroid.x} ${this.parent.centroid.y})`)
     this.parent.element.removeChild(this.element)
     this.textWrapper.appendChild(this.textEditor)
+    this.parent.element.appendChild(this.textWrapper);
 
     ham.event.selectAllContent(this.textEditor)
-    this.parent.element.appendChild(this.textWrapper);
 
     this.textEditor.click()
     this.textEditor.focus()
 
-
-
-    // textdiv.appendChild(textnode);
-    // textdiv.setAttribute("contentEditable", "true");
-    // textdiv.setAttribute("width", "auto");
-    // myforeign.setAttribute("width", "100%");
-    // myforeign.setAttribute("height", "100%");
-    // myforeign.classList.add("foreign"); //to make div fit text
-    // textdiv.classList.add("insideforeign"); //to make div fit text
-    // myforeign.setAttributeNS(null, "transform", "translate(" + localpoint.x + " " + localpoint.y + ")");
-
+    this.textEditor.onblur = this.editAccept.bind(this);
   }
 
   editAccept() {
     console.log('this.parent.element.children[this.positionIndex -1]', this.parent.element.children)
     this.textEditor.onblur = null;
-    // this.parent.element.appendChild(this.element)
-    // this.element.nodeValue = this.textEditor.innerText;
-    // this.element.setAttribute('display', 'inline-block')
-
     this.textValue = this.textEditor.innerText;
-    this.parent.element.insertBefore(this.element, this.parent.element.children[this.positionIndex])
-    // this.text = null;
-    // this.textEditor = null;
     this.textWrapper.remove()
-    // this.textWrapper = null;
-
-    // this.element.style.display = 'inline-block'
-
+    this.parent.element.insertBefore(this.element, this.parent.element.children[this.positionIndex])
   }
+
   editCancel() {
     console.log('cancel');
     this.textEditor.onblur = null;
@@ -104,12 +65,9 @@ console.log('this.element.getAttribute(width)', this.element.getAttributeNS(null
     this.textEditor = null;
     this.textWrapper.remove()
     this.textWrapper = null;
-    // this.parent.element.insertBefore(this.element, this.parent.element.children[this.positionIndex])
     this.parent.element.insertBefore(this.element, this.parent.element.children[this.positionIndex])
-    // this.element.style.display = 'inline-block'
     this.element.childNodes[0].nodeValue = textdiv.innerText;
     this.element.setAttribute('display', 'inline-block')
-
   }
 
 
@@ -119,16 +77,13 @@ console.log('this.element.getAttribute(width)', this.element.getAttributeNS(null
     if (this.editMode === true) {
       this.editText(this.textValue || 'Text here...')
     }
-    else {
-
-    }
+    else {}
   };
 
   get textValue() { return this._textValue };
   set textValue(newValue) {
     console.log('newValue', newValue);
     this._textValue = newValue
-    // this.element.nodeValue = newValue;
     this.element.childNodes[0].nodeValue = this.textValue;
   }
 

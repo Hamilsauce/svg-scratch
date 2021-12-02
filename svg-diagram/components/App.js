@@ -27,7 +27,7 @@ export default class {
       'addEdgeButton': DOM.qs('#add-edge-button'),
     }
 
-    this.eventBus = new EventBus(this.els);
+    this.optionChangeBus = new EventBus(this.els);
     this.root.addEventListener('option-change', this.handleOptionChange.bind(this))
     // console.log(this);
   }

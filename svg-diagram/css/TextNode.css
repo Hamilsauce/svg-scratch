@@ -15,28 +15,47 @@
 
 */
 
-.rect {
+/* .rect {
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0px;
-}
+} */
 
 .node-text-editor-wrapper {
-  text-align: left;
+  /* text-align: left; */
   alignment-baseline: baseline;
 }
 
 .text-editor {
-  display: inline-block;
+  /* display: inline-block; */
+  background: #3AA544;
+  padding: 10px;
+  
+  
 }
 
 .node-text-editor {
   display: inline-block;
+  /* background: #3AA544; */
+  padding: 6px;
+  
+  width: 100%;
+  text-align: center;
 }
 
+.node-text-editor:hover {
+  display: inline-block;
+  /* background: #3AA544; */
+  padding: 6px;
+
+  width: 100%;
+  text-align: center;
+  border: 1px solid #B9D32C;
+  white-space: nowrap;
+}
 
 .foreign {
   text-align: left;

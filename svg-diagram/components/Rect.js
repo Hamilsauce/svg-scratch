@@ -10,19 +10,12 @@ export default class extends Node {
     this.graph = graph;
     this.element = this.value
     this.rect = document.createElementNS(_SVG_NS, 'rect')
-    
     this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
-    
-    // this.textNode.element = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject')
-    // this.text = document.createElement('div')
-    // this.textContent = document.createTextNode.element('Text Mondo');
-   
     this.init(pos, color)
 
     this.edges = new Map();
     this.element.addEventListener('dblclick', this.handleDoubleClick.bind(this));
     this.element.addEventListener('click', this.handleClick.bind(this));
-    this.element.addEventListener('touchstart', this.handleClick.bind(this));
   }
 
   init(pos, color) {
@@ -56,25 +49,18 @@ export default class extends Node {
   }
 
   handleClick(e) {
-   console.log('heard in rect');
-    if (this.graph.selectMode) {
-      const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this.element } })
+    if (this.graph.selectMode || this.graph.addEdgeMode) {
+      const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this } })
       this.element.dispatchEvent(evt);
     }
     e.stopPropagation();
+    e.preventDefault();
   }
  
   handleDoubleClick(e) {
-    
-    // if (this.element === e.target) {
-   console.log('suk');
     this.textNode.editMode = !this.textNode.editMode
-    // setAttribute('contentEditable', 'true')
-      // const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this.element } })
-      // this.element.dispatchEvent(evt);
-    // }
     e.preventDefault();
-    e.stopImmediatePropagation();
+    e.stopPropagation();
   }
 
   setRotate(angle) {
