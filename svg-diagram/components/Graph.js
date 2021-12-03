@@ -1,50 +1,105 @@
 import Line from './Line.js';
 import Rect from './Rect.js';
+import Vertex from './Vertex.js';
 
 // const graphMode = 'EDGE' || 'SELECT' || 'DRAW' || 'DELETE'
-const graphMode = {
-  DRAW: 'DRAW',
-  SELECT: 'SELECT',
-  EDGE: 'EDGE',
-  DELETE: 'DELETE'
+
+const GRAPH_MODES = [
+  ['DRAW', false],
+  ['SELECT', false],
+  ['EDGE', false],
+  ['DELETE', false],
+]
+
+export class VertexCollection {
+  constructor(seed = [[]]) {
+    this._vertices = new Map();
+  }
+
+  init(seed) {
+    if (Array.isArray(seed)) {
+      this.vertices = seed.every(_ => Array.isArray(_)) ? new Map(seed) : new Map();
+    }
+  }
+
+  add(key, value, zIndex) {
+    if (!(key || value)) return;
+    this.vertices.set(key, { ...value, zIndex: zIndex })
+    return this.vertices.get(key)
+  }
+
+  setProperties(callback, filterFn) {
+    if (!callback) return;
+
+    const modifiedVertices = new Map()
+    this.vertices.forEach((node, vertex, map) => {
+      if (filterFn) {
+        if (filterFn(node, vert, map) === true) {
+          callback(node, vert, map);
+          modifiedVertices.set(vert, node)
+        }
+      }
+      else {
+        callback(node, vert, map);
+        modifiedVertices.set(vert, node)
+      }
+    });
+    return modifiedVertices;
+  }
+
+  getVertexZ(vertex) {
+    return this.vertices.has(vertex) ? this.vertices.get(key).zIndex : -1;
+  }
+
+  getVertexX() {}
+  getVertexY() {}
+
+  // get vertices() { return this._vertices };
+  // set vertices(newValue) { this._vertices = newValue };
+
+
+  get vertices() { return this._vertices };
+  set vertices(newValue) { this._vertices = newValue };
 }
 
 // Graph
 export default class {
-  constructor(el, color) {
-    this.element = el;
-    this._nodes = new Map();
-    this.selectedVertices = [];
+  constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
+    this._element = element;
+    // this._vertices = new VertexCollection(seedData);
+    this._vertices = new Map();
+    this._selectedVertices = [];
     this._redoList = [];
+    this.optionActionMap = this.initOptionActions();
+    this._selectedVertex = null;
+    this._selectedVertexZPosition = null;
 
-    this._selectedNode = null;
-    this._selectedNodeZPosition = null;
-
-
-    this._graphMode
-
-    this._selectMode = false;
-    this._addEdgeMode = false;
+    this.graphModeMap = new Map(GRAPH_MODES)
+    this._graphMode;
+    this.graphMode = graphMode;
     this.drawMode = 'rect';
 
-    this._shapeColor = color || '#ffffff';
+    this._vertexFill = vertexFill || '#ffffff';
     this.edgeDirection = 'UNDIRECTED';
 
     this.setSize();
-
-    this.element.addEventListener('node-select', this.handleNodeSelect.bind(this))
-    this.element.addEventListener('click', this.handleClick.bind(this))
-    this.element.ontouchstart = this.mouseDown.bind(this);
-    this.element.ontouchend = this.mouseUp.bind(this);
-    this.element.onmouseout = this.mouseUp.bind(this);
-    this.element.ontouchmove = this.mouseMove.bind(this);
   }
 
-  handleClick(e) {
-    console.log('handleClick', e);
-    if (this.addEdgeMode === true && this.nodes.has(e.detail.target)) {
-      this.selectedVertices.push(this.nodes.get(e.detail.target))
-      this.nodes.get(e.detail.target).value.classList.add('selected-node')
+  get children() {
+    return [...this.element.children]
+  }
+
+  getVertexZ(vertex) {
+    if (!vertex) return;
+    const index = this.children.indexOf(vertex)
+    return index === -1 ? null : index;
+  }
+
+  handleEdgeMode(e) {
+    console.log('k', e);
+    if (this.addEdgeMode === true && this.vertices.has(e.detail.target)) {
+      this.selectedVertices.push(this.vertices.get(e.detail.target))
+      this.vertices.get(e.detail.target).value.classList.add('selected-vertex')
 
       if (this.selectedVertices.length === 2) {
         const [src, dest] = this.selectedVertices
@@ -54,25 +109,68 @@ export default class {
       }
     }
   }
+  get activeGraphMode() {
+    return [...this.graphModeMap].reduce((mode, [key, val], i) => value === true ? key : mode, '');
+  }
 
-  handleNodeSelect(e) {
-    console.log('handleNodeSelect', e);
-    if (this.selectedNode) this.resetShapeZPosition();
-    // this.selectedNodeZPosition = this.element.nodes.get(e.detail.target.element)
-    this.selectedNodeZPosition = [...this.element.children].findIndex((c) => c === e.detail.target.element);
-    if (this.selectMode || this.addEdgeMode) {
-      this.selectedNode = this.nodes.get(e.detail.target.element)
-      console.log('this.nodes.get(e.detail.target.element).element', this.nodes.get(e.detail.target.element))
+  set activeGraphMode(newValue) {
+    this._mode = newValue
+  }
+
+  changeGraphMode(incomingMode = '') {
+    if (incomingMode !== 'string') return;
+    if (this.graphModeMap.has(incomingMode.toUpperCase())) {
+      this.graphModeMap.get(this.activeGraphMode) = false;
+      this.graphModeMap.get(incomingMode) = true;
+    }
+  }
+
+  selectVertex(e) {
+    const targetVertex = e.detail.target;
+    const targetNode = this.vertices.get(targetVertex);
+    console.log({ targetVertex });
+    if (this.graphMode === 'SELECT') {
+      // this.selectedVertices = 
+      if (!(this.selectedVertices[0] && this.selectedVertices.includes(targetVertex))) {
+        targetNode.isSelected = true;
+        this.selectedVertices.push(targetVertex);
+      } else if (targetVertex === this.selectedVertices[0]) {
+        targetNode.isSelected = false;
+        this.selectedVertices = [];
+      }
+    } else if (this.graphMode === 'EDGE') {
+
+      this.selectedVertices.push(targetVertex)
+      targetNode.isSelected = true;
+      if (this.selectedVertices.length === 2) {
+        const [src, dest] = this.selectedVertices
+        this.addEdge(src, dest)
+        this.vertices.get(src).isSelected = false;
+        this.vertices.get(dest).isSelected = false;
+        this.selectedVertices = [];
+      }
     }
 
-    console.log('[...this.nodes]', [...this.nodes])
-    // this.handleClick(e)
+    // console.log('handletargetVertexSelect', e);
+    // if (this.selectedVertex) this.resetShapeZPosition();
+    // this.selectedVertexZPosition = [...this.element.children].findIndex((child) => child === targetVertex);
+    // // this.selectedVertexZPosition = this.element.vertices.get(e.detail.target.element)
+
+    // if (this.graphMode || this.addEdgeMode) {
+    //   this.selectedVertex = this.vertices.get(e.detail.target.element)
+    //   console.log('this.vertices.get(e.detail.target.element).element', this.vertices.get(e.detail.target.element))
+    // }
+
+    console.log('[...this.vertices]', this)
+    // this.handleEdgeMode(e)
   }
+
+
   mouseDown(event) {
     const targ = event.target;
     console.log({ targ });
     console.log('this', this)
-    if (!(this.selectMode || this.addEdgeMode)) {
+    if (this.graphMode === 'DRAW') {
       if (true) {
 
       }
@@ -83,92 +181,100 @@ export default class {
           y1: event.touches[0].pageY,
           x2: event.touches[0].pageX,
           y2: event.touches[0].pageY
-        }, this._shapeColor, this);
+        }, this._vertexFill, this);
 
         this.current = line;
         this.addVertex(line.element, line)
       } else if (this.drawMode === 'rect') {
-        const rect = new Rect({
+        // const rect = new Rect({
+        //   x: event.touches[0].pageX,
+        //   y: event.touches[0].pageY,
+        //   width: 0,
+        //   height: 0,
+        // }, this._vertexFill, this);
+        const vertex = new Vertex({
           x: event.touches[0].pageX,
           y: event.touches[0].pageY,
           width: 0,
           height: 0,
-        }, this._shapeColor, this);
-        this.current = rect;
-        this.addVertex(rect)
+        }, this.children.length, this.vertexFill, this);
+        this.current = vertex;
+        this.addVertex(vertex)
+        // this.current = rect;
+        // this.addVertex(rect)
       }
     } else {}
     event.stopPropagation()
   }
-
 
   get addEdgeMode() { return this._addEdgeMode }
   set addEdgeMode(newValue) {
     this._addEdgeMode = newValue
     if (newValue === false) {
       this.selectedVertices.forEach(v => {
-        v.value.classList.remove('selected-node')
+        v.value.classList.remove('selected-vertex')
       });
       this.selectedVertices = []
     }
   }
 
-  // TODO Use this to create new svg nodes
+  // TODO Use this to create new svg vertices
   addVertex(vertex) {
-    if (this.nodes.has(vertex.element)) {
-      return this.nodes.get(vertex.element);
+    if (this.vertices.has(vertex.element)) {
+      return this.vertices.get(vertex.element);
     } else {
-      this.nodes.set(vertex.element, vertex);
+      this.vertices.set(vertex.element, vertex);
       this.element.appendChild(vertex.element);
       return vertex;
     }
   }
-  // TODO Use this to Remove new svg nodes
+
+  // TODO Use this to Remove new svg vertices
   removeVertex(value) {
-    const current = this.nodes.get(value);
+    const current = this.vertices.get(value);
     if (!current) return;
-    for (const node of this.nodes.values()) {
-      node.removeAdjacent(current);
+    for (const vertex of this.vertices.values()) {
+      vertex.removeAdjacent(current);
     }
     this.element.removeChild(value)
-    return this.nodes.delete(value);
+    return this.vertices.delete(value);
   }
 
   addEdge(source, destination) {
-    const sourceNode = this.addVertex(source.element);
-    const destinationNode = this.addVertex(destination.element);
-    sourceNode.addAdjacent(destinationNode);
+    const sourceVertex = this.addVertex(source.element);
+    const destinationVertex = this.addVertex(destination.element);
+    sourceVertex.addAdjacent(destinationVertex);
 
-    if (this.edgeDirection === 'UNDIRECTED') destinationNode.addAdjacent(sourceNode);
+    if (this.edgeDirection === 'UNDIRECTED') destinationVertex.addAdjacent(sourceVertex);
 
     const line = new Line({
-      x1: sourceNode.centroid.x,
-      y1: sourceNode.centroid.y,
-      x2: destinationNode.centroid.x,
-      y2: destinationNode.centroid.y,
-    }, this._shapeColor, this);
+      x1: sourceVertex.centroid.x,
+      y1: sourceVertex.centroid.y,
+      x2: destinationVertex.centroid.x,
+      y2: destinationVertex.centroid.y,
+    }, this._vertexFill, this);
 
     this.element.appendChild(line.element);
-    sourceNode.edges.set(line.element, { nodeOrder: 0, element: line.element })
-    destinationNode.edges.set(line.element, { nodeOrder: 1, element: line.element })
+    sourceVertex.edges.set(line.element, { vertexOrder: 0, element: line.element })
+    destinationVertex.edges.set(line.element, { vertexOrder: 1, element: line.element })
     this.addEdgeMode = !this.addEdgeMode;
-    return [sourceNode, destinationNode];
+    return [sourceVertex, destinationVertex];
   }
 
   removeEdge(source, destination) {
-    const sourceNode = this.nodes.get(source);
-    const destinationNode = this.nodes.get(destination);
-    if (!(sourceNode || destinationNode)) return;
+    const sourceVertex = this.vertices.get(source);
+    const destinationVertex = this.vertices.get(destination);
+    if (!(sourceVertex || destinationVertex)) return;
 
-    sourceNode.removeAdjacent(destinationNode);
-    if (this.edgeDirection === Graph.UNDIRECTED) destinationNode.removeAdjacent(sourceNode)
-    return [sourceNode, destinationNode];
+    sourceVertex.removeAdjacent(destinationVertex);
+    if (this.edgeDirection === Graph.UNDIRECTED) destinationVertex.removeAdjacent(sourceVertex)
+    return [sourceVertex, destinationVertex];
   }
 
 
   undo() {
-    if (this.element.lastChild && this.nodes.has(this.element.lastChild)) {
-      const target = this.nodes.get(this.element.lastChild)
+    if (this.element.lastChild && this.vertices.has(this.element.lastChild)) {
+      const target = this.vertices.get(this.element.lastChild)
       this.redoList.push(target)
       this.removeVertex(target.element)
     }
@@ -176,26 +282,26 @@ export default class {
 
   redo() {
     if (this.redoList.length > 0) {
-      const node = this.redoList.pop();
-      this.addVertex(node.element, node) //this.element.appendChild(this.redoList.pop())
+      const vertex = this.redoList.pop();
+      this.addVertex(vertex.element, vertex) //this.element.appendChild(this.redoList.pop())
     }
   }
 
   resetShapeZPosition() {
-    const refNode = this.element.children[this.selectedNodeZPosition]
-    this.selectedNode.classList.remove('selected-node')
-    this.selectedNode.classList.add('prev-selected-shape')
-    this.element.insertBefore(this.selectedNode, refNode)
+    const refVertex = this.element.children[this.selectedVertexZPosition]
+    this.selectedVertex.classList.remove('selected-vertex')
+    this.selectedVertex.classList.add('prev-selected-shape')
+    this.element.insertBefore(this.selectedVertex, refVertex)
   }
 
-  toggleSelectMode(s) {
-    if (this.selectMode) {} else {
-      if (this.selectedNode) {
-        this.selectedNode.classList.remove('selected-node')
-        this.resetShapeZPosition();
-      }
-    }
-  }
+  // toggleSelectMode(s) {
+  //   if (this.graphMode) {} else {
+  //     if (this.selectedVertex) {
+  //       this.selectedVertex.classList.remove('selected-vertex')
+  //       this.resetShapeZPosition();
+  //     }
+  //   }
+  // }
 
   mouseUp(event) {
     this.drawStart = false;
@@ -204,7 +310,7 @@ export default class {
 
   mouseMove(event) {
     event.preventDefault();
-    if (!this.selectMode) {
+    if (this.graphMode === 'DRAW') {
       if (this.drawStart && this.current) {
         if (this.drawMode === 'line') {
           let pos = this.current.getPosition();
@@ -220,21 +326,21 @@ export default class {
         }
       }
     } else {
-      // this.handleClick(event)
-      const node = this.nodes.get(this.selectedNode)
-      node.setCoords({
-        x: parseInt(event.touches[0].pageX) - (node.width / 2),
-        y: parseInt(event.touches[0].pageY) - (node.height),
+      // this.handleEdgeMode(event)
+      const vertex = this.vertices.get(e.target)
+      vertex.setCoords({
+        x: parseInt(event.touches[0].pageX) - (vertex.width / 2),
+        y: parseInt(event.touches[0].pageY) - (vertex.height),
       });
 
-      if (node.edges.size > 0) {
-        node.edges.forEach((edge, edgeValue) => {
-          if (edge.nodeOrder === 0) {
-            edge.element.setAttribute('x1', node.centroid.x)
-            edge.element.setAttribute('y1', node.centroid.y)
+      if (vertex.edges.size > 0) {
+        vertex.edges.forEach((edge, edgeValue) => {
+          if (edge.vertexOrder === 0) {
+            edge.element.setAttribute('x1', vertex.centroid.x)
+            edge.element.setAttribute('y1', vertex.centroid.y)
           } else {
-            edge.element.setAttribute('x2', node.centroid.x)
-            edge.element.setAttribute('y2', node.centroid.y)
+            edge.element.setAttribute('x2', vertex.centroid.x)
+            edge.element.setAttribute('y2', vertex.centroid.y)
           }
         })
       }
@@ -246,45 +352,120 @@ export default class {
     this.element.setAttribute('height', window.innerHeight);
   }
 
+
+  get graphMode() { return this._graphMode }
+  set graphMode(newValue) {
+    this.selectedVertices.forEach(v => v.isSelected = false);
+    this.selectedVertices = []
+
+    if (this.graphMode === newValue) return;
+    this._graphMode = newValue
+
+    if (this.graphMode === 'DRAW') {
+      this.element.removeEventListener('vertex-select', this.selectVertex.bind(this), false)
+      this.element.addEventListener('touchstart', this.mouseDown.bind(this), false);
+      this.element.addEventListener('touchend', this.mouseUp.bind(this), false);
+      this.element.addEventListener('mouseout', this.mouseUp.bind(this), false);
+      this.element.addEventListener('touchmove', this.mouseMove.bind(this), false);
+    }
+    else if (['EDGE', 'SELECT'].includes(this.graphMode)) {
+      this.element.addEventListener('vertex-select', this.selectVertex.bind(this), false)
+      this.element.removeEventListener('touchstart', this.mouseDown.bind(this), false);
+      this.element.removeEventListener('touchend', this.mouseUp.bind(this), false);
+      this.element.removeEventListener('mouseout', this.mouseUp.bind(this), false);
+      this.element.removeEventListener('touchmove', this.mouseMove.bind(this), false);
+    }
+  }
+
+
   get redoList() { return this._redoList };
   set redoList(newValue) { this._redoList = newValue };
 
-  get nodes() { return this._nodes };
-  set nodes(newValue) {
-    this._nodes = newValue
+  get element() { return this._element };
+  set element(newValue) { this._element = newValue };
+
+  get vertices() { return this._vertices };
+  set vertices(newValue) {
+    this._vertices = newValue
   };
 
-  get shapeColor() { return this._shapeColor };
-  set shapeColor(c) { this._shapeColor = c };
+  get vertexFill() { return this._vertexFill };
+  set vertexFill(c) { this._vertexFill = c };
 
-  get selectedNodeZPosition() { return this._selectedNodeZPosition }
-  set selectedNodeZPosition(z) { this._selectedNodeZPosition = z };
+  get selectedVertexZPosition() { return this._selectedVertexZPosition }
+  set selectedVertexZPosition(z) { this._selectedVertexZPosition = z };
 
-  get selectMode() { return this._selectMode };
-  set selectMode(s) {
-    this._selectMode = s;
-    this.toggleSelectMode(s);
+  // get graphMode() { return this._graphMode };
+  // set graphMode(s) {
+  //   this._graphMode = s;
+  //   this.toggleSelectMode(s);
+  // }
+
+  get selectedVertex() { return this._selectedVertex };
+  set selectedVertex(newValue) { this._selectedVertex = z };
+
+
+  get selectedVertices() { return this._selectedVertices };
+  set selectedVertices(newValue) { this._selectedVertices = newValue };
+  //   if (!el) return;
+  //   console.log({ el });
+  //   // if (this.graphMode && !this.addEdgeMode) {
+  //   // if (this.selectedVertex != el) {
+  //   // if (this.selectedVertex != undefined) this.selectedVertex.classList.remove('selected-vertex')
+  //   // else {
+  //   console.log('this.selectedVertex', this.selectedVertex)
+  //   this.selectedVertex.element.classList.add('selected-vertex')
+  //   this.selectedVertexZPosition = [...this.element.children].findIndex((c) => {
+  //     return c == el
+  //   })
+  //   // }
+  //   this.element.removeChild(this._selectedVertex);
+  //   this.element.insertBefore(this._selectedVertex, this.element.children[-1]);
+  //   // } else {
+  //   this.selectedVertex.classList.remove('selected-vertex')
+  //   // this.selectedVertex = undefined;
+  //   // }
+  //   // }
+  // }
+
+  optionAction({ type, data }) {
+    if (typeof type != 'string' || !this.optionActionMap.has(type)) return;
+    console.log('this.optionActionMap.get(type)', this.optionActionMap.get(type))
+    this.optionActionMap.get(type)(data);
   }
 
-  get selectedNode() { return this._selectedNode };
-  set selectedNode(el) {
-    console.log({ el });
-    if (this.selectMode && !this.addEdgeMode) {
-      if (this.selectedNode != el) {
-        if (this.selectedNode != undefined) this._selectedNode.classList.remove('selected-node')
-        else {
-          console.log('this.selectedNode', this.selectedNode)
-          this.selectedNode.element.classList.add('selected-node')
-          this.selectedNodeZPosition = [...this.element.children].findIndex((c) => {
-            return c == el
-          })
-        }
-        this.element.removeChild(this._selectedNode);
-        this.element.insertBefore(this._selectedNode, this.element.children[-1]);
-      } else {
-        this.selectedNode.classList.remove('selected-node')
-        // this.selectedNode = undefined;
-      }
-    }
-  };
+  initOptionActions() {
+    return new Map(
+      [
+        [
+          'draw-mode',
+          (data) => this.drawMode = data
+        ],
+        [
+          'graph-mode',
+          (data) => this.graphMode = data
+        ],
+        [
+          'color-selection',
+          (data) => this.vertexFill = data
+        ],
+        [
+          'undo',
+          (data) => this.undo()
+        ],
+        [
+          'redo',
+          (data) => this.redo()
+        ],
+        [
+          'add-edge-mode',
+          (data) => this.addEdgeMode = !this.addEdgeMode
+        ],
+        [
+          'add-edge-confirm',
+          (data) => this.addEdge(...this.selectedVertices)
+        ],
+      ]
+    );
+  }
 }

@@ -29,35 +29,11 @@ export default class {
 
     this.optionChangeBus = new EventBus(this.els);
     this.root.addEventListener('option-change', this.handleOptionChange.bind(this))
-    // console.log(this);
   }
 
   handleOptionChange(e) {
-    // console.log(e);
     const { data, type } = e.detail
-    if (type === 'draw-mode') {
-      this.graph.drawMode = data;
-  
-    } else if (type === 'select-mode') {
-      this.graph.selectMode = data;
-    
-    } else if (type === 'color-selection') {
-      this.graph.shapeColor = data;
-   
-    } else if (type === 'undo') {
-      this.graph.undo();
-
-    } else if (type === 'redo') {
-      this.graph.redo();
-
-    } else if (type === 'add-edge-mode') {
-      this.graph.addEdgeMode = !this.graph.addEdgeMode;
-      e.target.style.backgroundColor = this.graph.addEdgeMode ? 'red' : '';
-    
-    } else if (type === 'add-edge-confirm') {
-      this.graph.addEdge(...this.graph.selectedVertices);
-    }
-    // console.log('this.graph in app', this.graph)
+    if (typeof type != 'string' || !this.graph.optionActionMap.has(type)) return;
+    this.graph.optionActionMap.get((type))(data.toUpperCase());
   }
-
 }

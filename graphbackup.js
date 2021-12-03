@@ -36,7 +36,7 @@ export default class {
   handleClick(e) {
     console.log(e);
     if (this.addEdgeMode === true && this.nodes.has(e.detail.target)) {
-      this.selectedVertices.push(this.nodes.get(e.detail.target))
+     / this.selectedVertices.push(this.nodes.get(e.detail.target))
       this.nodes.get(e.detail.target).value.classList.add('selected-node')
 
       if (this.selectedVertices.length === 2) {
@@ -255,7 +255,7 @@ export default class {
 
   get selectedNode() { return this._selectedNode };
   set selectedNode(el) {
-   console.log({el});
+    console.log({ el });
     if (this.selectMode && !this.addEdgeMode) {
       if (this._selectedNode != el) {
         if (this._selectedNode != undefined) this._selectedNode.classList.remove('selected-node')

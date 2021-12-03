@@ -11,7 +11,7 @@ export default class {
     });
 
     this.els.selectModeToggle.addEventListener('change', e => {
-      this.dispatch({ source: e.target, type: 'select-mode', data: e.target.checked })
+      this.dispatch({ source: e.target, type: 'graph-mode', data: e.target.checked ? 'select' : 'draw'  })
     });
 
     this.els.shapeColorPicker.addEventListener('input', e => {
@@ -26,7 +26,7 @@ export default class {
     });
     
     this.els.addEdgeButton.addEventListener('click', e => {
-      this.dispatch({ source: e.target, type: 'add-edge-mode', data: null })
+      this.dispatch({ source: e.target, type: 'graph-mode', data: 'edge' })
     });
     
     this.els.addEdgeConfirmButton.addEventListener('click', e => {

@@ -12,6 +12,11 @@ body {
   transform: rotate(90deg);
 }
 
+.selected-vertex .rect {
+  stroke:#D9C925;
+  stroke-width: 2px;
+}
+
 /* .node {
   position: absolute;
   fill: yellow;
