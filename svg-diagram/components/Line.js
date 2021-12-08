@@ -1,4 +1,4 @@
-import Node from './Node.js';
+import Node from '../data-models/Node.model.js';
 
 export default class extends Node {
   constructor(pos, color, graph) {

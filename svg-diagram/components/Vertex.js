@@ -1,5 +1,7 @@
-import Node from './Node.js';
+import Node from '../data-models/Node.model.js';
 import TextNode from './TextNode.js';
+import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js';
+const { date, array, utils, text, help } = ham;
 
 const _SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -10,7 +12,7 @@ const vertexType = {
 
 // VERTEX
 export default class extends Node {
-  constructor(pos, zIndex,color, graph, fill = '#ffffff', stroke = '#000000', type = 'rect') {
+  constructor(pos, zIndex, color, graph, fill = '#ffffff', stroke = '#000000', type = 'rect') {
     super(document.createElementNS(_SVG_NS, 'g'));
 
     this.element = this.value
@@ -19,13 +21,14 @@ export default class extends Node {
     this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
     this.edges = new Map();
     this._isSelected = false;
-this.zIndex = zIndex;
+    this.zIndex = zIndex;
+    this.isActive;
     this.clickDelayTimer;
-    this.init(pos, color)
+    this.prevent = false;
 
-    this.element.addEventListener('dblclick', this.handleDoubleClick.bind(this));
-    this.element.addEventListener('click', this.handleClick.bind(this));
-    this.element.addEventListener('touchstart', this.handleTouch.bind(this));
+    this.init(pos, color);
+
+    // this.element.addEventListener('click', this.clickHandler);
   }
 
   init(pos, color) {
@@ -39,36 +42,137 @@ this.zIndex = zIndex;
     this.shape.setAttributeNS(null, 'fill', color);
     this.shape.setAttributeNS(null, 'fill', color);
 
+    this.textNode.element.classList.add('vertex-text')
     this.textNode.element.textContent = 'texter!'
     this.textNode.element.setAttributeNS(null, 'text-anchor', 'middle');
+
+    this.doubleClickHandler = this.handleDoubleClick.bind(this)
+    this.clickHandler = this.handleClick.bind(this)
+    this.blurHandler = this.handleBlur.bind(this)
+    this.selectedHandler = this.handleSelected.bind(this)
+    this.touchStartHandler = this.handleTouchStart.bind(this)
+    this.touchMoveHandler = this.handleTouchMove.bind(this)
+    this.touchEndHandler = this.handleTouchEnd.bind(this)
+
     this.element.appendChild(this.shape);
     this.element.appendChild(this.textNode.element);
+
+    this.element.addEventListener('node-selected', this.selectedHandler)
+  
+    this.element.addEventListener('click', this.clickHandler)
+    this.element.addEventListener('dblclick', this.doubleClickHandler);
+    // this.element.addEventListener('click', this.toggleSelect.bind(this));
+    // ham.event.longPress(this.element, 700, this.toggleSelect.bind(this))
+    // this.shape.addEventListener('touchstart', this.handleTouchStart.bind(this));
+
     this.setCoords(pos);
     this.setSize(pos);
   }
 
-  handleTouch(e) {
-    // if (this.graph.selectMode || this.graph.addEdgeMode) {
-    console.log('in handleTouch');
-    const evt = new CustomEvent('vertex-select', { bubbles: true, detail: { target: this.element } })
-    this.element.dispatchEvent(evt);
-    // }
-    e.stopPropagation();
-    // e.preventDefault();
+  classList(keyword, ...classes) {
+    if (classes.length === 0 || !['add', 'remove'].includes(keyword)) return;
+    this.element.classList[keyword](...classes)
+    this.shape.classList[keyword](...classes)
+
   }
 
-  handleClick(e) {
+  handleSelected(e) {
+    console.log('heard', e);
+    // const evt = new CustomEvent('vertex-deselect', { bubbles: true, detail: { target: this.element } })
+    // this.element.dispatchEvent(evt);
 
-    e.stopPropagation();
-    // e.preventDefault();
+  }
+
+
+  handleBlur(e) {
+    const evt = new CustomEvent('vertex-deselect', { bubbles: true, detail: { target: this.element } })
+    this.element.dispatchEvent(evt);
+
+  }
+
+  // toggleSelect(e)click{
+  //   this.isSelected = !this.isSelected
+  //   if (this.isSelected === true) {
+  //     console.log('ckicj');
+  //     const evt = new CustomEvent('vertex-select', { bubbles: true, detail: { target: this.element } })
+  //     this.element.dispatchEvent(evt);
+  //   } else {
+  //     const evt = new CustomEvent('vertex-deselect', { bubbles: true, detail: { target: this.element } })
+  //     this.element.dispatchEvent(evt);
+  //   }
+  //   e.stopPropagation()
+  // }
+
+  handleClick(e) {
+    this.clickDelayTimer = setTimeout(() => {
+      if (!this.prevent) {
+        // if (this.isSelected !== true) {
+        console.log('ckicj');
+        const evt = new CustomEvent('vertex-click', { bubbles: true, detail: { target: this.element } })
+        this.element.dispatchEvent(evt);
+        // }  else {
+        //   console.log('ckicj');
+        //   const evt = new CustomEvent('vertex-click', { bubbles: true, detail: { target: this.element } })
+        //   this.element.dispatchEvent(evt);
+        // }
+
+      }
+      this.prevent = false;
+    }, 500);
+
+    e.stopPropagation()
   }
 
   handleDoubleClick(e) {
+    clearTimeout(this.clickDelayTimer);
+    this.prevent = true;
     console.log('in handleDoubleClick');
     this.textNode.editMode = !this.textNode.editMode
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
   }
+
+
+
+  handleTouchStart(e) {
+    if (this.isSelected == true) {
+      console.log('in handleTouchStart');
+      this.isActive = true;
+      this.element.addEventListener('touchmove', this.touchMoveHandler);
+      this.element.addEventListener('vertex-move', this.touchMoveHandler);
+      this.element.addEventListener('touchend', this.touchEndHandler);
+
+      // const evt = new CustomEvent('vertex-click', { bubbles: true, detail: { target: this.element } })
+      // this.element.dispatchEvent(evt);
+    } else {}
+    // e.preventDefault();
+    e.stopPropagation();
+  }
+
+  handleTouchMove(e) {
+    console.log('in handleTouch move');
+    if (this.isActive === true) {
+      const evt = new CustomEvent('vertex-move', { bubbles: true, detail: { target: this.element, event: e } })
+      this.element.dispatchEvent(evt);
+    } else {}
+    e.stopPropagation();
+  }
+
+  handleTouchEnd(e) {
+    e.stopPropagation();
+    // e.preventDefault();
+    console.log('in handleTouchEnd');
+    // if (this.isActive === true) {
+    const evt = new CustomEvent('vertex-inactive', { bubbles: true, detail: { target: this.element } })
+    this.element.dispatchEvent(evt);
+    // } else {}
+    this.isActive = false;
+    this.element.addEventListener('vertex-move', this.touchMoveHandler);
+    // this.element.removeEventListener('touchmove', this.touchMoveHandler);
+    this.element.removeEventListener('touchend', this.touchEndHandler);
+  }
+
+
 
   setRotate(angle) {
     let newPos = pos = this.position;
@@ -100,8 +204,57 @@ this.zIndex = zIndex;
     this.textNode.element.setAttribute('y', this.centroid.y)
   }
 
+  get isSelected() { return this._isSelected }
+  // set isSelected(newValue) {
+  //   this._isSelected = newValue
+  //   if (this.isSelected === true) {
+  //     this.element.addEventListener('touchstart', this.handleTouchStart.bind(this));
+  //     this.element.removeEventListener('click', this.handleClick.bind(this));
+  //     this.element.classList.add('selected-vertex')
+  //     console.log('tstart');
+  //   } else {
+  //     this.element.classList.remove('selected-vertex')
+  //     this.element.removeEventListener('touchstart', this.handleTouchStart.bind(this));
+  //     this.element.removeEventListener('touchend', this.handleTouchStart.bind(this));
+  //     this.element.removeEventListener('touchstart', this.handleTouchStart.bind(this));
+  //     this.element.addEventListener('click', this.handleClick.bind(this));
+
+  //   }
+
+  //   // this.shape.setAttribute('x', newValue)
+  //   // this.updateTextPosition();
+  // }
+
+  set isSelected(newValue) {
+    this._isSelected = newValue
+    if (this.isSelected === true) {
+      this.element.addEventListener('blur', this.blurHandler);
+      this.element.addEventListener('touchstart', this.touchStartHandler);
+      // this.element.removeEventListener('click', this.clickHandler);
+      // this.element.addEventListener('click', this.clickHandler);
+      this.classList('add', 'selected-vertex')
+      // this.element.addEventListener('touchmove', this.handleTouchMove.bind(this));
+      // this.element.addEventListener('touchend', this.handleTouchEnd.bind(this));
+
+      //   console.log('tstart');
+    } else {
+      // this.element.classList.remove('selected-vertex');
+      console.log('this after isselect change', this);
+      this.classList('remove', 'selected-vertex')
+      // this.element.addEventListener('click', this.clickHandler);
+      this.element.removeEventListener('touchstart', this.touchStartHandler);
+      this.element.removeEventListener('touchend', this.touchEndHandler);
+      this.element.addEventListener('vertex-move', this.touchMoveHandler);
+      // this.element.removeEventListener('touchmove', this.touchMoveHandler);
+      this.element.removeEventListener('blur', this.blurHandler);
+    }
+    console.log('this isSelected', this);
+    // this.shape.setAttribute('x', newValue)
+    // this.updateTextPosition();
+  }
 
   get centroid() {
+    // console.log('(this.x + this.width / 2) || 0,', (this.x + this.width / 2) || 0)
     return {
       x: (this.x + this.width / 2) || 0,
       y: (this.y + this.height / 2) || 0,
@@ -124,19 +277,6 @@ this.zIndex = zIndex;
   set x(newValue) {
     this.shape.setAttribute('x', newValue)
     this.updateTextPosition();
-  }
-
-  get isSelected() { return this._isSelected}
-  set isSelected(newValue) {
-    this._isSelected = newValue
-    if (this.isSelected === true) {
-      this.element.classList.add('selected-vertex')
-    } else {
-      this.element.classList.remove('selected-vertex')
-    }
-
-    // this.shape.setAttribute('x', newValue)
-    // this.updateTextPosition();
   }
 
   get y() { return parseInt(this.shape.getAttribute('y')) || 0 }

@@ -1,4 +1,4 @@
-import Node from './Node.js';
+import Node from '../data-models/Node.model.js';
 import TextNode from './TextNode.js';
 
 const _SVG_NS = 'http://www.w3.org/2000/svg';

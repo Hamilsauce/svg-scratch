@@ -2,12 +2,10 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="./diagram.css" type="text/css" media="all" />
-  <!-- <link rel="stylesheet" href="./css/NodeText.css" type="text/css" media="all" /> -->
-  <link rel="stylesheet" href="./css/TextNode.css" type="text/css" media="all" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Sweet Title</title>
+  <link rel="stylesheet" href="./scratch.css" />
   <style type="text/css" media="all">
     * {
       box-sizing: border-box;
@@ -79,9 +77,40 @@
 </head>
 
 <body>
+  <div id="toolbar">
+    <div class="toolbar-control-group">
+      <label for="draw-rect-toggle">draw rect</label>
+      <input type="checkbox" checked="true" name="draw-rect-toggle" id="draw-rect-toggle" />
+    </div>
+    <div class="toolbar-control-group">
+      <label for="select-mode-toggle">Select Mode</label>
+      <input type="checkbox" name="select-mode-toggle" id="select-mode-toggle" />
+    </div>
+    <div class="toolbar-control-group">
+      <label for="shape-color-picker">Shape Color</label>
+      <input type="color" name="shape-color-picker" id="shape-color-picker" />
+    </div>
+    <div class="toolbar-control-group">
+      <label for="erase-button">erase</label>
+      <input type="checkbox" name="erase-button" id="erase-button" />
+    </div>
+    <div class="toolbar-control-group">
+      <label for="delete-button">Delete</label>
+      <input type="checkbox" name="delete-button" id="delete-button" />
+    </div>
+    <div class="toolbar-control-group">
+      <input type="button" name="undo-button" id="undo-button" value="undo" />
+      <input type="button" name="redo-button" id="redo-button" value="redo" />
+    </div>
+    <div class="control-group">
+      <input type="button" name="add-edge-button" id="add-edge-button" value="Add Edge" />
+      <input type="button" name="add-edge-confirm-button" id="add-edge-confirm-button" value="Confirm" />
+    </div>
+  </div>
+  <!-- - -->
   <div id="app" class="app">
     <!-- <div class="title">Graph</div> -->
-    <div class="options-bar">
+    <div class="options-bar"><!-- 
       <div class="control-group">
         <label for="draw-rect-toggle">draw rect</label>
         <input type="checkbox" checked="true" name="draw-rect-toggle" id="draw-rect-toggle" />
@@ -94,13 +123,13 @@
         <label for="shape-color-picker">Shape Color</label>
         <input type="color" name="shape-color-picker" id="shape-color-picker" />
       </div>
-    </div>
+     --></div>
     <!-- - -->
     <div class="graph-container">
       <svg id="graph" xmlns="http://www.w3.org/2000/svg"></svg>
     </div>
     <!-- - -->
-    <div class="options-bar bottom-bar">
+    <div class="options-bar bottom-bar"><!-- 
       <div class="control-group">
         <label for="erase-button">erase</label>
         <input type="checkbox" name="erase-button" id="erase-button" />
@@ -117,19 +146,15 @@
         <input type="button" name="add-edge-button" id="add-edge-button" value="Add Edge" />
         <input type="button" name="add-edge-confirm-button" id="add-edge-confirm-button" value="Confirm" />
       </div>
-    </div>
+     --></div>
     <!-- 	<div class="buttons">
-		<input type="button" value="Start Animation" onclick="startAnimation();">
-		<input type="button" value="Stop Animation" onclick="stopAnimation();">
-	</div> -->
+  		<input type="button" value="Start Animation" onclick="startAnimation();">
+  		<input type="button" value="Stop Animation" onclick="stopAnimation();">
+  	</div> -->
     <!-- <div class="output"></div> -->
   </div>
-  <script src="./diagram.js" type="module"></script>
-  <!-- <script src="./Line.js" type="module"></script> -->
+  <script src="./scratch.js" type="module"></script>
+  <script src="../components/Toolbar.js" type="module"></script>
 </body>
-<!-- 	<div class="app">
-	<div class="title">App</div>
-	<svg id="viewBox" viewBox="0 0 300 300" width="300" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
-</div> -->
 
 </html>
