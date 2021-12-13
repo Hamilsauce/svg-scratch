@@ -21,15 +21,11 @@ export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
     this._element = element;
     // this._vertices = new VertexCollection(seedData);
-    this._vertices = new Map();
-    this._selectedVertices = [];
-    this._redoList = [];
     this.optionActionMap = this.initOptionActions();
-    this._selectedVertex = null;
+    this._vertices = new Map();
+    this._redoList = [];
     this._selectedVertexZPosition = null;
-
     this.activeVertex = null;
-
     this.graphModeMap = new Map(GRAPH_MODES)
     this._graphMode;
     this.graphMode = graphMode;
@@ -38,74 +34,26 @@ export default class {
     this._vertexFill = vertexFill || '#ffffff';
     this.edgeDirection = 'UNDIRECTED';
 
-    this.setSize();
-    this.init();
+    this.setSvgSize();
+
     this.optionsSubject$ = new Subject();
 
-    this.vertexSubjects = {
-      click$: new Subject(),
-      move$: new Subject(),
-      inactive$: new Subject(),
+    this.drawActions$ = {
+      start: fromEvent(this.element, 'touchstart').pipe(filter(_ => this.graphMode === 'DRAW'), map(x => this.drawStart(x))),
+      move: fromEvent(this.element, 'touchmove').pipe(map(x => this.drawMove(x))),
+      end: fromEvent(this.element, 'touchend').pipe(map(x => this.drawEnd(x)), ),
     };
 
+    this.drawSubscription = this.drawActions$.start.pipe(
+      switchMap(e => this.drawActions$.move.pipe(
+        switchMap(e => this.drawActions$.end)))).subscribe();
+
+    this.vertexSubjects = { click$: new Subject(), };
+
+    // BLUR?
     this.vertexClick$ = fromEvent(this.element, 'vertex-click')
       .pipe(filter(_ => this.graphMode === 'SELECT'), )
       .subscribe(this.vertexSubjects.click$)
-
-
-    this.touchstart$ = fromEvent(this.element, 'touchstart')
-      .pipe(
-        filter(_ => this.graphMode === 'DRAW'),
-        map(x => this.mouseDown(x))
-      );
-    this.touchmove$ = fromEvent(this.element, 'touchmove')
-      .pipe(
-        map(x => this.mouseMove(x))
-      );
-    this.touchend$ = fromEvent(this.element, 'touchend')
-      .pipe(
-        map(x => this.mouseUp(x)),
-      );
-
-    this.touchSubscription = this.touchstart$
-      .pipe(
-        switchMap(e => {
-          return this.touchmove$
-            .pipe(
-              switchMap(e => this.touchend$)
-            )
-        })
-      ).subscribe()
-
-
-
-
-    this.vertexMove$ = fromEvent(this.element, 'vertex-move')
-      .pipe(
-        filter(_ => this.graphMode === 'SELECT'),
-        // filter(_ => this.graphMode === 'SELECT'),
-      )
-    // .subscribe(this.vertexSubjects.move$)
-
-    this.vertexInactive$ = fromEvent(this.element, 'vertex-inactive')
-      .pipe(filter(_ => this.graphMode === 'SELECT'), )
-    // .subscribe(this.vertexSubjects.inactive$)
-
-    // this.element.addEventListener('touchmove', this.vertexMoveHandler)
-
-  }
-
-  init() {
-    this.selectVertexHandler = this.selectVertex.bind(this)
-    this.vertexMoveHandler = this.vertexMove.bind(this)
-    this.vertexInactiveHandler = this.vertexInactive.bind(this)
-    this.mouseDownHandler = this.mouseDown.bind(this)
-    this.deselectVertexHandler = this.deselectVertex.bind(this)
-    this.mouseUpHandler = this.mouseUp.bind(this)
-    this.mouseMoveHandler = this.mouseMove.bind(this);
-    // this.element.addEventListener('touchstart', this.mouseDownHandler);
-    // this.element.addEventListener('vertex-move', this.vertexMoveHandler);
-    // this.element.addEventListener('vertex-move', this.vertexMoveHandler)
   }
 
   get selectedVerticesMap() {
@@ -114,27 +62,12 @@ export default class {
     }).map((ch, i) => [ch, this.vertices.get(ch)]));
   };
 
-  deselectVertex(e) {
-    console.log('vertec deselect', e);
-    const targetVertex = e.detail.target;
-    const targetNode = this.vertices.get(targetVertex);
-    // targetNode.isSelected = false;
-  }
-
-  vertexInactive(event) {
-    console.log('this.vertices.get(event.detail.target)', this.vertices.get(event.detail.target))
-    this.vertices.get(event.detail.target).isSelected = false;
-    this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
-    this.element.removeEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
-    const evt = new CustomEvent('vertex-inactive', { bubbles: false, detail: { target: this.element } })
-    targetVertex.dispatchEvent(evt)
-    // } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-    // this.element.removeEventListener('touchend', this.mouseUpHandler);
-    // this.element.removeEventListener('mouseout', this.mouseUpHandler);
-    // this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-    // }
-  }
-
+  // vertexInactive(event) {
+  //   console.log('this.vertices.get(event.detail.target)', this.vertices.get(event.detail.target))
+  //   this.vertices.get(event.detail.target).isSelected = false;
+  //   const evt = new CustomEvent('vertex-inactive', { bubbles: false, detail: { target: this.element } })
+  //   targetVertex.dispatchEvent(evt)
+  // }
 
   selectVertex(e) {
     console.log('selectVertex e', e);
@@ -145,28 +78,13 @@ export default class {
     targetVertex.dispatchEvent(evt)
 
     if (this.graphMode === 'SELECT') {
-
-      // console.log('!this.selectedVertices.includes(targetVertex)', !this.selectedVertices.includes(targetVertex))
-      if (
-        !this.selectedVertices.includes(targetVertex)
-        // && !this.activeVertex === targetNode.element
-      ) {
-        // console.log('targetVertex, targetNode', [targetVertex,targetNode])
-        // targetNode.isSelected = true //!targetNode.isSelected;
+      if (!this.selectedVertices.includes(targetVertex)) {
         this.activeVertex = targetNode.element
-        // this.element.addEventListener('vertex-deselect', this.deselectVertexHandler);
-        // this.element.addEventListener('vertex-move', this.vertexMoveHandler);
-        // this.element.addEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
       } else {
-        // targetNode.isSelected = false;
         this.activeVertex = null
-        // this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
-        this.element.removeEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
-        this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
       }
     } else if (this.graphMode === 'EDGE') {
       this.selectedVertices.push(targetVertex)
-      // this.element.addEventListener('vertex-select', this.deselectVertexHandler);
       if (this.selectedVertices.length === 2) {
         const [src, dest] = this.selectedVertices
         this.addEdge(src, dest)
@@ -177,32 +95,11 @@ export default class {
     }
   }
 
-  vertexMove({ detail }) {
-    // TODO event currently a TOUCHEVENT
-    // console.log('detail',);detail
-    const event = detail.event
-    const vertex = this.vertices.get(detail.target)
-    // console.log('vertex in GRAPH VERTECMOVE', vertex)
-    if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      if (vertex.edges.size > 0) {
-        vertex.edges.forEach((edge, edgeValue) => {
-          if (edge.vertexOrder === 0) {
-            edge.element.setAttribute('x1', vertex.centroid.x)
-            edge.element.setAttribute('y1', vertex.centroid.y)
-          } else {
-            edge.element.setAttribute('x2', vertex.centroid.x)
-            edge.element.setAttribute('y2', vertex.centroid.y)
-          }
-        })
-      }
-    }
-  }
-
-  mouseDown(event) {
+  drawStart(event) {
     event.stopPropagation()
     const targ = event.target;
     if (this.graphMode === 'DRAW') {
-      this.drawStart = true;
+      this.isDrawing = true;
       if (this.drawMode === 'rect') {
         const vertex = new Vertex({
           x: event.touches[0].pageX,
@@ -216,11 +113,11 @@ export default class {
     } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {}
   }
 
-  mouseMove(event) {
+  drawMove(event) {
     // TAKES A TOUCHEVENT
     event.preventDefault();
     if (this.graphMode === 'DRAW') {
-      if (this.drawStart) {
+      if (this.isDrawing) {
         if (this.drawMode === 'rect') {
           this.current.setSize({
             width: event.touches[0].pageX - (this.current.x + 30),
@@ -229,27 +126,13 @@ export default class {
         }
       }
     }
-    else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      // console.log('snorp');
-    }
+    else if (['SELECT', 'EDGE'].includes(this.graphMode)) {}
   }
 
-  mouseUp(event) {
-    this.drawStart = false;
+  drawEnd(event) {
+    this.isDrawing = false;
     this.current = null;
-    // if (this.graphMode === 'DRAW') {
-    //   this.element.removeEventListener('touchend', this.mouseUpHandler);
-    //   this.element.removeEventListener('mouseout', this.mouseUpHandler);
-    //   this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-    // }
-    // else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-    //   // this.element.removeEventListener('touchend', this.mouseUpHandler);
-    //   // this.element.removeEventListener('mouseout', this.mouseUpHandler);
-    //   // this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-    // }
-
   }
-
 
   getVertexZ(vertex) {
     if (!vertex) return;
@@ -258,7 +141,6 @@ export default class {
   }
 
   handleEdgeMode(e) {
-    // console.log('k', e);
     if (this.addEdgeMode === true && this.vertices.has(e.detail.target)) {
       this.selectedVertices.push(this.vertices.get(e.detail.target))
       this.vertices.get(e.detail.target).value.classList.add('selected-vertex')
@@ -272,7 +154,7 @@ export default class {
     }
   }
 
-  setSize() {
+  setSvgSize() {
     this.element.setAttribute('width', window.innerWidth);
     this.element.setAttribute('height', window.innerHeight);
   }
@@ -312,23 +194,8 @@ export default class {
     if (this.graphMode === newValue) return;
     this._graphMode = newValue
 
-    if (this.graphMode === 'DRAW') {
-      // this.element.removeEventListener('vertex-click', this.selectVertexHandler);
-      // this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
-      // this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
-      this.element.addEventListener('touchstart', this.mouseDownHandler);
-    }
-    else if (['EDGE', 'SELECT'].includes(this.graphMode)) {
-      // console.log('edgr sel');
-      this.element.removeEventListener('touchstart', this.mouseDownHandler);
-      this.element.removeEventListener('touchend', this.mouseUpHandler);
-      this.element.removeEventListener('mouseout', this.mouseUpHandler);
-      this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-      // this.element.addEventListener('vertex-click', this.selectVertexHandler);
-      // this.element.addEventListener('vertex-select', this.selectVertexHandler);
-      // this.element.addEventListener('vertex-deselect', this.deselectVertexHandler);
-
-    }
+    if (this.graphMode === 'DRAW') {}
+    else if (['EDGE', 'SELECT'].includes(this.graphMode)) {}
 
   }
 
@@ -358,7 +225,6 @@ export default class {
     }) //.map((ch, i) => this.vertices.get(ch));
   };
 
-
   set selectedVertices(newValue) { this._selectedVertices = newValue };
 
   // TODO DEPECRATED
@@ -371,27 +237,6 @@ export default class {
   //     });
   //     this.selectedVertices = []
   //   }
-  // }
-
-  //   if (!el) return;
-  //   console.log({ el });
-  //   // if (this.graphMode && !this.addEdgeMode) {
-  //   // if (this.selectedVertex != el) {
-  //   // if (this.selectedVertex != undefined) this.selectedVertex.classList.remove('selected-vertex')
-  //   // else {
-  //   console.log('this.selectedVertex', this.selectedVertex)
-  //   this.selectedVertex.element.classList.add('selected-vertex')
-  //   this.selectedVertexZPosition = [...this.element.children].findIndex((c) => {
-  //     return c == el
-  //   })
-  //   // }
-  //   this.element.removeChild(this._selectedVertex);
-  //   this.element.insertBefore(this._selectedVertex, this.element.children[-1]);
-  //   // } else {
-  //   this.selectedVertex.classList.remove('selected-vertex')
-  //   // this.selectedVertex = undefined;
-  //   // }
-  //   // }
   // }
 
   addVertex(vertex) {
@@ -447,9 +292,6 @@ export default class {
     if (this.graphMode === 'SELECT' && this.activeVertex !== null) {
       this.undo(this.activeVertex)
     }
-    // console.log('deleteVertex this', this);
-    // console.log('deleteVertex this.selectedVertices', this.selectedVertices);
-    // console.log('deleteVertex this.selectedVerticesMap', [...this.selectedVerticesMap]);
   }
 
   undo(target = null) {

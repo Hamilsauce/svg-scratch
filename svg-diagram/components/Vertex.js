@@ -31,44 +31,44 @@ export default class extends Node {
 
     this.vertexSelectSubject$ = vertexSubjects.click$
       .pipe(
-        filter(({ detail }, i) => this.isEventSource(detail.target)),
+        filter((e) => this.textNode.editMode === false),
         map(({ detail }) => {
-          if (this.textNode.editMode === false) {
-            this.isSelected = !this.isSelected;
+          if (this.isSelected === false && this.isEventSource(detail.target)) {
+            this.isSelected = true;
+          } else {
+            this.isSelected = false;
           }
           return event;
         }),
         map(({ detail }) => {
           if (this.isSelected === true) {
-            // this.element.addEventListener('touchstart', this.touchStartHandler)
           } else {
-            // this.element.removeEventListener('touchstart', this.touchStartHandler)
           }
           return event;
         }),
       ).subscribe();
 
-    this.vertexMove$ = vertexSubjects.move$
-      .pipe(
-        filter(({ detail }, i) => this.isEventSource(detail.currentTarget)),
-        map(({ detail }) => {
-          // const evt = new CustomEvent('vertex-move', { bubbles: true, detail: { target: this.element } });
-          // this.element.dispatchEvent(evt);
-          // if (this.textNode.editMode === false) {
-          // this.isSelected = !this.isSelected;
-          // }
-          return event;
-        }),
-      )
+    // this.vertexMove$ = vertexSubjects.move$
+      // .pipe(
+      //   filter(({ detail }, i) => this.isEventSource(detail.currentTarget)),
+      //   map(({ detail }) => {
+      //     // const evt = new CustomEvent('vertex-move', { bubbles: true, detail: { target: this.element } });
+      //     // this.element.dispatchEvent(evt);
+      //     // if (this.textNode.editMode === false) {
+      //     // this.isSelected = !this.isSelected;
+      //     // }
+      //     return event;
+      //   }),
+      // )
 
-    this.vertexInactive$ = vertexSubjects.inactive$
-      .pipe(
-        filter(({ detail }, i) => this.isEventSource(detail.target)),
-        map(({ detail }) => {
-          if (this.textNode.editMode === false) this.isSelected = !this.isSelected;
-          return event;
-        }),
-      )
+    // this.vertexInactive$ = vertexSubjects.inactive$
+      // .pipe(
+      //   filter(({ detail }, i) => this.isEventSource(detail.target)),
+      //   map(({ detail }) => {
+      //     if (this.textNode.editMode === false) this.isSelected = !this.isSelected;
+      //     return event;
+      //   }),
+      // )
 
     this.click$ = fromEvent(this.element, 'click')
       .pipe(
