@@ -5,9 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="./diagram.css" type="text/css" media="all" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.3.0/rxjs.umd.min.js" integrity="sha512-y3JTS47nnpKORJX8Jn1Rlm+QgRIIZHtu3hWxal0e81avPrqUH48yk+aCi+gprT0RMAcpYa0WCkapxe+bpBHD6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <link rel="stylesheet" href="./diagram.css" type="text/css" media="all" /> -->
   <!-- <link rel="stylesheet" href="./css/NodeText.css" type="text/css" media="all" /> -->
-  <link rel="stylesheet" href="./css/TextNode.css" type="text/css" media="all" />
+  <!-- <link rel="stylesheet" href="./css/TextNode.css" type="text/css" media="all" /> -->
   <style type="text/css" media="all">
     * {
       box-sizing: border-box;
@@ -75,6 +80,33 @@
       outline: 1px solid #FFAD00;
       z-index: 500;
     }
+    .selected-vertex {
+      outline: 1px solid #FFAD00;
+      z-index: 500;
+    }
+
+    #delete-button {
+      z-index: 100;
+      fill: #4C4B4C;
+      stroke-width: 5px;
+      stroke: black;
+      transform: scale(1);
+      transition: 0.2s ease-in;
+    }
+
+    #delete-button:active {
+      fill: #373737;
+      stroke-width: 5px;
+      stroke: #686868;
+      transform: scale(0.9);
+    }
+
+    #delete-button.disabled {
+      fill: #88888847;
+      stroke-width: 5px;
+      stroke: #686868;
+      filter: blur(0.6px);
+    }
   </style>
 </head>
 
@@ -106,8 +138,13 @@
         <input type="checkbox" name="erase-button" id="erase-button" />
       </div>
       <div class="control-group">
-        <label for="delete-button">Delete</label>
-        <input type="checkbox" name="delete-button" id="delete-button" />
+        <svg version="1.1" 
+        id="delete-button" 
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+          <path d="M128,405.429C128,428.846,147.198,448,170.667,448h170.667C364.802,448,384,428.846,384,405.429V160H128V405.429z M416,96h-80l-26.785-32H202.786L176,96H96v32h320V96z" />
+        </svg>
+        <!-- <label for="delete-button">Delete</label> -->
+        <!-- <input type="checkbox" name="delete-button" id="delete-button" /> -->
       </div>
       <div class="control-group">
         <input type="button" name="undo-button" id="undo-button" value="undo" />
@@ -125,6 +162,7 @@
     <!-- <div class="output"></div> -->
   </div>
   <script src="./diagram.js" type="module"></script>
+  <script src="./data-models/_two-pointer-pattern.js" type="module"></script>
   <!-- <script src="./Line.js" type="module"></script> -->
 </body>
 <!-- 	<div class="app">

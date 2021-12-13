@@ -21,6 +21,17 @@
       width: 100vw;
     }
 
+    #delete-icon {
+      z-index: 100;
+      fill: #97178E82;
+      fill: linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0));
+
+      stroke-width: 2px;
+      stroke: black;
+      filter: blur(1px)
+        /* filter: drop-shadow(0px 0px 2px #000000A6); */
+    }
+
     .options-bar {
       display: flex;
       flex-direction: row;
@@ -77,6 +88,8 @@
 </head>
 
 <body>
+  <?xml version="1.0" encoding="utf-8"?>
+  <!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
   <div id="toolbar">
     <div class="toolbar-control-group">
       <label for="draw-rect-toggle">draw rect</label>
@@ -95,8 +108,11 @@
       <input type="checkbox" name="erase-button" id="erase-button" />
     </div>
     <div class="toolbar-control-group">
-      <label for="delete-button">Delete</label>
-      <input type="checkbox" name="delete-button" id="delete-button" />
+      <svg id="delete-icon" x="0px" y="0px" width="32px" height="32px" enable-background="new 0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+        <path d="M128,405.429C128,428.846,147.198,448,170.667,448h170.667C364.802,448,384,428.846,384,405.429V160H128V405.429z M416,96h-80l-26.785-32H202.786L176,96H96v32h320V96z" />
+      </svg>
+      <!-- <label for="delete-button">Delete</label> -->
+      <!-- <input type="checkbox" name="delete-button" id="delete-button" /> -->
     </div>
     <div class="toolbar-control-group">
       <input type="button" name="undo-button" id="undo-button" value="undo" />
@@ -109,8 +125,15 @@
   </div>
   <!-- - -->
   <div id="app" class="app">
-    <!-- <div class="title">Graph</div> -->
-    <div class="options-bar"><!-- 
+    <div class="title">
+      SKU: Crosshair 17 A11UDK-202US-G171180H16GXXDX10MA
+      S/N:K2107N0087293
+    </div>
+    <svg id="delete-icon" x="0px" y="0px" width="32px" height="32px" enable-background="new 0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+      <path d="M128,405.429C128,428.846,147.198,448,170.667,448h170.667C364.802,448,384,428.846,384,405.429V160H128V405.429z M416,96h-80l-26.785-32H202.786L176,96H96v32h320V96z" />
+    </svg>
+    <div class="options-bar">
+      <!-- 
       <div class="control-group">
         <label for="draw-rect-toggle">draw rect</label>
         <input type="checkbox" checked="true" name="draw-rect-toggle" id="draw-rect-toggle" />
@@ -123,13 +146,15 @@
         <label for="shape-color-picker">Shape Color</label>
         <input type="color" name="shape-color-picker" id="shape-color-picker" />
       </div>
-     --></div>
+     -->
+    </div>
     <!-- - -->
     <div class="graph-container">
       <svg id="graph" xmlns="http://www.w3.org/2000/svg"></svg>
     </div>
     <!-- - -->
-    <div class="options-bar bottom-bar"><!-- 
+    <div class="options-bar bottom-bar">
+      <!-- 
       <div class="control-group">
         <label for="erase-button">erase</label>
         <input type="checkbox" name="erase-button" id="erase-button" />
@@ -146,7 +171,8 @@
         <input type="button" name="add-edge-button" id="add-edge-button" value="Add Edge" />
         <input type="button" name="add-edge-confirm-button" id="add-edge-confirm-button" value="Confirm" />
       </div>
-     --></div>
+     -->
+    </div>
     <!-- 	<div class="buttons">
   		<input type="button" value="Start Animation" onclick="startAnimation();">
   		<input type="button" value="Stop Animation" onclick="stopAnimation();">

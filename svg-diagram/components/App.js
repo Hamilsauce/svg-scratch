@@ -22,6 +22,7 @@ export default class {
       'selectModeToggle': DOM.qs('#select-mode-toggle'),
       'shapeColorPicker': DOM.qs('#shape-color-picker'),
       'undoButton': DOM.qs('#undo-button'),
+      'deleteButton': DOM.qs('#delete-button'),
       'redoButton': DOM.qs('#redo-button'),
       'addEdgeConfirmButton': DOM.qs('#add-edge-confirm-button'),
       'addEdgeButton': DOM.qs('#add-edge-button'),
@@ -34,6 +35,9 @@ export default class {
   handleOptionChange(e) {
     const { data, type } = e.detail
     if (typeof type != 'string' || !this.graph.optionActionMap.has(type)) return;
-    this.graph.optionActionMap.get((type))(data.toUpperCase());
+    this.graph.optionActionMap.get((type))([undefined, null].includes(data) ? data : data.toUpperCase());
+    
+    
+    
   }
 }

@@ -3,6 +3,10 @@ import Rect from './Rect.js';
 import Vertex from './Vertex.js';
 import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js';
 const { date, array, utils, text, help } = ham;
+
+const { interval, of , fromEvent, merge, empty, Subject } = rxjs;
+const { switchMap, mergeMap, take, filter, scan, takeWhile, startWith, tap, map, mapTo } = rxjs.operators;
+
 // const graphMode = 'EDGE' || 'SELECT' || 'DRAW' || 'DELETE'
 help('', 'event')
 const GRAPH_MODES = [
@@ -24,6 +28,8 @@ export default class {
     this._selectedVertex = null;
     this._selectedVertexZPosition = null;
 
+    this.activeVertex = null;
+
     this.graphModeMap = new Map(GRAPH_MODES)
     this._graphMode;
     this.graphMode = graphMode;
@@ -33,25 +39,73 @@ export default class {
     this.edgeDirection = 'UNDIRECTED';
 
     this.setSize();
-    this.init()
-    // this.element.addEventListener('touchstart', this.mouseDown.bind(this), false);
+    this.init();
+    this.optionsSubject$ = new Subject();
+
+    this.vertexSubjects = {
+      click$: new Subject(),
+      move$: new Subject(),
+      inactive$: new Subject(),
+    };
+
+    this.vertexClick$ = fromEvent(this.element, 'vertex-click')
+      .pipe(filter(_ => this.graphMode === 'SELECT'), )
+      .subscribe(this.vertexSubjects.click$)
+
+
+    this.touchstart$ = fromEvent(this.element, 'touchstart')
+      .pipe(
+        filter(_ => this.graphMode === 'DRAW'),
+        map(x => this.mouseDown(x))
+      );
+    this.touchmove$ = fromEvent(this.element, 'touchmove')
+      .pipe(
+        map(x => this.mouseMove(x))
+      );
+    this.touchend$ = fromEvent(this.element, 'touchend')
+      .pipe(
+        map(x => this.mouseUp(x)),
+      );
+
+    this.touchSubscription = this.touchstart$
+      .pipe(
+        switchMap(e => {
+          return this.touchmove$
+            .pipe(
+              switchMap(e => this.touchend$)
+            )
+        })
+      ).subscribe()
+
+
+
+
+    this.vertexMove$ = fromEvent(this.element, 'vertex-move')
+      .pipe(
+        filter(_ => this.graphMode === 'SELECT'),
+        // filter(_ => this.graphMode === 'SELECT'),
+      )
+    // .subscribe(this.vertexSubjects.move$)
+
+    this.vertexInactive$ = fromEvent(this.element, 'vertex-inactive')
+      .pipe(filter(_ => this.graphMode === 'SELECT'), )
+    // .subscribe(this.vertexSubjects.inactive$)
+
     // this.element.addEventListener('touchmove', this.vertexMoveHandler)
 
-    setInterval(() => {
-      console.log('[this, selectedvertices, map] IN GRAPH', [this, this.selectedVertices, [...this.selectedVerticesMap]]);
-    }, 5000)
   }
 
   init() {
     this.selectVertexHandler = this.selectVertex.bind(this)
     this.vertexMoveHandler = this.vertexMove.bind(this)
+    this.vertexInactiveHandler = this.vertexInactive.bind(this)
     this.mouseDownHandler = this.mouseDown.bind(this)
     this.deselectVertexHandler = this.deselectVertex.bind(this)
     this.mouseUpHandler = this.mouseUp.bind(this)
     this.mouseMoveHandler = this.mouseMove.bind(this);
-    this.element.addEventListener('touchstart', this.mouseDownHandler);
+    // this.element.addEventListener('touchstart', this.mouseDownHandler);
     // this.element.addEventListener('vertex-move', this.vertexMoveHandler);
-    this.element.addEventListener('vertex-move', this.vertexMoveHandler)
+    // this.element.addEventListener('vertex-move', this.vertexMoveHandler)
   }
 
   get selectedVerticesMap() {
@@ -61,34 +115,58 @@ export default class {
   };
 
   deselectVertex(e) {
+    console.log('vertec deselect', e);
     const targetVertex = e.detail.target;
     const targetNode = this.vertices.get(targetVertex);
-    // console.log('vertec deselect', e);
-    targetNode.isSelected = false;
+    // targetNode.isSelected = false;
   }
 
+  vertexInactive(event) {
+    console.log('this.vertices.get(event.detail.target)', this.vertices.get(event.detail.target))
+    this.vertices.get(event.detail.target).isSelected = false;
+    this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
+    this.element.removeEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
+    const evt = new CustomEvent('vertex-inactive', { bubbles: false, detail: { target: this.element } })
+    targetVertex.dispatchEvent(evt)
+    // } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
+    // this.element.removeEventListener('touchend', this.mouseUpHandler);
+    // this.element.removeEventListener('mouseout', this.mouseUpHandler);
+    // this.element.removeEventListener('touchmove', this.mouseMoveHandler);
+    // }
+  }
+
+
   selectVertex(e) {
+    console.log('selectVertex e', e);
     const targetVertex = e.detail.target;
     const targetNode = this.vertices.get(targetVertex);
-   
-   const evt = new CustomEvent('node-selected', { bubbles: false, detail: { data: 'got u' } })
-  
-  targetVertex.dispatchEvent(evt)
-  
+
+    const evt = new CustomEvent('node-selected', { bubbles: false, detail: { data: 'got u' } })
+    targetVertex.dispatchEvent(evt)
+
     if (this.graphMode === 'SELECT') {
-      
+
       // console.log('!this.selectedVertices.includes(targetVertex)', !this.selectedVertices.includes(targetVertex))
-      if (!this.selectedVertices.includes(targetVertex)) {
-    console.log('targetVertex, targetNode', [targetVertex,targetNode])
-        targetNode.isSelected = true //!targetNode.isSelected;
-        this.element.addEventListener('vertex-deselect', this.deselectVertexHandler);
+      if (
+        !this.selectedVertices.includes(targetVertex)
+        // && !this.activeVertex === targetNode.element
+      ) {
+        // console.log('targetVertex, targetNode', [targetVertex,targetNode])
+        // targetNode.isSelected = true //!targetNode.isSelected;
+        this.activeVertex = targetNode.element
+        // this.element.addEventListener('vertex-deselect', this.deselectVertexHandler);
+        // this.element.addEventListener('vertex-move', this.vertexMoveHandler);
+        // this.element.addEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
       } else {
-        targetNode.isSelected = false;
-        this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
+        // targetNode.isSelected = false;
+        this.activeVertex = null
+        // this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
+        this.element.removeEventListener('vertex-inactive', this.vertexInactiveHandlerHandler);
+        this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
       }
     } else if (this.graphMode === 'EDGE') {
       this.selectedVertices.push(targetVertex)
-      this.element.addEventListener('vertex-select', this.deselectVertexHandler);
+      // this.element.addEventListener('vertex-select', this.deselectVertexHandler);
       if (this.selectedVertices.length === 2) {
         const [src, dest] = this.selectedVertices
         this.addEdge(src, dest)
@@ -99,19 +177,13 @@ export default class {
     }
   }
 
-  vertexMove(event) {
+  vertexMove({ detail }) {
     // TODO event currently a TOUCHEVENT
-
-    const vertex = this.vertices.get(event.detail.target)
-    const vertex2 = this.selectedVerticesMap.get(event.target)
-    // console.log('vertex, VERTICES, event.detail.target after mousemove', [vertex, [...this.vertices], event.target])
-    console.log('vertex, VERTICES, event.detail.target after mousemove', [[vertex,vertex2], [...this.selectedVertices], event.target])
+    // console.log('detail',);detail
+    const event = detail.event
+    const vertex = this.vertices.get(detail.target)
+    // console.log('vertex in GRAPH VERTECMOVE', vertex)
     if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      vertex.setCoords({
-        x: parseInt(event.touches[0].pageX) - (vertex.width / 2),
-        y: parseInt(event.touches[0].pageY) - (vertex.height),
-      });
-
       if (vertex.edges.size > 0) {
         vertex.edges.forEach((edge, edgeValue) => {
           if (edge.vertexOrder === 0) {
@@ -128,13 +200,8 @@ export default class {
 
   mouseDown(event) {
     event.stopPropagation()
-    console.log('mousedown this', event);
     const targ = event.target;
     if (this.graphMode === 'DRAW') {
-      this.element.addEventListener('touchmove', this.mouseMoveHandler);
-      this.element.addEventListener('mouseout', this.mouseUpHandler);
-      this.element.addEventListener('touchend', this.mouseUpHandler);
-
       this.drawStart = true;
       if (this.drawMode === 'rect') {
         const vertex = new Vertex({
@@ -142,32 +209,19 @@ export default class {
           y: event.touches[0].pageY,
           width: 0,
           height: 0,
-        }, this.children.length, this.vertexFill, this);
+        }, this.vertexSubjects, this.children.length, this.vertexFill, this);
         this.current = vertex;
         this.addVertex(vertex)
       }
-    } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      // this.element.addEventListener('vertex-move', this.vertexMoveHandler);
-      this.element.addEventListener('mouseout', this.mouseUpHandler);
-      this.element.addEventListener('touchend', this.mouseUpHandler);
-    }
+    } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {}
   }
 
   mouseMove(event) {
+    // TAKES A TOUCHEVENT
     event.preventDefault();
     if (this.graphMode === 'DRAW') {
-      // if (this.drawStart && this.current) {
       if (this.drawStart) {
-        // if (this.drawMode === 'line') {
-        //   let pos = this.current.getPosition();
-        //   pos.x2 = event.touches[0].pageX;
-        //   pos.y2 = event.touches[0].pageY;
-        //   this.current.setPosition(pos);
-
-        // }
-        // else if (this.drawMode === 'rect') {
         if (this.drawMode === 'rect') {
-
           this.current.setSize({
             width: event.touches[0].pageX - (this.current.x + 30),
             height: event.touches[0].pageY - (this.current.y + 30)
@@ -176,23 +230,24 @@ export default class {
       }
     }
     else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      console.log('snorp');
+      // console.log('snorp');
     }
   }
 
   mouseUp(event) {
     this.drawStart = false;
     this.current = null;
-    if (this.graphMode === 'DRAW') {
-      this.element.removeEventListener('touchend', this.mouseUpHandler);
-      this.element.removeEventListener('mouseout', this.mouseUpHandler);
-      this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-    }
-    else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
-      this.element.removeEventListener('touchend', this.mouseUpHandler);
-      this.element.removeEventListener('mouseout', this.mouseUpHandler);
-      this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-    }
+    // if (this.graphMode === 'DRAW') {
+    //   this.element.removeEventListener('touchend', this.mouseUpHandler);
+    //   this.element.removeEventListener('mouseout', this.mouseUpHandler);
+    //   this.element.removeEventListener('touchmove', this.mouseMoveHandler);
+    // }
+    // else if (['SELECT', 'EDGE'].includes(this.graphMode)) {
+    //   // this.element.removeEventListener('touchend', this.mouseUpHandler);
+    //   // this.element.removeEventListener('mouseout', this.mouseUpHandler);
+    //   // this.element.removeEventListener('touchmove', this.mouseMoveHandler);
+    // }
+
   }
 
 
@@ -203,7 +258,7 @@ export default class {
   }
 
   handleEdgeMode(e) {
-    console.log('k', e);
+    // console.log('k', e);
     if (this.addEdgeMode === true && this.vertices.has(e.detail.target)) {
       this.selectedVertices.push(this.vertices.get(e.detail.target))
       this.vertices.get(e.detail.target).value.classList.add('selected-vertex')
@@ -251,7 +306,6 @@ export default class {
 
   get graphMode() { return this._graphMode }
   set graphMode(newValue) {
-    console.log('setting gmode');
     this.selectedVertices.forEach(v => v.isSelected = false);
     this.selectedVertices = []
 
@@ -259,22 +313,23 @@ export default class {
     this._graphMode = newValue
 
     if (this.graphMode === 'DRAW') {
-      this.element.removeEventListener('vertex-click', this.selectVertexHandler);
-      this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
-      this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
+      // this.element.removeEventListener('vertex-click', this.selectVertexHandler);
+      // this.element.removeEventListener('vertex-deselect', this.deselectVertexHandler);
+      // this.element.removeEventListener('vertex-move', this.vertexMoveHandler);
       this.element.addEventListener('touchstart', this.mouseDownHandler);
     }
     else if (['EDGE', 'SELECT'].includes(this.graphMode)) {
-      console.log('edgr sel');
+      // console.log('edgr sel');
       this.element.removeEventListener('touchstart', this.mouseDownHandler);
       this.element.removeEventListener('touchend', this.mouseUpHandler);
       this.element.removeEventListener('mouseout', this.mouseUpHandler);
       this.element.removeEventListener('touchmove', this.mouseMoveHandler);
-      this.element.addEventListener('vertex-click', this.selectVertexHandler);
-      this.element.addEventListener('vertex-select', this.selectVertexHandler);
+      // this.element.addEventListener('vertex-click', this.selectVertexHandler);
+      // this.element.addEventListener('vertex-select', this.selectVertexHandler);
       // this.element.addEventListener('vertex-deselect', this.deselectVertexHandler);
 
     }
+
   }
 
   get redoList() { return this._redoList };
@@ -300,7 +355,7 @@ export default class {
   get selectedVertices() {
     return this.children.filter((ch, i) => {
       return this.vertices.get(ch).isSelected === true
-    })//.map((ch, i) => this.vertices.get(ch));
+    }) //.map((ch, i) => this.vertices.get(ch));
   };
 
 
@@ -388,11 +443,28 @@ export default class {
     return [sourceVertex, destinationVertex];
   }
 
-  undo() {
-    if (this.element.lastChild && this.vertices.has(this.element.lastChild)) {
-      const target = this.vertices.get(this.element.lastChild)
-      this.redoList.push(target)
-      this.removeVertex(target.element)
+  deleteVertex() {
+    if (this.graphMode === 'SELECT' && this.activeVertex !== null) {
+      this.undo(this.activeVertex)
+    }
+    // console.log('deleteVertex this', this);
+    // console.log('deleteVertex this.selectedVertices', this.selectedVertices);
+    // console.log('deleteVertex this.selectedVerticesMap', [...this.selectedVerticesMap]);
+  }
+
+  undo(target = null) {
+    if (target !== null) {
+      const node = this.vertices.get(target)
+      this.redoList.push(node)
+      this.removeVertex(node.element)
+
+    } else {
+
+      if (this.element.lastChild && this.vertices.has(this.element.lastChild)) {
+        const target = this.vertices.get(this.element.lastChild)
+        this.redoList.push(target)
+        this.removeVertex(target.element)
+      }
     }
   }
 
@@ -416,6 +488,7 @@ export default class {
         ['graph-mode', (data) => this.graphMode = data],
         ['color-selection', (data) => this.vertexFill = data],
         ['undo', (data) => this.undo()],
+        ['delete', (data) => this.deleteVertex()],
         ['redo', (data) => this.redo()],
         ['add-edge-mode', (data) => this.addEdgeMode = !this.addEdgeMode],
         ['add-edge-confirm', (data) => this.addEdge(...this.selectedVertices)],

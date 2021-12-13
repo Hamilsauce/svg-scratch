@@ -18,9 +18,14 @@ export default class {
       this.dispatch({ source: e.target, type: 'color-selection', data: e.target.value })
     });
 
+    this.els.deleteButton.addEventListener('click', e => {
+      this.dispatch({ source: e.target, type: 'delete', data: null })
+    });
+    
     this.els.undoButton.addEventListener('click', e => {
       this.dispatch({ source: e.target, type: 'undo', data: null })
     });
+    
     this.els.redoButton.addEventListener('click', e => {
       this.dispatch({ source: e.target, type: 'redo', data: null })
     });

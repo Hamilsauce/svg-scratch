@@ -20,11 +20,9 @@ export class VertexCollection {
 
     const modifiedVertices = new Map()
     this.vertices.forEach((node, vertex, map) => {
-      if (filterFn) {
-        if (filterFn(node, vert, map) === true) {
-          callback(node, vert, map);
-          modifiedVertices.set(vert, node)
-        }
+      if (filterFn && filterFn(node, vert, map) === true) {
+        callback(node, vert, map);
+        modifiedVertices.set(vert, node)
       }
       else {
         callback(node, vert, map);

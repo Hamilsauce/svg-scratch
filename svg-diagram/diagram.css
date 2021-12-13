@@ -30,6 +30,19 @@ fill: blue;
   
 }
 
+#delete-icon {
+   fill:   linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0));
+    /* background-image: */
+    /*
+    linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0)),
+    linear-gradient(165deg, #52829E80, rgba(255, 255, 255, 0)),
+    linear-gradient(250deg, #A0A7ADC2, rgba(255, 255, 255, 0)); */
+  /* background-blend-mode: screen, luminosity, overlay; */
+  /* background-repeat: no-repeat,
+    no-repeat,
+    no-repeat; */
+}
+
 /* .node {
   position: absolute;
   fill: yellow;
