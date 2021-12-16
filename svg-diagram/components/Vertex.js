@@ -22,87 +22,69 @@ export default class extends Node {
     this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
     this.edges = new Map();
     this.zIndex = zIndex;
-    this.isActive;
-    this._isSelected = false;
-    this.prevent = false;
-    this.clickDelayTimer;
 
+    this._isSelected;
+    this.isSelected = false;
+    this._isFocused;
+    this.isFocused = false;
+
+    // this.isFocused.pipe(tap(x => console.log('heard isFocused chsnge pipe!', x)), ).subscribe()
     this.init(pos, color);
 
-    this.vertexSelectSubject$ = vertexSubjects.click$
-      .pipe(
-        filter((e) => this.textNode.editMode === false),
-        map(({ detail }) => {
-          if (this.isSelected === false && this.isEventSource(detail.target)) {
-            this.isSelected = true;
-          } else {
-            this.isSelected = false;
-          }
-          return event;
-        }),
-        map(({ detail }) => {
-          if (this.isSelected === true) {
-          } else {
-          }
-          return event;
-        }),
-      ).subscribe();
+    this._activeState = {
+      value: 'INACTIVE',
+      value$: new Subject(),
+      isNewStateValid: (v) => ['INACTIVE', 'SELECTED', 'FOCUSED'].includes(v),
+      validStates: ['INACTIVE', 'SELECTED', 'FOCUSED'],
+    }
 
-    // this.vertexMove$ = vertexSubjects.move$
-      // .pipe(
-      //   filter(({ detail }, i) => this.isEventSource(detail.currentTarget)),
-      //   map(({ detail }) => {
-      //     // const evt = new CustomEvent('vertex-move', { bubbles: true, detail: { target: this.element } });
-      //     // this.element.dispatchEvent(evt);
-      //     // if (this.textNode.editMode === false) {
-      //     // this.isSelected = !this.isSelected;
-      //     // }
-      //     return event;
-      //   }),
-      // )
-
-    // this.vertexInactive$ = vertexSubjects.inactive$
-      // .pipe(
-      //   filter(({ detail }, i) => this.isEventSource(detail.target)),
-      //   map(({ detail }) => {
-      //     if (this.textNode.editMode === false) this.isSelected = !this.isSelected;
-      //     return event;
-      //   }),
-      // )
-
-    this.click$ = fromEvent(this.element, 'click')
-      .pipe(
-        filter(({ currentTarget }) => this.isEventSource(currentTarget)),
-        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt }))
-      );
-
-    this.dblclicks$ = fromEvent(this.element, 'dblclick')
-      .pipe(
-        filter(({ currentTarget }, i) => this.isEventSource(currentTarget)),
-        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt }))
-      );
-
-    this.clickSubscription = merge(this.click$, this.dblclicks$).pipe(
-      debounceTime(300),
-      map(({ type, target, event }) => {
-        if (type === 'click') {
-          const evt = new CustomEvent('vertex-click', { bubbles: true, detail: { target: this.element } });
-          this.element.dispatchEvent(evt);
-        } else if (type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
-        return event;
+    this.activeState$.pipe(
+      filter((newState) => this._activeState.isNewStateValid(newState)),
+      map(state => {
+        if (state === 'INACTIVE') {
+          this.isSelected = false;
+          this.isFocused = false;
+        } else if (state === 'SELECTED') {
+          this.isSelected = true;
+          this.isFocused = false;
+        } else if (state === 'FOCUSED') {
+          this.isSelected = true;
+          this.isFocused = true;
+        }
+        return state;
       }),
+    ).subscribe()
+
+
+    /*  TODO CLICK STREAMS  */
+    this.clickSubscription = merge(fromEvent(this.element, 'click').pipe(filter(({ currentTarget }) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })), ), fromEvent(this.element, 'dblclick').pipe(filter(({ currentTarget }, i) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })))).pipe(
+      debounceTime(200),
+      map(({ type, target, event }) => {
+        if (type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
+        else if (type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
+        return event;
+      })
     ).subscribe();
 
+    this.graphClickResponse$ = vertexSubjects.click$
+      //TODO clickResponse$ is the response/feedback
+      //TODO fromGraph after emitting 'vertexClick'
+      .pipe(
+        map(({ responseStatus, target }) => this.setActiveState(this.isEventSource(target) ? responseStatus : 'INACTIVE')), );
+
+    this.vertexSelectSubscription = this.graphClickResponse$.subscribe(this.activeState$);
+
+    /*  TODO TOUCH STREAMS  */
     this.touchstart$ = fromEvent(this.element, 'touchstart')
       .pipe(
-        filter(({ currentTarget }) => this.isSelected === true && this.isEventSource(currentTarget)),
+        filter(({ currentTarget }) => this.activeState === 'FOCUSED'),
         tap(() => this.isActive = true),
+        tap(() => this.isFocused = true),
         map(evt => evt),
       );
-
     this.touchmove$ = fromEvent(this.element, 'touchmove')
       .pipe(
-        filter(({ currentTarget }) => this.isActive === true && this.isEventSource(currentTarget)),
+        filter(({ currentTarget }) => this.activeState === 'FOCUSED' && this.isEventSource(currentTarget)),
         map(e => {
           if (!this.isSelected) this.isActive = false;
           return this.isActive ? e : null
@@ -116,61 +98,59 @@ export default class extends Node {
           return e;
         }),
       );
-
     this.touchend$ = fromEvent(this.element, 'touchend')
       .pipe(
-        filter(({ currentTarget }) => this.isActive === true && this.isEventSource(currentTarget)),
         map(e => {
           this.isActive = false;
           return { x: this.x, y: this.y }
         }),
       );
+    this.touchSubscription = this.touchstart$.pipe(switchMap(() => this.touchmove$.pipe(switchMap(() => this.touchend$), )), ).subscribe();
 
-    this.touchSubscription = this.touchstart$
+
+    this.blurSubscription =
+      merge(fromEvent(this.element, 'blur'), fromEvent(this.shape, 'blur'), )
       .pipe(
-        switchMap(() => this.touchmove$.pipe(switchMap(() => this.touchend$), )),
+        filter(x => this.isSelected === true),
+        tap(x => console.log('blur', x)),
+        map(() => this.setActiveState('INACTIVE')),
       ).subscribe()
-
-    // this.blurSubscription =
-    // merge(fromEvent(this.element, 'blur'), fromEvent(this.shape, 'blur'), )
-    // .pipe(
-    //   filter(x => this.isSelected === true),
-    //   map(evt => this.isSelected = false),
-    // ).subscribe()
   }
-
-  isEventSource(target) {
-    if (!target) return;
-    return [this.element].includes(target);
-  }
-
 
   init(pos, color) {
     this.classList('add', 'vertex', )
     this.element.dataset.nodeType = 'rect'
     this.element.dataset.nodeId = 'node1'
-
     this.shape.classList.add('rect');
     this.shape.setAttributeNS(null, 'stroke-width', '2');
-    this.shape.setAttributeNS(null, 'stroke', color);
-    this.shape.setAttributeNS(null, 'fill', color);
-    this.shape.setAttributeNS(null, 'fill', color);
-
+    this.shape.setAttributeNS(null, 'stroke', '#00000090');
+    this.shape.setAttribute('fill', color);
     this.textNode.element.classList.add('vertex-text')
     this.textNode.element.textContent = ' '
     this.textNode.element.setAttributeNS(null, 'text-anchor', 'middle');
-
-    // this.blurHandler = this.handleBlur.bind(this)
-    // this.selectedHandler = this.handleSelected.bind(this)
-    // this.touchStartHandler = this.handleTouchStart.bind(this)
-    // this.touchMoveHandler = this.handleTouchMove.bind(this)
-    // this.touchEndHandler = this.handleTouchEnd.bind(this)
-
     this.element.appendChild(this.shape);
     this.element.appendChild(this.textNode.element);
-
     this.setCoords(pos);
     this.setSize(pos);
+  }
+
+
+  setActiveState(status = '') {
+    this.activeState = status;
+    return this.activeState
+  }
+
+  get activeState() { return this._activeState.value }
+  set activeState(newState) {
+    if (this.activeState !== newState && this._activeState.isNewStateValid(newState)) { //&& this._activeState.isNewStateValid(newState)) {
+      this._activeState.value = newState;
+      this._activeState.value$.next(this.activeState);
+    } else console.log('activeState didnt chsnge, no emit, line 213 vertex');
+  }
+  get activeState$() { return this._activeState.value$.asObservable() }
+
+  isEventSource(target) {
+    return target ? [this.element, this.shape].includes(target) : null
   }
 
   classList(keyword, ...classes) {
@@ -212,13 +192,15 @@ export default class extends Node {
     this.textNode.element.setAttribute('y', this.centroid.y)
   }
 
-  get isSelected() {
-    return this._isSelected
-  }
-
+  get isSelected() { return this._isSelected }
   set isSelected(newValue) {
     this._isSelected = newValue
     this.classList(this.isSelected ? 'add' : 'remove', 'selected-vertex')
+  }
+
+  get isFocused() { return this._isFocused }
+  set isFocused(newValue) {
+    this._isFocused = newValue
   }
 
   get centroid() {

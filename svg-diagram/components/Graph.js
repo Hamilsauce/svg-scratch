@@ -4,8 +4,8 @@ import Vertex from './Vertex.js';
 import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js';
 const { date, array, utils, text, help } = ham;
 
-const { interval, of , fromEvent, merge, empty, Subject } = rxjs;
-const { switchMap, mergeMap, take, filter, scan, takeWhile, startWith, tap, map, mapTo } = rxjs.operators;
+const { Observable, from, race, interval, of , fromEvent, merge, empty, Subject } = rxjs;
+const { bufferTime, bufferCount, first, repeat, throttleTime, debounceTime, buffer, switchMap, mergeMap, take, filter, scan, takeWhile, startWith, tap, map, mapTo } = rxjs.operators;
 
 // const graphMode = 'EDGE' || 'SELECT' || 'DRAW' || 'DELETE'
 help('', 'event')
@@ -16,6 +16,12 @@ const GRAPH_MODES = [
   ['DELETE', false],
 ]
 
+export class SelectionStack {
+  constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
+
+  }
+}
+
 // Graph
 export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
@@ -25,17 +31,21 @@ export default class {
     this._vertices = new Map();
     this._redoList = [];
     this._selectedVertexZPosition = null;
-    this.activeVertex = null;
+
+    this.activeVertex = null; // UNUSED?
+    this._focusedVertex = null;
+
     this.graphModeMap = new Map(GRAPH_MODES)
     this._graphMode;
     this.graphMode = graphMode;
-    this.drawMode = 'rect';
 
+    this.drawMode = 'rect';
     this._vertexFill = vertexFill || '#ffffff';
     this.edgeDirection = 'UNDIRECTED';
 
     this.setSvgSize();
 
+    /* * * STREAMS * * */
     this.optionsSubject$ = new Subject();
 
     this.drawActions$ = {
@@ -48,85 +58,67 @@ export default class {
       switchMap(e => this.drawActions$.move.pipe(
         switchMap(e => this.drawActions$.end)))).subscribe();
 
+    /* 
+      GRAPH listens for 'vertex:click' events,
+      sends updates to nodes by plugging 
+      this.vertexSubjects.click$ into
+      subscription of 'vertex:click' which nodes are listening on
+    */
+    
     this.vertexSubjects = { click$: new Subject(), };
-
-    // BLUR?
-    this.vertexClick$ = fromEvent(this.element, 'vertex-click')
-      .pipe(filter(_ => this.graphMode === 'SELECT'), )
-      .subscribe(this.vertexSubjects.click$)
+    this.vertexClickSubscription = fromEvent(this.element, 'vertex:click')
+      .pipe(
+        filter(({ detail }) => this.vertices.has(detail.target) && this.graphMode === 'SELECT'),
+        map(({ detail }) => this.vertices.get(detail.target)),
+        map((node) => {
+          this.focusedVertex = this.focusedVertex === node.element || node.activeState !== 'INACTIVE' ? null : node.element
+          if (this.focusedVertex === null) return { target: node.element, responseStatus: 'INACTIVE' };
+          else return { target: node.element, responseStatus: 'FOCUSED' };
+        })
+      ).subscribe(this.vertexSubjects.click$)
   }
 
-  get selectedVerticesMap() {
-    return new Map(this.children.filter((ch, i) => {
-      return this.vertices.get(ch).isSelected === true
-    }).map((ch, i) => [ch, this.vertices.get(ch)]));
-  };
+  /*TODO METHODS  TODO */
 
-  // vertexInactive(event) {
-  //   console.log('this.vertices.get(event.detail.target)', this.vertices.get(event.detail.target))
-  //   this.vertices.get(event.detail.target).isSelected = false;
-  //   const evt = new CustomEvent('vertex-inactive', { bubbles: false, detail: { target: this.element } })
-  //   targetVertex.dispatchEvent(evt)
-  // }
+  get focusedVertex() { return this._focusedVertex }
+  set focusedVertex(newValue) {
+    if (this._focusedVertex === newValue) this.resetShapeZPosition();
 
-  selectVertex(e) {
-    console.log('selectVertex e', e);
-    const targetVertex = e.detail.target;
-    const targetNode = this.vertices.get(targetVertex);
-
-    const evt = new CustomEvent('node-selected', { bubbles: false, detail: { data: 'got u' } })
-    targetVertex.dispatchEvent(evt)
-
-    if (this.graphMode === 'SELECT') {
-      if (!this.selectedVertices.includes(targetVertex)) {
-        this.activeVertex = targetNode.element
-      } else {
-        this.activeVertex = null
-      }
-    } else if (this.graphMode === 'EDGE') {
-      this.selectedVertices.push(targetVertex)
-      if (this.selectedVertices.length === 2) {
-        const [src, dest] = this.selectedVertices
-        this.addEdge(src, dest)
-        this.vertices.get(src).isSelected = false;
-        this.vertices.get(dest).isSelected = false;
-        this.selectedVertices = [];
-      }
-    }
+    if (this.vertices.has(newValue) && ![undefined, null].includes(newValue)) {
+      this._focusedVertex = this.element.removeChild(newValue)
+      this.element.insertBefore(this._focusedVertex, this.element.children[-1]);
+    } else this._focusedVertex = null
   }
+
+  resetShapeZPosition() {
+    const refNode = this.children[this.focusedVertex.zIndex]
+    this.element.insertBefore(this.focusedVertex, refNode)
+  }
+
+
 
   drawStart(event) {
+    this.isDrawing = true;
+    if (this.drawMode === 'rect') {
+      this.current = this.addVertex(new Vertex({
+        x: event.touches[0].pageX,
+        y: event.touches[0].pageY,
+        width: 0,
+        height: 0,
+      }, this.vertexSubjects, this.children.length, this.vertexFill, this))
+    }
     event.stopPropagation()
-    const targ = event.target;
-    if (this.graphMode === 'DRAW') {
-      this.isDrawing = true;
-      if (this.drawMode === 'rect') {
-        const vertex = new Vertex({
-          x: event.touches[0].pageX,
-          y: event.touches[0].pageY,
-          width: 0,
-          height: 0,
-        }, this.vertexSubjects, this.children.length, this.vertexFill, this);
-        this.current = vertex;
-        this.addVertex(vertex)
-      }
-    } else if (['SELECT', 'EDGE'].includes(this.graphMode)) {}
+    return this.current;
   }
 
   drawMove(event) {
-    // TAKES A TOUCHEVENT
     event.preventDefault();
-    if (this.graphMode === 'DRAW') {
-      if (this.isDrawing) {
-        if (this.drawMode === 'rect') {
-          this.current.setSize({
-            width: event.touches[0].pageX - (this.current.x + 30),
-            height: event.touches[0].pageY - (this.current.y + 30)
-          });
-        }
-      }
+    if (this.isDrawing && this.drawMode === 'rect') {
+      this.current.setSize({
+        width: event.touches[0].pageX - (this.current.x + 30),
+        height: event.touches[0].pageY - (this.current.y + 30)
+      });
     }
-    else if (['SELECT', 'EDGE'].includes(this.graphMode)) {}
   }
 
   drawEnd(event) {
@@ -159,44 +151,31 @@ export default class {
     this.element.setAttribute('height', window.innerHeight);
   }
 
-  resetShapeZPosition() {
-    const refVertex = this.element.children[this.selectedVertexZPosition]
-    this.selectedVertex.classList.remove('selected-vertex')
-    this.selectedVertex.classList.add('prev-selected-shape')
-    this.element.insertBefore(this.selectedVertex, refVertex)
-  }
-
   changeGraphMode(incomingMode = '') {
     if (incomingMode !== 'string') return;
     if (this.graphModeMap.has(incomingMode.toUpperCase())) {
-      this.graphModeMap.get(this.activeGraphMode) = false;
+      this.graphModeMap.get(this.currentGraphMode) = false;
       this.graphModeMap.get(incomingMode) = true;
     }
   }
 
-  get children() {
-    return [...this.element.children]
+  get selectedVerticesMap() {
+    return new Map(this.children.filter((ch, i) => {
+      return this.vertices.get(ch).isSelected === true
+    }).map((ch, i) => [ch, this.vertices.get(ch)]));
   }
 
-  get activeGraphMode() {
-    return [...this.graphModeMap].reduce((mode, [key, val], i) => value === true ? key : mode, '');
-  }
-
-  set activeGraphMode(newValue) {
-    this._mode = newValue
-  }
+  get children() { return [...this.element.children] }
 
   get graphMode() { return this._graphMode }
   set graphMode(newValue) {
     this.selectedVertices.forEach(v => v.isSelected = false);
-    this.selectedVertices = []
 
     if (this.graphMode === newValue) return;
     this._graphMode = newValue
 
     if (this.graphMode === 'DRAW') {}
     else if (['EDGE', 'SELECT'].includes(this.graphMode)) {}
-
   }
 
   get redoList() { return this._redoList };
@@ -206,9 +185,7 @@ export default class {
   set element(newValue) { this._element = newValue };
 
   get vertices() { return this._vertices };
-  set vertices(newValue) {
-    this._vertices = newValue
-  };
+  set vertices(newValue) { this._vertices = newValue };
 
   get vertexFill() { return this._vertexFill };
   set vertexFill(c) { this._vertexFill = c };
@@ -216,28 +193,13 @@ export default class {
   get selectedVertexZPosition() { return this._selectedVertexZPosition }
   set selectedVertexZPosition(z) { this._selectedVertexZPosition = z };
 
-  get selectedVertices1() { return this._selectedVertices };
-  set selectedVertices1(newValue) { this._selectedVertices = newValue };
-
   get selectedVertices() {
-    return this.children.filter((ch, i) => {
-      return this.vertices.get(ch).isSelected === true
-    }) //.map((ch, i) => this.vertices.get(ch));
+    return this.children
+      .filter((ch, i) => this.vertices.get(ch).isSelected === true)
+      .map((ch, i) => this.vertices.get(ch));
   };
-
   set selectedVertices(newValue) { this._selectedVertices = newValue };
 
-  // TODO DEPECRATED
-  // get addEdge() { return this._addEdgeMode }
-  // set addEdge(newValue) {
-  //   this._addEdgeMode = newValue
-  //   if (newValue === false) {
-  //     this.selectedVertices.forEach(v => {
-  //       v.value.classList.remove('selected-vertex')
-  //     });
-  //     this.selectedVertices = []
-  //   }
-  // }
 
   addVertex(vertex) {
     if (this.vertices.has(vertex.element)) {
@@ -274,7 +236,6 @@ export default class {
     this.element.appendChild(line.element);
     sourceVertex.edges.set(line.element, { vertexOrder: 0, element: line.element })
     destinationVertex.edges.set(line.element, { vertexOrder: 1, element: line.element })
-    this.addEdgeMode = !this.addEdgeMode;
     return [sourceVertex, destinationVertex];
   }
 
@@ -289,8 +250,8 @@ export default class {
   }
 
   deleteVertex() {
-    if (this.graphMode === 'SELECT' && this.activeVertex !== null) {
-      this.undo(this.activeVertex)
+    if (this.graphMode === 'SELECT' && this.focusedVertex !== null) {
+      this.undo(this.focusedVertex)
     }
   }
 
@@ -299,9 +260,7 @@ export default class {
       const node = this.vertices.get(target)
       this.redoList.push(node)
       this.removeVertex(node.element)
-
     } else {
-
       if (this.element.lastChild && this.vertices.has(this.element.lastChild)) {
         const target = this.vertices.get(this.element.lastChild)
         this.redoList.push(target)
@@ -338,3 +297,37 @@ export default class {
     );
   }
 }
+
+  /*TODO FOCUSED VERTEX TODO
+   
+    - A Vertex is focusedVertex if the 
+      vertex is both SELECTED and the 
+      MOST RECENTLY SELECTED.
+    
+    - While a vertex is focused, their element's
+      zIndex is moved to the beginning of the
+      graph's children collection
+      
+    - When vertex becomes unfocused, they are 
+      repositioned back to their original Z
+        
+    - A focusedVertex can be unfocused by
+      1) A direct deselect, 
+      2) By a blur action,
+      3) Another vertex being selected
+        
+    - A focusedVertex acts as the target of
+      any applicable user actions while it is focused
+    
+    - In cases 1) & 2), the outgoing focusedVert
+      is not replaced by a new focusedVertex,
+      and so no vertex is currently focused
+      
+    - In 3), the outgoing vertex is
+      immediately replaced by a newly foxused vertex 
+    
+    TODO NOTE: Vertices are not aware of
+    Focus states; Only Graph is concerned 
+    with and acts according to this.
+    
+    */

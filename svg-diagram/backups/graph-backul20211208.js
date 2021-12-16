@@ -353,8 +353,6 @@ export default class {
   //     return c == el
   //   })
   //   // }
-  //   this.element.removeChild(this._selectedVertex);
-  //   this.element.insertBefore(this._selectedVertex, this.element.children[-1]);
   //   // } else {
   //   this.selectedVertex.classList.remove('selected-vertex')
   //   // this.selectedVertex = undefined;

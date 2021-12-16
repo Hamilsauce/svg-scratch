@@ -20,20 +20,10 @@ body {
   transform: rotate(90deg);
 }
 
-.selected-vertex .rect {
-  stroke: #D9C925;
-  stroke-width: 2px;
-}
-.vertex-text {
-user-select: all;
-fill: blue;
-  
-}
-
 #delete-icon {
-   fill:   linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0));
-    /* background-image: */
-    /*
+  fill: linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0));
+  /* background-image: */
+  /*
     linear-gradient(0deg, #DAB54280, rgba(255, 255, 255, 0)),
     linear-gradient(165deg, #52829E80, rgba(255, 255, 255, 0)),
     linear-gradient(250deg, #A0A7ADC2, rgba(255, 255, 255, 0)); */
@@ -42,6 +32,144 @@ fill: blue;
     no-repeat,
     no-repeat; */
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 600px 50px;
+  height: 100vh;
+  width: 100vw;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 600px 50px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.options-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 5px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 5px;
+}
+
+.graph-container {
+  height: fit-content;
+  width: 100%;
+}
+
+#graph {
+  display: block;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #269;
+  background-position: -1px -1px, -1px -1px, 0 0px, 0 0;
+  background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+}
+
+.vertex {
+  padding: 10px;
+  border: 5px solid red;
+  /* overflow: hidden; */
+  /* filter: invert(70%) opacity(0.9); */
+
+  z-index: 501
+}
+
+/* .vertex>.rect {
+  fill: #D9C925;
+  filter:  opacity(0.7);
+
+  stroke: #3D3C3D;
+  stroke-width: 2px;
+  z-index: 499;
+  border-radius: 25%;
+} */
+
+.line {
+  fill: green;
+  stroke-width: 3;
+  stroke-linecap: round;
+  box-shadow: 0 0 10px 10px #000000;
+}
+
+.rect {
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0.1em 0.1em #0909099C);
+  opacity: 0.98;
+  z-index: 0;
+  outline: 1px solid transparent;
+
+  
+}
+
+.selected-shape {
+  /* outline: 1px solid #FFAD00; */
+  /* z-index: 500; */
+}
+
+.selected-vertex {
+  outline: 1px solid #FFAD00;
+  z-index: 500;
+}
+
+.focused-vertex {
+  /* outline: 1px solid #FFAD00; */
+  z-index: 500;
+}
+
+
+.vertex-text {
+  user-select: all;
+  fill: blue;
+  z-index: 501;
+}
+
+#delete-button {
+  z-index: 100;
+  fill: #4C4B4C;
+  stroke-width: 5px;
+  stroke: black;
+  transform: scale(1);
+  transition: 0.2s ease-in;
+}
+
+#delete-button:active {
+  fill: #373737;
+  stroke-width: 5px;
+  stroke: #686868;
+  transform: scale(0.9);
+}
+
+#delete-button.disabled {
+  fill: #88888847;
+  stroke-width: 5px;
+  stroke: #686868;
+  filter: blur(0.6px);
+}
+
 
 /* .node {
   position: absolute;
