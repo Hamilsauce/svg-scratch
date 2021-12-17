@@ -57,13 +57,16 @@ export default class extends Node {
 
 
     /*  TODO CLICK STREAMS  */
+
     this.clickSubscription = merge(fromEvent(this.element, 'click').pipe(filter(({ currentTarget }) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })), ), fromEvent(this.element, 'dblclick').pipe(filter(({ currentTarget }, i) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })))).pipe(
-      debounceTime(200),
-      map(({ type, target, event }) => {
-        if (type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
-        else if (type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
-        return event;
-      })
+      bufferTime(400),
+      filter(_ => _.length),
+      map((evts) => {
+        const e = evts[evts.length - 1]
+        if (e.type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
+        else if (e.type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
+        return e;
+      }),
     ).subscribe();
 
     this.graphClickResponse$ = vertexSubjects.click$
@@ -107,12 +110,10 @@ export default class extends Node {
       );
     this.touchSubscription = this.touchstart$.pipe(switchMap(() => this.touchmove$.pipe(switchMap(() => this.touchend$), )), ).subscribe();
 
-
     this.blurSubscription =
       merge(fromEvent(this.element, 'blur'), fromEvent(this.shape, 'blur'), )
       .pipe(
         filter(x => this.isSelected === true),
-        tap(x => console.log('blur', x)),
         map(() => this.setActiveState('INACTIVE')),
       ).subscribe()
   }
@@ -133,7 +134,6 @@ export default class extends Node {
     this.setCoords(pos);
     this.setSize(pos);
   }
-
 
   setActiveState(status = '') {
     this.activeState = status;

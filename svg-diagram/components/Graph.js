@@ -26,6 +26,7 @@ export class SelectionStack {
 export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
     this._element = element;
+    this.vertexSubjects = { click$: new Subject(), };
     // this._vertices = new VertexCollection(seedData);
     this.optionActionMap = this.initOptionActions();
     this._vertices = new Map();
@@ -64,10 +65,11 @@ export default class {
       this.vertexSubjects.click$ into
       subscription of 'vertex:click' which nodes are listening on
     */
-    
-    this.vertexSubjects = { click$: new Subject(), };
-    this.vertexClickSubscription = fromEvent(this.element, 'vertex:click')
-      .pipe(
+
+    this.vertexStateSubscription =
+      merge(
+        fromEvent(this.element, 'vertex:click')
+      ).pipe(
         filter(({ detail }) => this.vertices.has(detail.target) && this.graphMode === 'SELECT'),
         map(({ detail }) => this.vertices.get(detail.target)),
         map((node) => {
@@ -82,20 +84,38 @@ export default class {
 
   get focusedVertex() { return this._focusedVertex }
   set focusedVertex(newValue) {
-    if (this._focusedVertex === newValue) this.resetShapeZPosition();
+    // if (this._focusedVertex !== newValue) this.resetShapeZPosition();
+    // console.log('newValue', newValue)
+    if (![undefined, null].includes(this._focusedVertex)) this.setShapeZPosition(this._focusedVertex, this.vertices.get(this._focusedVertex).zIndex);
 
     if (this.vertices.has(newValue) && ![undefined, null].includes(newValue)) {
-      this._focusedVertex = this.element.removeChild(newValue)
-      this.element.insertBefore(this._focusedVertex, this.element.children[-1]);
-    } else this._focusedVertex = null
+      this._focusedVertex = newValue
+      this.setShapeZPosition(this._focusedVertex);
+      // this.element.insertBefore(this._focusedVertex, this.element.children[-1]);
+    }
+    else this._focusedVertex = null
   }
 
+  setShapeZPosition(vertex, zPosition = null) {
+    // console.log('this.focusedVertex', this.vertex)
+    zPosition = null ? -1 : zPosition;
+    // if (zPosition === null) {
+    const node = this.vertices.get(this.element.removeChild(vertex))
+    this.element.insertBefore(node.element, this.element.children[zPosition]);
+
+    // } else {
+
+    // }
+
+    // const refNode = this.children[zPosition]
+    // const refNode = this.children[this.vertices.get(vertex).zIndex]
+    // this.element.insertBefore(this.focusedVertex, refNode)
+  }
   resetShapeZPosition() {
-    const refNode = this.children[this.focusedVertex.zIndex]
+    // console.log('this.focusedVertex', this.focusedVertex)
+    const refNode = this.children[this.vertices.get(this.focusedVertex).zIndex]
     this.element.insertBefore(this.focusedVertex, refNode)
   }
-
-
 
   drawStart(event) {
     this.isDrawing = true;
@@ -169,12 +189,14 @@ export default class {
 
   get graphMode() { return this._graphMode }
   set graphMode(newValue) {
-    this.selectedVertices.forEach(v => v.isSelected = false);
-
     if (this.graphMode === newValue) return;
     this._graphMode = newValue
 
-    if (this.graphMode === 'DRAW') {}
+    if (this.graphMode === 'DRAW') {
+      this.focusedVertex = null
+      this.selectedVertices.forEach(v => this.setShapeZPosition(v.element, v.zIndex));
+      this.vertexSubjects.click$.next({ target: null, responseStatus: 'INACTIVE' })
+    }
     else if (['EDGE', 'SELECT'].includes(this.graphMode)) {}
   }
 
@@ -298,36 +320,36 @@ export default class {
   }
 }
 
-  /*TODO FOCUSED VERTEX TODO
-   
-    - A Vertex is focusedVertex if the 
-      vertex is both SELECTED and the 
-      MOST RECENTLY SELECTED.
+/*TODO FOCUSED VERTEX TODO
+ 
+  - A Vertex is focusedVertex if the 
+    vertex is both SELECTED and the 
+    MOST RECENTLY SELECTED.
+  
+  - While a vertex is focused, their element's
+    zIndex is moved to the beginning of the
+    graph's children collection
     
-    - While a vertex is focused, their element's
-      zIndex is moved to the beginning of the
-      graph's children collection
+  - When vertex becomes unfocused, they are 
+    repositioned back to their original Z
       
-    - When vertex becomes unfocused, they are 
-      repositioned back to their original Z
-        
-    - A focusedVertex can be unfocused by
-      1) A direct deselect, 
-      2) By a blur action,
-      3) Another vertex being selected
-        
-    - A focusedVertex acts as the target of
-      any applicable user actions while it is focused
-    
-    - In cases 1) & 2), the outgoing focusedVert
-      is not replaced by a new focusedVertex,
-      and so no vertex is currently focused
+  - A focusedVertex can be unfocused by
+    1) A direct deselect, 
+    2) By a blur action,
+    3) Another vertex being selected
       
-    - In 3), the outgoing vertex is
-      immediately replaced by a newly foxused vertex 
+  - A focusedVertex acts as the target of
+    any applicable user actions while it is focused
+  
+  - In cases 1) & 2), the outgoing focusedVert
+    is not replaced by a new focusedVertex,
+    and so no vertex is currently focused
     
-    TODO NOTE: Vertices are not aware of
-    Focus states; Only Graph is concerned 
-    with and acts according to this.
-    
-    */
+  - In 3), the outgoing vertex is
+    immediately replaced by a newly foxused vertex 
+  
+  TODO NOTE: Vertices are not aware of
+  Focus states; Only Graph is concerned 
+  with and acts according to this.
+  
+  */
