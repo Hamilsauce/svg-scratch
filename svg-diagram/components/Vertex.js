@@ -58,11 +58,27 @@ export default class extends Node {
 
     /*  TODO CLICK STREAMS  */
 
-    this.clickSubscription = merge(fromEvent(this.element, 'click').pipe(filter(({ currentTarget }) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })), ), fromEvent(this.element, 'dblclick').pipe(filter(({ currentTarget }, i) => this.isEventSource(currentTarget)), map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })))).pipe(
+    this.clickSubscription = merge(
+      fromEvent(this.element, 'click').pipe(
+        throttleTime(500),
+        filter(({ currentTarget }) => this.isEventSource(currentTarget)),
+        tap(e => e.preventDefault()),
+        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })),
+      ),
+      fromEvent(this.element, 'dblclick').pipe(
+        filter(({ currentTarget }, i) => this.isEventSource(currentTarget)),
+        tap(e => e.preventDefault()),
+        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })),
+      ),
+    ).pipe(
       bufferTime(400),
+      // throttleTime(400),
       filter(_ => _.length),
-      map((evts) => {
-        const e = evts[evts.length - 1]
+      map((evts) => evts[evts.length - 1]),
+      tap(x => console.log('event', x)),
+      tap(e => e.event.preventDefault()),
+
+      map((e) => {
         if (e.type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
         else if (e.type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
         return e;
@@ -81,6 +97,7 @@ export default class extends Node {
     this.touchstart$ = fromEvent(this.element, 'touchstart')
       .pipe(
         filter(({ currentTarget }) => this.activeState === 'FOCUSED'),
+        // tap(e => e.preventDefault()),
         tap(() => this.isActive = true),
         tap(() => this.isFocused = true),
         map(evt => evt),
@@ -94,6 +111,10 @@ export default class extends Node {
         }),
         map(e => {
           if (!this.isActive || e == null) return;
+          this.setCoords({
+            x: parseInt(e.touches[0].pageX) - (this.width / 2),
+            y: parseInt(e.touches[0].pageY) - (this.height),
+          })
           this.setCoords({
             x: parseInt(e.touches[0].pageX) - (this.width / 2),
             y: parseInt(e.touches[0].pageY) - (this.height),
@@ -116,6 +137,16 @@ export default class extends Node {
         filter(x => this.isSelected === true),
         map(() => this.setActiveState('INACTIVE')),
       ).subscribe()
+  }
+
+  /* TODO  End Constructor  TODO */
+
+  getMousePosition(evt) {
+    var CTM = this.element.getScreenCTM();
+    return {
+      x: (evt.clientX - CTM.e) / CTM.a,
+      y: (evt.clientY - CTM.f) / CTM.d
+    };
   }
 
   init(pos, color) {
@@ -181,6 +212,8 @@ export default class extends Node {
     this.height = height
   }
 
+
+
   getTextAttribute(attr) {}
   setTextAttribute(attr, value) {
     this.textNode.element.setAttribute('x', this.centroid.x - ((parseInt(this.textNode.element.getAttribute('width')) || 0) / 2))
@@ -212,7 +245,9 @@ export default class extends Node {
 
   get size() { return { width: this.width, height: this.height, } }
 
-  get coords() { return { x: this.x, y: this.y, } }
+  get coords() {
+    return { x: this.x, y: this.y, }
+  }
 
   get position() { return { x: this.x, y: this.y, width: this.width, height: this.height, } }
   set position({ x, y, width, height }) {

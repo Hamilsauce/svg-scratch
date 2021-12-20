@@ -1,19 +1,16 @@
-/* 
-
 .text-node {
   display: inline-block;
+  outline: none;
 }
 
-#thesvg {
+/* #thesvg {
   border: 1px solid black;
-}
+} */
 
-#viewBox {
+/* #viewBox {
   border: 2px solid black;
   background: #EBF2DE;
-}
-
-*/
+} */
 
 /* .rect {
 
@@ -27,12 +24,18 @@
 .node-text-editor-wrapper {
   /* text-align: left; */
   alignment-baseline: baseline;
+  outline: none;
+}
+
+text {
+  
 }
 
 .text-editor {
   /* display: inline-block; */
   background: #3AA544;
   padding: 10px;
+  /* outline: none; */
   
   
 }
@@ -41,6 +44,7 @@
   display: inline-block;
   /* background: #3AA544; */
   padding: 6px;
+  outline: none;
   
   width: 100%;
   text-align: center;
@@ -50,6 +54,7 @@
   display: inline-block;
   /* background: #3AA544; */
   padding: 6px;
+  /* outline: none; */
 
   width: 100%;
   text-align: center;
@@ -57,15 +62,17 @@
   white-space: nowrap;
 }
 
-.foreign {
+/* .foreign {
   text-align: left;
   alignment-baseline: baseline;
-}
+} */
 
 .insideforeign {
   display: inline-block;
+  outline: none;
 }
 
 svg {
   border: 1px solid black;
+  outline: none;
 }

@@ -117,17 +117,19 @@ export default class {
     this.element.insertBefore(this.focusedVertex, refNode)
   }
 
+
   drawStart(event) {
+    event.stopPropagation()
     this.isDrawing = true;
     if (this.drawMode === 'rect') {
-      this.current = this.addVertex(new Vertex({
-        x: event.touches[0].pageX,
-        y: event.touches[0].pageY,
+      this.current = this.addVertex(new Vertex(
+      {
+        x: event.touches[0].pageX, //- event.target.offsetLeft,
+        y: event.touches[0].pageY, //- event.target.offsetTop,
         width: 0,
         height: 0,
       }, this.vertexSubjects, this.children.length, this.vertexFill, this))
     }
-    event.stopPropagation()
     return this.current;
   }
 
@@ -143,6 +145,10 @@ export default class {
 
   drawEnd(event) {
     this.isDrawing = false;
+    if (this.current === null) return;
+    if (this.current.width + this.current.height < 40) {
+      this.element.removeChild(this.current.element)
+    }
     this.current = null;
   }
 
