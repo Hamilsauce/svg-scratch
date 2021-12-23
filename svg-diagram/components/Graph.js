@@ -25,7 +25,7 @@ export class SelectionStack {
 // Graph
 export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
-    this._element = element;
+    this._element = element.parentElement;
     this.vertexSubjects = { click$: new Subject(), };
     // this._vertices = new VertexCollection(seedData);
     this.optionActionMap = this.initOptionActions();
@@ -40,7 +40,7 @@ export default class {
     this._graphMode;
     this.graphMode = graphMode;
 
-    this.drawMode = 'rect';
+    this.drawMode = 'RECT';
     this._vertexFill = vertexFill || '#ffffff';
     this.edgeDirection = 'UNDIRECTED';
 
@@ -84,44 +84,32 @@ export default class {
 
   get focusedVertex() { return this._focusedVertex }
   set focusedVertex(newValue) {
-    // if (this._focusedVertex !== newValue) this.resetShapeZPosition();
-    // console.log('newValue', newValue)
     if (![undefined, null].includes(this._focusedVertex)) this.setShapeZPosition(this._focusedVertex, this.vertices.get(this._focusedVertex).zIndex);
 
     if (this.vertices.has(newValue) && ![undefined, null].includes(newValue)) {
       this._focusedVertex = newValue
       this.setShapeZPosition(this._focusedVertex);
-      // this.element.insertBefore(this._focusedVertex, this.element.children[-1]);
     }
     else this._focusedVertex = null
   }
 
   setShapeZPosition(vertex, zPosition = null) {
-    // console.log('this.focusedVertex', this.vertex)
     zPosition = null ? -1 : zPosition;
-    // if (zPosition === null) {
     const node = this.vertices.get(this.element.removeChild(vertex))
     this.element.insertBefore(node.element, this.element.children[zPosition]);
-
-    // } else {
-
-    // }
-
-    // const refNode = this.children[zPosition]
-    // const refNode = this.children[this.vertices.get(vertex).zIndex]
-    // this.element.insertBefore(this.focusedVertex, refNode)
   }
+  
   resetShapeZPosition() {
-    // console.log('this.focusedVertex', this.focusedVertex)
     const refNode = this.children[this.vertices.get(this.focusedVertex).zIndex]
     this.element.insertBefore(this.focusedVertex, refNode)
   }
 
 
   drawStart(event) {
+    console.log('this', this)
     event.stopPropagation()
     this.isDrawing = true;
-    if (this.drawMode === 'rect') {
+    if (this.drawMode === 'RECT') {
       this.current = this.addVertex(new Vertex(
       {
         x: event.touches[0].pageX, //- event.target.offsetLeft,
@@ -135,7 +123,7 @@ export default class {
 
   drawMove(event) {
     event.preventDefault();
-    if (this.isDrawing && this.drawMode === 'rect') {
+    if (this.isDrawing && this.drawMode === 'RECT') {
       this.current.setSize({
         width: event.touches[0].pageX - (this.current.x + 30),
         height: event.touches[0].pageY - (this.current.y + 30)
@@ -145,7 +133,7 @@ export default class {
 
   drawEnd(event) {
     this.isDrawing = false;
-    if (this.current === null) return;
+    if (!this.current) return;
     if (this.current.width + this.current.height < 40) {
       this.element.removeChild(this.current.element)
     }
@@ -191,7 +179,12 @@ export default class {
     }).map((ch, i) => [ch, this.vertices.get(ch)]));
   }
 
-  get children() { return [...this.element.children] }
+  get children() {
+  console.log('[...this.element.children[0]]', [...this.element.children[0].children])
+  // console.log('[...this.element.children[0]]', [...this.element.children[0]])
+    return [...this.element.children[0].children]
+    // return [...this.element.children]
+  }
 
   get graphMode() { return this._graphMode }
   set graphMode(newValue) {
@@ -234,7 +227,7 @@ export default class {
       return this.vertices.get(vertex.element);
     } else {
       this.vertices.set(vertex.element, vertex);
-      this.element.appendChild(vertex.element);
+      this.element.children[0].appendChild(vertex.element);
       return vertex;
     }
   }

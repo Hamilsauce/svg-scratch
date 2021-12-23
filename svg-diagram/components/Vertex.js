@@ -3,7 +3,13 @@ import TextNode from './TextNode.js';
 import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js';
 const { date, array, utils, text, help } = ham;
 const { from, race, interval, of , fromEvent, merge, empty, Subject } = rxjs;
-const { bufferTime, bufferCount, first, repeat, throttleTime, debounceTime, buffer, switchMap, concatMap, mergeMap, take, filter, scan, takeWhile, startWith, tap, map, mapTo } = rxjs.operators;
+const { bufferTime, bufferCount, bufferWhen, first, repeat, throttleTime, debounceTime, buffer, switchMap, concatMap, mergeMap, take, filter, scan, takeWhile, startWith, tap, map, mapTo } = rxjs.operators;
+
+// const intervalEvents = interval(1000);
+// const buffered = intervalEvents.pipe(bufferWhen(() => clicks));
+// buffered.subscribe(x => console.log(x));
+
+
 
 const _SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -58,32 +64,17 @@ export default class extends Node {
 
     /*  TODO CLICK STREAMS  */
 
-    this.clickSubscription = merge(
-      fromEvent(this.element, 'click').pipe(
-        throttleTime(500),
-        filter(({ currentTarget }) => this.isEventSource(currentTarget)),
-        tap(e => e.preventDefault()),
-        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })),
-      ),
-      fromEvent(this.element, 'dblclick').pipe(
-        filter(({ currentTarget }, i) => this.isEventSource(currentTarget)),
-        tap(e => e.preventDefault()),
-        map(evt => ({ type: evt.type, target: evt.currentTarget, event: evt })),
-      ),
-    ).pipe(
-      bufferTime(400),
-      // throttleTime(400),
-      filter(_ => _.length),
-      map((evts) => evts[evts.length - 1]),
-      tap(x => console.log('event', x)),
-      tap(e => e.event.preventDefault()),
-
-      map((e) => {
-        if (e.type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
-        else if (e.type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
-        return e;
-      }),
-    ).subscribe();
+    this.clickSubscription = fromEvent(this.element, 'click').pipe(tap(e => e.preventDefault()))
+      .pipe(
+        bufferTime(400),
+        filter(_ => _.length),
+        map(evts => ({ type: evts.length > 1 ? 'dblclick' : 'click', target: this.element, event: evts[evts.length - 1] })),
+        map((e) => {
+          if (e.type === 'dblclick') this.textNode.editMode = !this.textNode.editMode;
+          else if (e.type === 'click') this.element.dispatchEvent(new CustomEvent('vertex:click', { bubbles: true, detail: { target: this.element } }));
+          return e;
+        }),
+      ).subscribe();
 
     this.graphClickResponse$ = vertexSubjects.click$
       //TODO clickResponse$ is the response/feedback
@@ -93,15 +84,16 @@ export default class extends Node {
 
     this.vertexSelectSubscription = this.graphClickResponse$.subscribe(this.activeState$);
 
+   
     /*  TODO TOUCH STREAMS  */
     this.touchstart$ = fromEvent(this.element, 'touchstart')
       .pipe(
         filter(({ currentTarget }) => this.activeState === 'FOCUSED'),
-        // tap(e => e.preventDefault()),
         tap(() => this.isActive = true),
         tap(() => this.isFocused = true),
         map(evt => evt),
       );
+      
     this.touchmove$ = fromEvent(this.element, 'touchmove')
       .pipe(
         filter(({ currentTarget }) => this.activeState === 'FOCUSED' && this.isEventSource(currentTarget)),
@@ -111,17 +103,11 @@ export default class extends Node {
         }),
         map(e => {
           if (!this.isActive || e == null) return;
-          this.setCoords({
-            x: parseInt(e.touches[0].pageX) - (this.width / 2),
-            y: parseInt(e.touches[0].pageY) - (this.height),
-          })
-          this.setCoords({
-            x: parseInt(e.touches[0].pageX) - (this.width / 2),
-            y: parseInt(e.touches[0].pageY) - (this.height),
-          })
+          this.setCoords(this.getMousePosition(e))
           return e;
         }),
       );
+      
     this.touchend$ = fromEvent(this.element, 'touchend')
       .pipe(
         map(e => {
@@ -129,7 +115,11 @@ export default class extends Node {
           return { x: this.x, y: this.y }
         }),
       );
+      
     this.touchSubscription = this.touchstart$.pipe(switchMap(() => this.touchmove$.pipe(switchMap(() => this.touchend$), )), ).subscribe();
+
+
+
 
     this.blurSubscription =
       merge(fromEvent(this.element, 'blur'), fromEvent(this.shape, 'blur'), )
@@ -142,10 +132,10 @@ export default class extends Node {
   /* TODO  End Constructor  TODO */
 
   getMousePosition(evt) {
-    var CTM = this.element.getScreenCTM();
+    var CTM = this.shape.getScreenCTM();
     return {
-      x: (evt.clientX - CTM.e) / CTM.a,
-      y: (evt.clientY - CTM.f) / CTM.d
+      x: ((evt.touches[0].clientX - CTM.e) / CTM.a) - (this.width / 2), // - parseInt(this.x),
+      y: ((evt.touches[0].clientY - CTM.f) / CTM.d) - (this.height / 2), // - parseInt(this.y),
     };
   }
 
@@ -176,7 +166,7 @@ export default class extends Node {
     if (this.activeState !== newState && this._activeState.isNewStateValid(newState)) { //&& this._activeState.isNewStateValid(newState)) {
       this._activeState.value = newState;
       this._activeState.value$.next(this.activeState);
-    } else console.log('activeState didnt chsnge, no emit, line 213 vertex');
+    } //else  console.log('activeState didnt chsnge, no emit, line 213 vertex');
   }
   get activeState$() { return this._activeState.value$.asObservable() }
 
@@ -203,16 +193,16 @@ export default class extends Node {
   setCoords({ x, y }) {
     this.x = x
     this.y = y
-    this.textNode.element.setAttribute('x', this.centroid.x - ((parseInt(this.textNode.element.getAttribute('width')) || 0) / 2))
-    this.textNode.element.setAttribute('y', this.centroid.y + ((parseInt(this.textNode.element.getAttribute('height')) || 0) / 2));
+    this.shape.setAttributeNS(null, 'x', x);
+    this.shape.setAttributeNS(null, 'y', y);
+    this.textNode.element.setAttributeNS(null, 'x', this.centroid.x - ((parseInt(this.textNode.element.getAttributeNS(null, 'width')) || 0) / 2))
+    this.textNode.element.setAttributeNS(null, 'y', this.centroid.y + ((parseInt(this.textNode.element.getAttributeNS(null, 'height')) || 0) / 2));
   }
 
   setSize({ width, height }) {
     this.width = width
     this.height = height
   }
-
-
 
   getTextAttribute(attr) {}
   setTextAttribute(attr, value) {
@@ -257,15 +247,15 @@ export default class extends Node {
     this.height = height;
   }
 
-  get x() { return parseInt(this.shape.getAttribute('x')) || 0 }
+  get x() { return parseInt(this.shape.getAttributeNS(null, 'x')) || 0 }
   set x(newValue) {
-    this.shape.setAttribute('x', newValue)
+    this.shape.setAttributeNS(null, 'x', newValue)
     this.updateTextPosition();
   }
 
-  get y() { return parseInt(this.shape.getAttribute('y')) || 0 }
+  get y() { return parseInt(this.shape.getAttributeNS(null, 'y')) || 0 }
   set y(newValue) {
-    this.shape.setAttribute('y', newValue)
+    this.shape.setAttributeNS(null, 'y', newValue)
     this.updateTextPosition();
   }
 
