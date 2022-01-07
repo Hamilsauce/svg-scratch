@@ -7,6 +7,7 @@ const { bufferTime, bufferCount, first, repeat, throttleTime, debounceTime, buff
 export default class {
   constructor(textNode = document.createElementNS('http://www.w3.org/2000/svg', 'text'), parent) {
     this.parent = parent
+  
     this.element = textNode;
     this.element.nodeValue = 'poop';
     this.element.setAttributeNS(null, 'text-anchor', 'middle');

@@ -9,14 +9,14 @@ var gridY = 0;
 const LEFT_MOUSE_BUTTON = 0;
 
 function onMouseDown(evt) {
-    console.log(mouseDownX, mouseDownY);
-      const {touches} = evt
+    console.log('evt', evt);
+      // const {touches} = evt
 
   // if (evt.button == LEFT_MOUSE_BUTTON) {
     // evt.preventDefault();
     mouseDown = true;
-    mouseDownX = evt.touches[0].clientX;
-    mouseDownY = evt.touches[0].clientY;
+    mouseDownX = evt.pageX;
+    mouseDownY = evt.pageY;
   // }
 }
 
@@ -27,7 +27,8 @@ function onMouseUp(evt) {
   // }
 }
 
-surface.addEventListener("mouseleave", onMouseLeave, false);
+surface.addEventListener("pointerleave", onMouseLeave, false);
+// surface.addEventListener("pointerdown", onMouseLeave, false);
 
 // If the mouse moves out of the surface area, the mouse up event will not trigger,
 // so we clear the mouseDown flag so that scrolling does not resume "by itself" 
@@ -46,7 +47,7 @@ var dx = gridX % gridCellW;
 var dy = gridY % gridCellH;
 
 
-resizeGrid(100, 100, 20, 20);
+// resizeGrid(100, 100, 20, 20);
 
 
 
@@ -96,8 +97,8 @@ function resizeGrid(lw, lh, sw, sh) {
 // function onMouseMove(evt) {
 //   if (mouseDown) {
 //     evt.preventDefault();
-//     var mouseX = evt.clientX;
-//     var mouseY = evt.clientY;
+//     var mouseX = evt.pageX;
+//     var mouseY = evt.pageY;
 //     var mouseDX = mouseX - mouseDownX;
 //     var mouseDY = mouseY - mouseDownY;
 //     gridX += mouseDX;
@@ -118,8 +119,8 @@ function onMouseMove(evt) {
  console.log('suk', evt);
   if (mouseDown) {
     evt.preventDefault();
-    var mouseX = evt.clientX;
-    var mouseY = evt.clientY;
+    var mouseX = evt.pageX;
+    var mouseY = evt.pageY;
     var mouseDX = mouseX - mouseDownX;
     var mouseDY = mouseY - mouseDownY;
     gridX += mouseDX;
@@ -140,9 +141,9 @@ function onMouseMove(evt) {
 function initializeSurface() {
   var svg = document.getElementById("svg");
   var surface = svg.getElementById("surface");
-  surface.addEventListener("touchstart", onMouseDown, false);
-  surface.addEventListener("touchend", onMouseUp, false);
-  surface.addEventListener("touchmove", onMouseMove, false);
+  surface.addEventListener("pointerdown", onMouseDown, false);
+  // surface.addEventListener("pointerup", onMouseUp, false);
+  // surface.addEventListener("pointermove", onMouseMove, false);
   // surface.addEventListener("touchend", onMouseLeave, false);
 }
 

@@ -84,7 +84,7 @@ export default class extends Node {
 
     this.vertexSelectSubscription = this.graphClickResponse$.subscribe(this.activeState$);
 
-   
+
     /*  TODO TOUCH STREAMS  */
     this.touchstart$ = fromEvent(this.element, 'touchstart')
       .pipe(
@@ -93,7 +93,7 @@ export default class extends Node {
         tap(() => this.isFocused = true),
         map(evt => evt),
       );
-      
+
     this.touchmove$ = fromEvent(this.element, 'touchmove')
       .pipe(
         filter(({ currentTarget }) => this.activeState === 'FOCUSED' && this.isEventSource(currentTarget)),
@@ -107,7 +107,7 @@ export default class extends Node {
           return e;
         }),
       );
-      
+
     this.touchend$ = fromEvent(this.element, 'touchend')
       .pipe(
         map(e => {
@@ -115,8 +115,10 @@ export default class extends Node {
           return { x: this.x, y: this.y }
         }),
       );
-      
-    this.touchSubscription = this.touchstart$.pipe(switchMap(() => this.touchmove$.pipe(switchMap(() => this.touchend$), )), ).subscribe();
+
+    this.touchSubscription = this.touchstart$.pipe(
+      switchMap(() => this.touchmove$.pipe(
+        switchMap(() => this.touchend$)))).subscribe();
 
 
 
@@ -265,8 +267,7 @@ export default class extends Node {
     this.updateTextPosition();
   }
 
-  get height() { return parseInt(this.shape.getAttribute('height')) || 0; } //return this.shape.getAttribute('height') }
-
+  get height() { return parseInt(this.shape.getAttribute('height')) || 0; }
   set height(newValue) {
     this.shape.setAttribute('height', newValue)
     this.updateTextPosition();

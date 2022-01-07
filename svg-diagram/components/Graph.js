@@ -25,7 +25,8 @@ export class SelectionStack {
 // Graph
 export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
-    this._element = element.parentElement;
+    this._element = element//.parentElement
+    // this._element = element.parentElement;
     this.vertexSubjects = { click$: new Subject(), };
     // this._vertices = new VertexCollection(seedData);
     this.optionActionMap = this.initOptionActions();
@@ -54,10 +55,11 @@ export default class {
       move: fromEvent(this.element, 'touchmove').pipe(map(x => this.drawMove(x))),
       end: fromEvent(this.element, 'touchend').pipe(map(x => this.drawEnd(x)), ),
     };
-
-    this.drawSubscription = this.drawActions$.start.pipe(
-      switchMap(e => this.drawActions$.move.pipe(
-        switchMap(e => this.drawActions$.end)))).subscribe();
+    this.drawSubscription = this.drawActions$.start
+      .pipe(
+        switchMap(e => this.drawActions$.move.pipe(
+          switchMap(e => this.drawActions$.end)))
+      ).subscribe();
 
     /* 
       GRAPH listens for 'vertex:click' events,
@@ -68,7 +70,7 @@ export default class {
 
     this.vertexStateSubscription =
       merge(
-        fromEvent(this.element, 'vertex:click')
+        fromEvent(this.element.parentElement, 'vertex:click')
       ).pipe(
         filter(({ detail }) => this.vertices.has(detail.target) && this.graphMode === 'SELECT'),
         map(({ detail }) => this.vertices.get(detail.target)),
@@ -98,7 +100,7 @@ export default class {
     const node = this.vertices.get(this.element.removeChild(vertex))
     this.element.insertBefore(node.element, this.element.children[zPosition]);
   }
-  
+
   resetShapeZPosition() {
     const refNode = this.children[this.vertices.get(this.focusedVertex).zIndex]
     this.element.insertBefore(this.focusedVertex, refNode)
@@ -161,8 +163,8 @@ export default class {
   }
 
   setSvgSize() {
-    this.element.setAttribute('width', window.innerWidth);
-    this.element.setAttribute('height', window.innerHeight);
+    this.element.setAttributeNS(null, 'width', window.innerWidth);
+    this.element.setAttributeNS(null, 'height', window.innerHeight);
   }
 
   changeGraphMode(incomingMode = '') {
@@ -180,8 +182,8 @@ export default class {
   }
 
   get children() {
-  console.log('[...this.element.children[0]]', [...this.element.children[0].children])
-  // console.log('[...this.element.children[0]]', [...this.element.children[0]])
+    console.log('[...this.element.children[0]]', [...this.element.children[0].children])
+    // console.log('[...this.element.children[0]]', [...this.element.children[0]])
     return [...this.element.children[0].children]
     // return [...this.element.children]
   }

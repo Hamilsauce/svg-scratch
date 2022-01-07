@@ -1,7 +1,10 @@
-class Mak { constructor() { this.root; };
+class MakeDraggable {
+  constructor() {
+    this.root;
+  };
   get prop() { return this._prop };
   set prop(newValue) { this._prop = newValue };
-  }
+}
 
 var makeDraggable = (function() {
   function makeDraggable(svg, element) {
@@ -11,13 +14,14 @@ var makeDraggable = (function() {
     console.log('element.transform.baseVal', element.transform)
     var transforms = element.transform.baseVal;
 
-    if (transforms.length === 0) { // || transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+    if (transforms.length === 0) { 
+      // || transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
       // Create an transform that translates by (0, 0)
       var translate = svg.createSVGTransform();
       translate.setTranslate(0, 0);
       // element.transform.baseVal 
       transforms.insertItemBefore(translate, 0);
-      console.log('element.transform.baseVal', element.transform.baseVal)
+      // console.log('element.transform.baseVal', element.transform.baseVal)
     }
 
     svg.addEventListener('mousedown', startDrag);
@@ -51,6 +55,10 @@ var makeDraggable = (function() {
         evt.preventDefault();
         var coord = getMousePosition(evt);
         transform.setTranslate(coord.x - offset.x, coord.y - offset.y);
+        console.log('instance svg.querySelector(rect1)',  document.querySelector('#rect1') instanceof SVGRectElement)
+      console.log('svg.getIntersectionList()', svg.getIntersectionList( document.querySelector('#rect1'),document.querySelector('#rect2'),))
+    // console.log('svg.currentTranslate', svg.currentTranslate))
+        
       }
     }
 

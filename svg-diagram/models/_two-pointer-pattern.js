@@ -1,7 +1,3 @@
-
-
-
-
 function twoSum(arr, target) {
   for (let i = 0; i < arr.length - 1; i++)
     for (let j = i + 1; j < arr.length; j++)
@@ -34,13 +30,12 @@ function twoSum2(arr, target) {
 // console.table([twoSum([-5, -3, -1, 1, 2], 30), twoSum2([-5, -3, -1, 1, 2], 30)]);
 // [] // no 2 numbers add up to 30
 // console.table([twoSum([-3, -2, -1, 1, 1, 3, 4], -4), twoSum2([-3, -2, -1, 1, 1, 3, 4], -4)]);
-console.time('summertime2')
 // [-3, -1] // (-3 -1 = -4)
-    twoSum([-3, -2, -1, 1, 1, 3, 4], -4),
-console.timeEnd('summertime2')
+console.time('twoSum')
+twoSum([-3, -2, -1, 1, 1, 3, 4], -4),
+console.timeEnd('twoSum')
 
-   
-console.time('summertime')
-    twoSum([-3, -2, -1, 1, 1, 3, 4], -4)
-console.timeEnd('summertime')
-    
+
+console.time('twoSum2')
+twoSum2([-3, -2, -1, 1, 1, 3, 4], -4)
+console.timeEnd('twoSum2')
