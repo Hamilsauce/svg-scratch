@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg overflow="hidden" version="1.1" viewBox="0 0 1311 656" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    #path126 {}
+  </style>
+  <defs>
+    <filter id="fx0" filterUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR tableValues="0 0" type="discrete" />
+        <feFuncG tableValues="0 0" type="discrete" />
+        <feFuncB tableValues="0 0" type="discrete" />
+        <feFuncA slope="0.490196" type="linear" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="7.63889 7.63889" />
+    </filter>
+    <filter filterUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR tableValues="0 0" type="discrete" />
+        <feFuncG tableValues="0 0" type="discrete" />
+        <feFuncB tableValues="0 0" type="discrete" />
+        <feFuncA slope="0.160784" type="linear" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="7.63889 7.63889" />
+    </filter>
+    <filter id="fx2" filterUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR tableValues="0 0" type="discrete" />
+        <feFuncG tableValues="0 0" type="discrete" />
+        <feFuncB tableValues="0 0" type="discrete" />
+        <feFuncA slope="0.160784" type="linear" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="7.63889 7.63889" />
+    </filter>
+    <clipPath id="clip3">
+      <rect x="4843" y="570" width="1311" height="656" />
+    </clipPath>
+    <clipPath id="clip4">
+      <path d="m4878.5 595.5v605h1237v-605zm-35.5-25.5h1311v656h-1311z" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+    <clipPath id="clip5">
+      <rect x="-7" y="-7" width="1304" height="671" />
+    </clipPath>
+    <clipPath>
+      <rect width="1290" height="658" />
+    </clipPath>
+    <clipPath id="clip7">
+      <path
+        d="m4879.8 595.5c-0.15 0-0.27 0.119-0.27 0.265v88.47c0 0.146 0.12 0.265 0.27 0.265h1237.5c0.15 0 0.27-0.119 0.27-0.265v-88.47c0-0.146-0.12-0.265-0.27-0.265zm-36.77-25.5h1311v656h-1311z"
+        clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+    <clipPath>
+      <rect x="-7" y="-7" width="1323" height="153" />
+    </clipPath>
+    <clipPath>
+      <rect width="1311" height="140" />
+    </clipPath>
+    <linearGradient id="fill10" x1="5498.5" x2="5498.5" y1="595.5" y2="684.5" gradientUnits="userSpaceOnUse"
+      spreadMethod="reflect">
+      <stop stop-color="#317D8F" offset="0" />
+      <stop stop-color="#317D8F" offset=".01" />
+      <stop stop-color="#548996" offset="1" />
+    </linearGradient>
+    <clipPath id="clip11">
+      <rect x="4878" y="595" width="1239" height="89" />
+    </clipPath>
+    <rect rx="9px" id="input-box" x="0" y="0" width="1150" height="115" />
+
+    <image id="img12" width="1159" height="115" preserveAspectRatio="none"
+      xlink:href="data:image/png;base64,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" />
+    <clipPath id="clip13">
+      <rect x="4884" y="721" width="541" height="87" />
+    </clipPath>
+    <clipPath id="clip14">
+      <path
+        d="m5796.3 1059c-0.15 0-0.27 0.12-0.27 0.27v88.46c0 0.15 0.12 0.27 0.27 0.27h246.46c0.15 0 0.27-0.12 0.27-0.27v-88.46c0-0.15-0.12-0.27-0.27-0.27zm-953.27-489h1311v656h-1311z"
+        clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+    <clipPath id="clip15">
+      <rect x="-7" y="-7" width="318" height="157" />
+    </clipPath>
+    <clipPath>
+      <rect width="305" height="145" />
+    </clipPath>
+    <linearGradient id="stroke17" x1="5919.5" x2="5919.5" y1="1056.1" y2="1150.9" gradientUnits="userSpaceOnUse"
+      spreadMethod="reflect">
+      <stop stop-color="#37897F" offset="0" />
+      <stop stop-color="#37897F" offset=".04" />
+      <stop stop-color="#317D8F" offset=".15" />
+      <stop stop-color="#2B6D7D" offset=".59" />
+      <stop stop-color="#317D8F" offset="1" />
+    </linearGradient>
+    <linearGradient id="fill18" x1="5919.5" x2="5919.5" y1="1059" y2="1148" gradientUnits="userSpaceOnUse"
+      spreadMethod="reflect">
+      <stop stop-color="#3992A7" offset="0" />
+      <stop stop-color="#3992A7" offset=".01" />
+      <stop stop-color="#548996" offset="1" />
+    </linearGradient>
+    <clipPath id="clip19">
+      <rect x="5795" y="1058" width="249" height="90" />
+    </clipPath>
+  </defs>
+  <g transform="translate(-4843,-570)" clip-path="url(#clip3)">
+    <g clip-path="url(#clip4)">
+      <g transform="translate(4852,569)" clip-path="url(#clip5)" filter="url(#fx0)">
+        <rect x="26.5" y="26.5" width="1237" height="605" fill="#faf7f4" stroke="#b89c91" stroke-miterlimit="8"
+          stroke-width="5" />
+      </g>
+    </g>
+    <rect x="4878.5" y="595.5" width="1237" height="605" fill="#faf7f4" stroke="#b89c91" stroke-miterlimit="8"
+      stroke-width="4.5833" />
+    <g clip-path="url(#clip7)">
+      <path
+        d="m24.12 24.88c0-0.1495 0.1212-0.2706 0.2707-0.2706h1262.2c0.15 0 0.27 0.1211 0.27 0.2706v90.238c0 0.15-0.12 0.271-0.27 0.271h-1262.2c-0.1495 0-0.2707-0.121-0.2707-0.271z"
+        fill="#f00" fill-rule="evenodd" stroke="#865e37" stroke-miterlimit="8" />
+    </g>
+    <path
+      d="m4879.5 595.76c0-0.146 0.12-0.265 0.27-0.265h1237.5c0.15 0 0.27 0.119 0.27 0.265v88.47c0 0.146-0.12 0.265-0.27 0.265h-1237.5c-0.15 0-0.27-0.119-0.27-0.265z"
+      fill="url(#fill10)" fill-rule="evenodd" stroke="#865e37" stroke-miterlimit="8" stroke-width="1.1458" />
+    <g clip-path="url(#clip11)">
+      <text transform="translate(4911.7 664)" fill="#ffffff"
+        font-family="'Segoe UI Semibold', 'Segoe UI Semibold_MSFontService', sans-serif" font-size="60px"
+        font-weight="600">Search</text>
+    </g>
+    <use transform="translate(4919,821)" width="100%" height="100%" fill="#ffffff" stroke-width="4px"
+      stroke="rgba(87,61,46,0.644)" xlink:href="#input-box" />
+    <g clip-path="url(#clip13)">
+      <text transform="translate(4917.8 785)" fill="#595959"
+        font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif" font-size="50px" font-weight="400">Enter a
+        keyword</text>
+    </g>
+    <g clip-path="url(#clip19)">
+      <path
+        d="m5796 1059.3c0-0.15 0.12-0.27 0.27-0.27h246.46c0.15 0 0.27 0.12 0.27 0.27v88.46c0 0.15-0.12 0.27-0.27 0.27h-246.46c-0.15 0-0.27-0.12-0.27-0.27z"
+        fill="url(#fill18)" fill-rule="evenodd" stroke="url(#stroke17)" stroke-miterlimit="8" stroke-width="5.7292" />
+      <text transform="translate(5881.8 1126)" fill="#ffffff"
+        font-family="'Segoe UI Semibold', 'Segoe UI Semibold_MSFontService', sans-serif" font-size="55px"
+        font-weight="600">OK</text>
+    </g>
+    <g clip-path="url(#clip14)">
+      <g transform="translate(5767,1031)" clip-path="url(#clip15)" filter="url(#fx2)">
+        <path
+          d="m26.53 27.381c0-0.1495 0.1211-0.2706 0.2706-0.2706h251.4c0.15 0 0.271 0.1211 0.271 0.2706v90.239c0 0.149-0.121 0.27-0.271 0.27h-251.4c-0.1495 0-0.2706-0.121-0.2706-0.27z"
+          fill="#f00" fill-rule="evenodd" stroke="#f00" stroke-miterlimit="8" stroke-width="6" />
+      </g>
+    </g>
+  </g>
+</svg>

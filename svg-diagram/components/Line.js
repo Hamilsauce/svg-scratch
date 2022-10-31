@@ -1,5 +1,6 @@
-import Node from '../data-models/Node.model.js';
+import Node from '../models/Node.model.js';
 
+// Line 
 export default class extends Node {
   constructor(pos, color, graph) {
     super(document.createElementNS('http://www.w3.org/2000/svg', 'line'))
@@ -15,6 +16,23 @@ export default class extends Node {
 
   get element() { return this._element };
   set element(newValue) { this._element = newValue }
+
+  set y1(newValue) {
+    this.element.y1.baseVal.value = newValue
+    this._y1 = newValue
+  }
+  set x1(newValue) {
+    this.element.x1.baseVal.value = newValue
+    this._x1 = newValue
+  }
+  set x2(newValue) {
+    this.element.x2.baseVal.value = newValue
+    this._x2 = newValue
+  }
+  set y2(newValue) {
+    this.element.y2.baseVal.value = newValue
+    this._y2 = newValue
+  }
 
   setPosition(pos) {
     this.element.setAttribute('x1', pos.x1);

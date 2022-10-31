@@ -1,0 +1,9 @@
+<svg>
+  <path class="edge" d="
+            M 0,0
+            l 0,100  
+            l -7.5,-15
+            L 0,100 
+            l 7.5,-15" fill="none" stroke-width="1.5" stroke="teal" />
+
+</svg>

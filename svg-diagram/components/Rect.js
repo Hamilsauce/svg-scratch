@@ -1,68 +1,27 @@
-import Node from '../data-models/Node.model.js';
+import Node from '../models/Node.model.js';
 import TextNode from './TextNode.js';
 
 const _SVG_NS = 'http://www.w3.org/2000/svg';
-
-
-
-    // this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
-    // this.init(pos, color)
-    // this.graph = graph;
-    // this.element = this.value
-    // this.rect = document.createElementNS(_SVG_NS, 'rect')
-    // this.edges = new Map();
-    
-  //  init(pos, color) {
-  //   this.element.classList.add('node');
-  //   this.element.dataset.nodeType = 'rect'
-  //   this.element.dataset.nodeId = 'node1'
-
-  //   this.rect.classList.add('rect');
-  //   this.rect.setAttributeNS(null, 'stroke-width', '2');
-  //   this.rect.setAttributeNS(null, 'stroke', color);
-  //   this.rect.setAttributeNS(null, 'fill', color);
-  //   this.rect.setAttributeNS(null, 'fill', color);
-
-  //   this.textNode.element.textContent = 'texter!'
-  //   console.log('this.textContent', this.textContent)
-  //   // this.textContent.classList.add('text-content');
-  //   // this.textNode.element.classList.add('text');
-  //   // this.textNode.element.classList.add('text-wrapper');
-  //   // this.textNode.element.style.fill = 'black'
-  //   this.textNode.element.setAttributeNS(null, 'text-anchor', 'middle');
-  //   // this.textNode.element.appendChild(this.textContent);
-  //   // this.textNode.element.appendChild(this.text);
-    
-
-  //   this.element.appendChild(this.rect);
-  //   this.element.appendChild(this.textNode.element);
-  //   // this.wrapper.appendChild(this.element);
-  //   this.setCoords(pos);
-  //   this.setSize(pos);
- 
-  // }
-
-    
 
 // RECT
 export default class extends Node {
   constructor(pos, color, graph, fill = '#ffffff', stroke = '#000000') {
     super(document.createElementNS(_SVG_NS, 'g'));
     this.graph = graph;
-    this.element = this.value
+    this.self = this.value
     this.rect = document.createElementNS(_SVG_NS, 'rect')
     this.textNode = new TextNode(document.createElementNS('http://www.w3.org/2000/svg', 'text'), this);
     this.init(pos, color)
 
     this.edges = new Map();
-    this.element.addEventListener('dblclick', this.handleDoubleClick.bind(this));
-    this.element.addEventListener('click', this.handleClick.bind(this));
+    this.self.addEventListener('dblclick', this.handleDoubleClick.bind(this));
+    this.self.addEventListener('click', this.handleClick.bind(this));
   }
 
   init(pos, color) {
-    this.element.classList.add('node');
-    this.element.dataset.nodeType = 'rect'
-    this.element.dataset.nodeId = 'node1'
+    this.self.classList.add('node');
+    this.self.dataset.nodeType = 'rect'
+    this.self.dataset.nodeId = 'node1'
 
     this.rect.classList.add('rect');
     this.rect.setAttributeNS(null, 'stroke-width', '2');
@@ -71,33 +30,25 @@ export default class extends Node {
     this.rect.setAttributeNS(null, 'fill', color);
 
     this.textNode.element.textContent = 'texter!'
-    console.log('this.textContent', this.textContent)
-    // this.textContent.classList.add('text-content');
-    // this.textNode.element.classList.add('text');
-    // this.textNode.element.classList.add('text-wrapper');
-    // this.textNode.element.style.fill = 'black'
     this.textNode.element.setAttributeNS(null, 'text-anchor', 'middle');
-    // this.textNode.element.appendChild(this.textContent);
-    // this.textNode.element.appendChild(this.text);
-    
 
-    this.element.appendChild(this.rect);
-    this.element.appendChild(this.textNode.element);
-    // this.wrapper.appendChild(this.element);
+    this.self.appendChild(this.rect);
+    this.self.appendChild(this.textNode.element);
+    // this.wrapper.appendChild(this.self);
     this.setCoords(pos);
     this.setSize(pos);
- 
+
   }
 
   handleClick(e) {
     if (this.graph.selectMode || this.graph.addEdgeMode) {
       const evt = new CustomEvent('node-select', { bubbles: true, detail: { target: this } })
-      this.element.dispatchEvent(evt);
+      this.self.dispatchEvent(evt);
     }
     e.stopPropagation();
     e.preventDefault();
   }
- 
+
   handleDoubleClick(e) {
     this.textNode.editMode = !this.textNode.editMode
     e.preventDefault();
@@ -141,7 +92,7 @@ export default class extends Node {
       y: (this.y + this.height / 2) || 0,
     }
   }
-  
+
   get size() { return { width: this.width, height: this.height, } }
 
   get coords() { return { x: this.x, y: this.y, } }
@@ -159,7 +110,7 @@ export default class extends Node {
     this.rect.setAttribute('x', newValue)
     this.updateTextPosition();
   }
-  
+
   get y() { return parseInt(this.rect.getAttribute('y')) || 0 }
   set y(newValue) {
     this.rect.setAttribute('y', newValue)
@@ -171,7 +122,7 @@ export default class extends Node {
     this.rect.setAttribute('width', newValue)
     this.updateTextPosition();
   }
-  
+
   get height() { return parseInt(this.rect.getAttribute('height')) || 0; } //return this.rect.getAttribute('height') }
   set height(newValue) {
     this.rect.setAttribute('height', newValue)

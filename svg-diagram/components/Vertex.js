@@ -1,4 +1,4 @@
-import Node from '../data-models/Node.model.js';
+import Node from '../models/Node.model.js';
 import TextNode from './TextNode.js';
 import ham from 'https://hamilsauce.github.io/hamhelper/hamhelper1.0.0.js';
 const { date, array, utils, text, help } = ham;
@@ -84,44 +84,38 @@ export default class extends Node {
 
     this.vertexSelectSubscription = this.graphClickResponse$.subscribe(this.activeState$);
 
-
     /*  TODO TOUCH STREAMS  */
-    this.touchstart$ = fromEvent(this.element, 'touchstart')
-      .pipe(
-        filter(({ currentTarget }) => this.activeState === 'FOCUSED'),
-        tap(() => this.isActive = true),
-        tap(() => this.isFocused = true),
-        map(evt => evt),
-      );
+    this.pointerdown$ = fromEvent(this.element, 'pointerdown').pipe(
+      filter(({ currentTarget }) => this.activeState === 'FOCUSED'),
+      tap(() => this.isActive = true),
+      tap(() => this.isFocused = true),
+      map(evt => evt),
+    );
+    
+    this.pointermove$ = fromEvent(this.element, 'pointermove').pipe(
+      filter(({ currentTarget }) => this.activeState === 'FOCUSED' && this.isEventSource(currentTarget)),
+      map(e => {
+        if (!this.isSelected) this.isActive = false;
+        return this.isActive ? e : null
+      }),
+      map(e => {
+        if (!this.isActive || e == null) return;
+        this.setCoords(this.getMousePosition(e))
+        return e;
+      }),
+    );
+    
+    this.pointerup$ = fromEvent(this.element, 'pointerup').pipe(
+      map(e => {
+        this.isActive = false;
+        return { x: this.x, y: this.y }
+      }),
+    );
 
-    this.touchmove$ = fromEvent(this.element, 'touchmove')
-      .pipe(
-        filter(({ currentTarget }) => this.activeState === 'FOCUSED' && this.isEventSource(currentTarget)),
-        map(e => {
-          if (!this.isSelected) this.isActive = false;
-          return this.isActive ? e : null
-        }),
-        map(e => {
-          if (!this.isActive || e == null) return;
-          this.setCoords(this.getMousePosition(e))
-          return e;
-        }),
-      );
-
-    this.touchend$ = fromEvent(this.element, 'touchend')
-      .pipe(
-        map(e => {
-          this.isActive = false;
-          return { x: this.x, y: this.y }
-        }),
-      );
-
-    this.touchSubscription = this.touchstart$.pipe(
-      switchMap(() => this.touchmove$.pipe(
-        switchMap(() => this.touchend$)))).subscribe();
-
-
-
+    this.pointerSubscription = this.pointerdown$.pipe(
+      switchMap(() => this.pointermove$.pipe(
+        switchMap(() => this.pointerup$)))
+    ).subscribe();
 
     this.blurSubscription =
       merge(fromEvent(this.element, 'blur'), fromEvent(this.shape, 'blur'), )
@@ -135,10 +129,13 @@ export default class extends Node {
 
   getMousePosition(evt) {
     var CTM = this.shape.getScreenCTM();
-    return {
-      x: ((evt.touches[0].clientX - CTM.e) / CTM.a) - (this.width / 2), // - parseInt(this.x),
-      y: ((evt.touches[0].clientY - CTM.f) / CTM.d) - (this.height / 2), // - parseInt(this.y),
-    };
+    if (evt.touches) {} else {
+      return {
+        x: ((evt.clientX - CTM.e) / CTM.a) - (this.width / 2), // - parseInt(this.x),
+        y: ((evt.clientY - CTM.f) / CTM.d) - (this.height / 2), // - parseInt(this.y),
+      };
+
+    }
   }
 
   init(pos, color) {

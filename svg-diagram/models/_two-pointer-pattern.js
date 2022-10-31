@@ -5,11 +5,15 @@ function twoSum(arr, target) {
   return [];
 }
 /*
-The runtime of this solution would be O(n ^ 2).Because of the nested loops.Can we do better ? We
-  are not using the fact that the array is SORTED!
-  We can use two pointers: one pointer starting from the left side and the other from the right side.
-Depending on whether the sum is bigger or smaller than the target, we move right or left.If the
-sum is equal to the target, we
+  The runtime of this solution would be O(n ^ 2).
+Because of the nested loops.
+We are not using the fact that the array is SORTED!
+  We can use two pointers: one pointer starting 
+from the left side and the other from 
+the right side. Depending on whether 
+the sum is bigger or smaller than the 
+target, we move right or left.
+If the sum is equal to the target, we
 return the current left and right pointer’ s values.
 Solution 2: Two Pointers
 */

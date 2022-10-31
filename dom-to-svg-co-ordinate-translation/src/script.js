@@ -4,9 +4,11 @@ const
   NS = svg.getAttribute('xmlns'),
   out = {};
 
-'clientX,clientY,svgX,svgY,targetX,targetY,targetID,addX,addY'.split(',').map(s => {
-  out[s] = { node: document.getElementById(s), value: '-' }
-});
+'clientX,clientY,svgX,svgY,targetX,targetY,targetID,addX,addY'
+.split(',')
+  .map(s => {
+    out[s] = { node: document.getElementById(s), value: '-' }
+  });
 
 // events
 svg.addEventListener('pointermove', getCoordinates);
@@ -16,7 +18,6 @@ svg.addEventListener('pointerdown', createCircle);
 
 // update co-ordinates
 function getCoordinates(event) {
-
   // DOM co-ordinate
   out.clientX.value = event.clientX;
   out.clientY.value = event.clientY;
@@ -34,11 +35,8 @@ function getCoordinates(event) {
   updateInfo();
 
 };
-
-
 // add a circle to the target
 function createCircle(event) {
-
   // circle clicked?
   if (event.target.nodeName === 'circle') return;
 
@@ -61,18 +59,13 @@ function createCircle(event) {
   out.addX.value = cX;
   out.addY.value = cY;
   updateInfo();
-
 }
-
-
 // translate page to SVG co-ordinate
 function svgPoint(element, x, y) {
-
   var pt = svg.createSVGPoint();
   pt.x = x;
   pt.y = y;
   return pt.matrixTransform(element.getScreenCTM().inverse());
-
 }
 
 

@@ -1,0 +1,5242 @@
+[
+  {
+    "type": 2000,
+    "node": {
+      "type": "session",
+      "data": {
+        "treeId": "1639340081466.622",
+        "nextDId": 1,
+        "nonDumpedDId": 1
+      }
+    }
+  },
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "NFTs",
+        "customFavicon": "img/group-icon.png"
+      },
+      "data": {
+        "type": "normal",
+        "rect": "16_115_960_1064"
+      }
+    },
+    [
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "Code Samples and Tutorials",
+        "customFavicon": "img/group-icon.png"
+      },
+      "colapsed": true,
+      "data": {
+        "focused": true,
+        "type": "normal",
+        "rect": "0_406_960_1080"
+      }
+    },
+    [0, 0]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "NFT/migrations at master · 7flash/NFT",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2F7flash%2FNFT%2Ftree%2Fmaster%2Fmigrations&title=NFT%2Fmigrations%20at%20master%20%C2%B7%207flash%2FNFT&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true",
+        "wasSavedOnLastWinSave": true
+      }
+    },
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "dappuniversity/nft: Crypto Collectible NFT Tutorial with ERC-721 Tokens",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fdappuniversity%2Fnft&title=dappuniversity%2Fnft%3A%20Crypto%20Collectible%20NFT%20Tutorial%20with%20ERC-721%20Tokens&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "nft/src at master · dappuniversity/nft",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fdappuniversity%2Fnft%2Ftree%2Fmaster%2Fsrc&title=nft%2Fsrc%20at%20master%20%C2%B7%20dappuniversity%2Fnft&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      0,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "dappuniversity/starter_kit: Start building full stack dApps fast with this starter kit!",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fdappuniversity%2Fstarter_kit&title=dappuniversity%2Fstarter_kit%3A%20Start%20building%20full%20stack%20dApps%20fast%20with%20this%20starter%20kit!&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      0,
+      1,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "DAPP University",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Forgs%2Fdappuniversity%2Frepositories%3Fpage%3D2&title=DAPP%20University&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "EIP-721: Non-Fungible Token Standard",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Feips.ethereum.org%2FEIPS%2Feip-721&title=EIP-721%3A%20Non-Fungible%20Token%20Standard&favIconUrl=undefined&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://nftschool.dev/favicon-32x32.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Build a minting service | NFT School",
+        "url": "https://nftschool.dev/tutorial/minting-service/#why-ipfs-and-nft-storage"
+      }
+    },
+    [
+      0,
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "mattdesl (Matt DesLauriers) / Repositories",
+        "url": "https://github.com/mattdesl?tab=repositories&q=nft&type=&language=&sort="
+      }
+    },
+    [
+      0,
+      0,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "colapsed": true,
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://ethereum.org/favicon-32x32.png?v=8b512faa8d4a0b019c123a771b6622aa",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Ethereum Development Tutorials | ethereum.org",
+        "url": "https://ethereum.org/en/developers/tutorials/"
+      }
+    },
+    [
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "scaffold-eth/scaffold-eth at simple-nft-example",
+        "url": "https://github.com/scaffold-eth/scaffold-eth/tree/simple-nft-example"
+      }
+    },
+    [
+      0,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "ChainSafe/web3.js: Ethereum JavaScript API",
+        "url": "https://github.com/ChainSafe/web3.js"
+      }
+    },
+    [
+      0,
+      1,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://ethereum.org/favicon-32x32.png?v=8b512faa8d4a0b019c123a771b6622aa",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Intro to Ethereum | ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/"
+      }
+    },
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://ethereum.org/favicon-32x32.png?v=8b512faa8d4a0b019c123a771b6622aa",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Ethereum development documentation | ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/"
+      }
+    },
+    [
+      0,
+      1,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "Services/Resources",
+        "customFavicon": "img/group-icon.png"
+      },
+      "colapsed": true,
+      "data": {
+        "type": "normal",
+        "rect": "16_81_960_1064"
+      }
+    },
+    [
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "nft.storage/packages/client/examples/node.js at main · nftstorage/nft.storage",
+        "url": "https://github.com/nftstorage/nft.storage/tree/main/packages/client/examples/node.js"
+      }
+    },
+    [
+      0,
+      2,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://nft.storage/icon.svg",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "NFT.Storage - Free decentralized storage and bandwidth for NFTs on IPFS & Filecoin.",
+        "url": "https://nft.storage/#docs"
+      }
+    },
+    [
+      0,
+      2,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "NFT School",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "type": "normal",
+        "rect": "0_440_960_1080"
+      }
+    },
+    [
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://nftschool.dev/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "First steps | NFT School",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fnftschool.dev%2Ftutorial%2Ffirst-steps%2F&title=First%20steps%20%7C%20NFT%20School&favIconUrl=https%3A%2F%2Fnftschool.dev%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      0,
+      3,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "nft-school-examples/end-to-end at main · Hamilsauce/nft-school-examples",
+        "url": "https://github.com/Hamilsauce/nft-school-examples/tree/main/end-to-end"
+      }
+    },
+    [
+      0,
+      3,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://nftschool.dev/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Content persistence | NFT School",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fnftschool.dev%2Fconcepts%2Fcontent-persistence%2F&title=Content%20persistence%20%7C%20NFT%20School&favIconUrl=https%3A%2F%2Fnftschool.dev%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true",
+        "wasSavedOnLastWinSave": true
+      }
+    },
+    [
+      0,
+      3,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://nftschool.dev/favicon-32x32.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "First steps | NFT School",
+        "url": "https://nftschool.dev/tutorial/first-steps/#prerequisites",
+        "wasSavedOnLastWinSave": true
+      }
+    },
+    [
+      0,
+      3,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "GCP and Cloud Funcs",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "type": "normal",
+        "rect": "0_-1169_1173_1088"
+      }
+    },
+    [
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": 872526835,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Local Development  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/running/overview"
+      }
+    },
+    [
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": 872526835,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Configuring Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/configuring"
+      }
+    },
+    [
+      1,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": 872526835,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Testing Overview  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/testing/test-overview"
+      }
+    },
+    [
+      1,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": 872526835,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Monitoring Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/monitoring"
+      }
+    },
+    [
+      1,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": 872526835,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Deploying Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/deploying"
+      }
+    },
+    [
+      1,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "data:image/svg+xml;charset=UTF-8;base64,PHN2ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDMyIDMyIiB3aWR0aD0iMTAwJSIgZml0PSIiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIGZvY3VzYWJsZT0iZmFsc2UiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTI5IDE3Ljg5bC0xMy01Ljc4djUuNzhsMTMgNS43NzdWMTcuODl6bTAtMTAuMTEyTDE2IDJ2NS43NzhsMTMgNS43NzhWNy43Nzh6IiBmaWxsPSIjNUM4NURFIj48L3BhdGg+PHBhdGggZD0iTTMgNy43NzhMMTYgMnY1Ljc3OEwzIDEzLjU1NnpNMyAxNy44OWwxMy01Ljc4djUuNzhMMyAyMy42NjZ6IiBmaWxsPSIjODVBNEU2Ij48L3BhdGg+PHBhdGggZD0iTTE2IDI1LjExbDQuODctMi4xNjMgNi41MSAyLjg4NUwxNiAzMC44OXoiIGZpbGw9IiMzMzY3RDYiPjwvcGF0aD48L3N2Zz4=",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Data – Firestore – leaguestock-dev – Google Cloud Platform",
+        "url": "https://console.cloud.google.com/firestore/data/investorProfiles/tS9OHAroicUq62UDRxpRIzV5wNG2/orders/xguEEbMiL4GLEtXIPqQW/transactions/uny8OGXSg4U1hyzbIKbf?authuser=1&project=leaguestock-dev"
+      }
+    },
+    [
+      1,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "data:image/svg+xml;charset=UTF-8;base64,PHN2ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDMyIDMyIiB3aWR0aD0iMTAwJSIgZml0PSIiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIGZvY3VzYWJsZT0iZmFsc2UiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTI5IDE3Ljg5bC0xMy01Ljc4djUuNzhsMTMgNS43NzdWMTcuODl6bTAtMTAuMTEyTDE2IDJ2NS43NzhsMTMgNS43NzhWNy43Nzh6IiBmaWxsPSIjNUM4NURFIj48L3BhdGg+PHBhdGggZD0iTTMgNy43NzhMMTYgMnY1Ljc3OEwzIDEzLjU1NnpNMyAxNy44OWwxMy01Ljc4djUuNzhMMyAyMy42NjZ6IiBmaWxsPSIjODVBNEU2Ij48L3BhdGg+PHBhdGggZD0iTTE2IDI1LjExbDQuODctMi4xNjMgNi41MSAyLjg4NUwxNiAzMC44OXoiIGZpbGw9IiMzMzY3RDYiPjwvcGF0aD48L3N2Zz4=",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 34,
+        "title": "Data – Firestore – leaguestock-dev – Google Cloud Platform",
+        "url": "https://console.cloud.google.com/firestore/data/players/77fd924c-4502-4c6c-bd8c-dac8e2d63961?authuser=1&project=leaguestock-dev"
+      }
+    },
+    [
+      1,
+      5,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Events and Triggers  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/concepts/events-triggers"
+      }
+    },
+    [
+      1,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Background Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/writing/background#functions_background_parameters-nodejs"
+      }
+    },
+    [
+      1,
+      6,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "@firebase/firestore/lite  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/firestore_lite.md#partialwithfieldvalue"
+      }
+    },
+    [
+      1,
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "DocumentData interface  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/firestore_.documentdata"
+      }
+    },
+    [
+      1,
+      7,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Firestore class  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/firestore_.firestore"
+      }
+    },
+    [
+      1,
+      7,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "firebase - How can I get specific document data from firestore querysnapshot? - Stack Overflow",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F50692218%2Fhow-can-i-get-specific-document-data-from-firestore-querysnapshot&title=firebase%20-%20How%20can%20I%20get%20specific%20document%20data%20from%20firestore%20querysnapshot%3F%20-%20Stack%20Overflow&favIconUrl=https%3A%2F%2Fcdn.sstatic.net%2FSites%2Fstackoverflow%2FImg%2Ffavicon.ico%3Fv%3Dec617d715196&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      8
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "QuerySnapshot | JavaScript SDK  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/v8/firebase.firestore.QuerySnapshot"
+      }
+    },
+    [
+      1,
+      8,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "QuerySnapshot | JavaScript SDK  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/v8/firebase.firestore.QuerySnapshot#docs"
+      }
+    },
+    [
+      1,
+      8,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "QuerySnapshot | JavaScript SDK  |  Firebase",
+        "url": "https://firebase.google.com/docs/reference/js/v8/firebase.firestore.QuerySnapshot"
+      }
+    },
+    [
+      1,
+      8,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Database transaction - Wikipedia",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDatabase_transaction&title=Database%20transaction%20-%20Wikipedia&favIconUrl=https%3A%2F%2Fen.wikipedia.org%2Fstatic%2Ffavicon%2Fwikipedia.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      9
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1123,
+        "title": "dirty reads - Google Search",
+        "url": "https://www.google.com/search?q=dirty+reads&rlz=1C1CHBF_enUS983US983&oq=dirty+reads&aqs=chrome..69i57j0i512j0i10i512j0i512j0i10i512j0i512l3.1556j1j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      1,
+      9,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1132,
+        "title": "Isolation (database systems) - Wikipedia",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIsolation_(database_systems)%23%3A~%3Atext%3D25-%2CDirty%2520reads%2Ctransaction%2520and%2520not%2520yet%2520committed.%26text%3DIn%2520our%2520example%252C%2520Transaction%25202%2Cdoes%2520not%2520commit%2520the%2520changes.&title=Isolation%20(database%20systems)%20-%20Wikipedia&favIconUrl=https%3A%2F%2Fen.wikipedia.org%2Fstatic%2Ffavicon%2Fwikipedia.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      9,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Parsing error: Cannot read file tsconfig.json, when it's in subfolders and not in root · Issue #1170 · microsoft/vscode-eslint",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode-eslint%2Fissues%2F1170&title=Parsing%20error%3A%20Cannot%20read%20file%20tsconfig.json%2C%20when%20it%27s%20in%20subfolders%20and%20not%20in%20root%20%C2%B7%20Issue%20%231170%20%C2%B7%20microsoft%2Fvscode-eslint&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      10
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "node.js - Parsing error: Cannot read file '.../tsconfig.json'.eslint - Stack Overflow",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F64933543%2Fparsing-error-cannot-read-file-tsconfig-json-eslint&title=node.js%20-%20Parsing%20error%3A%20Cannot%20read%20file%20%27...%2Ftsconfig.json%27.eslint%20-%20Stack%20Overflow&favIconUrl=https%3A%2F%2Fcdn.sstatic.net%2FSites%2Fstackoverflow%2FImg%2Ffavicon.ico%3Fv%3Dec617d715196&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      10,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://gitlab.com/assets/favicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Pipelines · Team LeagueStock / LeagueStockMasterRepo · GitLab",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgitlab.com%2Fteam-leaguestock%2Fleaguestockmasterrepo%2F-%2Fpipelines&title=Pipelines%20%C2%B7%20Team%20LeagueStock%20%2F%20LeagueStockMasterRepo%20%C2%B7%20GitLab&favIconUrl=https%3A%2F%2Fgitlab.com%2Fassets%2Ffavicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      11
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Cloud Spanner  |  Google Cloud",
+        "url": "https://cloud.google.com/spanner"
+      }
+    },
+    [
+      1,
+      12
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Player Collections - League Stock - Confluence",
+        "url": "https://leaguestock.atlassian.net/wiki/spaces/LS/pages/62292101/Player+Collections"
+      }
+    },
+    [
+      1,
+      13
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Order book state - League Stock - Confluence",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fspaces%2FLS%2Fpages%2F361037854%2FOrder%2Bbook%2Bstate&title=Order%20book%20state%20-%20League%20Stock%20-%20Confluence&favIconUrl=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fs%2F1574301797%2F6452%2F61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8%2F1%2F_%2Ffavicon-update.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      14
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Orders/Transactions/Share Auditing - League Stock - Confluence",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fspaces%2FLS%2Fpages%2F653754371%2FOrders%2BTransactions%2BShare%2BAuditing&title=Orders%2FTransactions%2FShare%20Auditing%20-%20League%20Stock%20-%20Confluence&favIconUrl=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fs%2F1574301797%2F6452%2F61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8%2F1%2F_%2Ffavicon-update.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      15
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Cloud Function Configurations - League Stock - Confluence",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fspaces%2FLS%2Fpages%2F673021953%2FCloud%2BFunction%2BConfigurations&title=Cloud%20Function%20Configurations%20-%20League%20Stock%20-%20Confluence&favIconUrl=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fs%2F1574301797%2F6452%2F61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8%2F1%2F_%2Ffavicon-update.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      16
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Market Transaction - League Stock - Confluence",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fspaces%2FLS%2Fpages%2F63373333%2FMarket%2BTransaction&title=Market%20Transaction%20-%20League%20Stock%20-%20Confluence&favIconUrl=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fs%2F1574301797%2F6452%2F61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8%2F1%2F_%2Ffavicon-update.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      17
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://leaguestock.atlassian.net/wiki/s/1574301797/6452/61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8/1/_/favicon-update.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Attachments - Firebase Messaging - League Stock - Confluence",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fpages%2Fviewpageattachments.action%3FpageId%3D33816577%26preview%3D%252F33816577%252F560267265%252FTransaction%2520diagram.png&title=Attachments%20-%20Firebase%20Messaging%20-%20League%20Stock%20-%20Confluence&favIconUrl=https%3A%2F%2Fleaguestock.atlassian.net%2Fwiki%2Fs%2F1574301797%2F6452%2F61a4bdd729c067a0b34a7d92f4f503b8b4b1d5f8%2F1%2F_%2Ffavicon-update.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      18
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "InvestorOrderCommander.doRead( - Google Search",
+        "url": "https://www.google.com/search?q=InvestorOrderCommander.doRead("
+      }
+    },
+    [
+      1,
+      19
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Extending Firestore with Cloud Functions  |  Google Cloud",
+        "url": "https://cloud.google.com/firestore/docs/extend-with-functions"
+      }
+    },
+    [
+      1,
+      20
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "RxJS & Firebase 101 | Firebase Developers",
+        "url": "https://medium.com/firebase-developers/rxjs-firebase-101-68a84c37f85e"
+      }
+    },
+    [
+      1,
+      20,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Firebase Functions SDK",
+        "url": "https://firebase.google.com/docs/reference/functions"
+      }
+    },
+    [
+      1,
+      21
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "firebase/firebase-functions: Firebase SDK for Cloud Functions",
+        "url": "https://github.com/firebase/firebase-functions"
+      }
+    },
+    [
+      1,
+      21,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Get started: write, test, and deploy your first functions  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/functions/get-started"
+      }
+    },
+    [
+      1,
+      21,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Call functions from your app  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/functions/callable"
+      }
+    },
+    [
+      1,
+      21,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "firebase/functions-samples: Collection of sample apps showcasing popular use cases using Cloud Functions for Firebase",
+        "url": "https://github.com/firebase/functions-samples"
+      }
+    },
+    [
+      1,
+      22
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://angular.io/assets/images/favicons/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Angular - Testing",
+        "url": "https://angular.io/guide/testing"
+      }
+    },
+    [
+      1,
+      23
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://support.microsoft.com/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Get help with timeline",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fsupport.microsoft.com%2Fen-us%2Fwindows%2Fget-help-with-timeline-febc28db-034c-d2b0-3bbe-79aa0c501039&title=Get%20help%20with%20timeline&favIconUrl=https%3A%2F%2Fsupport.microsoft.com%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      24
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "SVG: Draw with mouse;",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fcodepen.io%2Frajarju%2Fpen%2FXZgBPG&title=SVG%3A%20Draw%20with%20mouse%3B&favIconUrl=https%3A%2F%2Fcpwebassets.codepen.io%2Fassets%2Ffavicon%2Ffavicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      25
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "javascript manipulating svg - Google Search",
+        "url": "https://www.google.com/search?q=javascript+manipulating+svg&rlz=1C1CHBF_enUS983US983&oq=javascript+manipulating+svg&aqs=chrome..69i57.8393j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      1,
+      26
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "ORMs Are Awesome | chanind.github.io",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fchanind.github.io%2F2020%2F01%2F13%2Fawesome-orms.html&title=ORMs%20Are%20Awesome%20%7C%20chanind.github.io&favIconUrl=undefined&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      27
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://developer.mozilla.org/favicon-48x48.97046865.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Window.requestAnimationFrame() - Web APIs | MDN",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2Fwindow%2FrequestAnimationFrame&title=Window.requestAnimationFrame()%20-%20Web%20APIs%20%7C%20MDN&favIconUrl=https%3A%2F%2Fdeveloper.mozilla.org%2Ffavicon-48x48.97046865.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      28
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "http://www.javascriptkit.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Understanding JavaScript's requestAnimationFrame() method for smooth animations",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=http%3A%2F%2Fwww.javascriptkit.com%2Fjavatutors%2Frequestanimationframe.shtml&title=Understanding%20JavaScript%27s%20requestAnimationFrame()%20method%20for%20smooth%20animations&favIconUrl=http%3A%2F%2Fwww.javascriptkit.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      29
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Draggable SVG elements",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.petercollingridge.co.uk%2Ftutorials%2Fsvg%2Finteractive%2Fdragging%2F&title=Draggable%20SVG%20elements&favIconUrl=undefined&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      30
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Interactive SVGs",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.petercollingridge.co.uk%2Ftutorials%2Fsvg%2Finteractive%2F&title=Interactive%20SVGs&favIconUrl=undefined&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      31
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Panning and zooming",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.petercollingridge.co.uk%2Ftutorials%2Fsvg%2Finteractive%2Fpan-and-zoom%2F&title=Panning%20and%20zooming&favIconUrl=undefined&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      32
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.codeproject.com/favicon/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Build a Prototype Web-Based Diagramming App with SVG and Javascript - CodeProject",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.codeproject.com%2FArticles%2F1237571%2FBuild-a-Prototype-Web-Based-Diagramming-App-with-S%3Fdisplay%3DPrint%23TheSvgObjectClass17&title=Build%20a%20Prototype%20Web-Based%20Diagramming%20App%20with%20SVG%20and%20Javascript%20-%20CodeProject&favIconUrl=https%3A%2F%2Fwww.codeproject.com%2Ffavicon%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      1,
+      33
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "FlowSharpWeb/models at master · Hamilsauce/FlowSharpWeb",
+        "url": "https://github.com/Hamilsauce/FlowSharpWeb/tree/master/models"
+      }
+    },
+    [
+      1,
+      34
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "SVGs",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "data": {
+        "focused": true,
+        "type": "normal",
+        "rect": "0_960_960_1080"
+      }
+    },
+    [
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "group",
+      "marks": {
+        "relicons": [],
+        "customTitle": "SERVER AND DB"
+      },
+      "colapsed": true,
+      "data": {
+        "rect": "undefined_undefined_undefined_undefined"
+      }
+    },
+    [
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "focused": true,
+        "type": "normal",
+        "rect": "0_749_1171_1080"
+      }
+    },
+    [
+      3,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://anyinstructor.com/wp-content/uploads/2020/07/cropped-anyinstructor-plain-logo-1-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Which is The Easiest Database to Learn? (Answered!) – AnyInstructor",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fanyinstructor.com%2Fwhich-is-the-easiest-database-to-learn-and-why%2F&title=Which%20is%20The%20Easiest%20Database%20to%20Learn%3F%20(Answered!)%20%E2%80%93%20AnyInstructor&favIconUrl=https%3A%2F%2Fanyinstructor.com%2Fwp-content%2Fuploads%2F2020%2F07%2Fcropped-anyinstructor-plain-logo-1-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.sqlite.org/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1226,
+        "title": "SQLite Home Page",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.sqlite.org%2Findex.html&title=SQLite%20Home%20Page&favIconUrl=https%3A%2F%2Fwww.sqlite.org%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      0,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "SQLite - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/SQLite"
+      }
+    },
+    [
+      3,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1249,
+        "title": "PostgreSQL - Wikipedia",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPostgreSQL&title=PostgreSQL%20-%20Wikipedia&favIconUrl=https%3A%2F%2Fen.wikipedia.org%2Fstatic%2Ffavicon%2Fwikipedia.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.dwarmstrong.org/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1249,
+        "title": "New life for an old laptop as a Linux home server ☯ Daniel Wayne Armstrong",
+        "url": "https://www.dwarmstrong.org/laptop-home-server/"
+      }
+    },
+    [
+      3,
+      1,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "type": "normal",
+        "rect": "0_753_968_1080"
+      }
+    },
+    [
+      3,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.mbse.eu/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Home Server MySQL Database server – MBSE Web",
+        "url": "https://www.mbse.eu/linux/homeserver/essential/mysql/"
+      }
+    },
+    [
+      3,
+      2,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--E8ak4Hr1--/c_limit,f_auto,fl_progressive,q_auto,w_32/https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Building a Home Test Server - DEV Community",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fdev.to%2Fcaffiendkitten%2Fbuilding-a-home-test-server-27h1%23What_is_a_Server&title=Building%20a%20Home%20Test%20Server%20-%20DEV%20Community&favIconUrl=https%3A%2F%2Fres.cloudinary.com%2Fpracticaldev%2Fimage%2Ffetch%2Fs--E8ak4Hr1--%2Fc_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_32%2Fhttps%3A%2F%2Fdev-to.s3.us-east-2.amazonaws.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      2,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/fit/c/128/128/1*ChFMdf--f5jbm-AYv6VdYA@2x.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Setting up your Own Little Server at your Home | by Rahul Agarwal | Towards Data Science",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Ftowardsdatascience.com%2Fsetting-up-your-own-little-server-at-your-home-5331a9e04ead&title=Setting%20up%20your%20Own%20Little%20Server%20at%20your%20Home%20%7C%20by%20Rahul%20Agarwal%20%7C%20Towards%20Data%20Science&favIconUrl=https%3A%2F%2Fmiro.medium.com%2Ffit%2Fc%2F128%2F128%2F1*ChFMdf--f5jbm-AYv6VdYA%402x.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      2,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAaLSURBVHgBfVdLbJRVFD7nn6F0ii0zbQNBiYCFdmMoDUUh8uhgCrgwMSaoGxOi8ZGYCEtjQkLcucOVxhADW9mwYQGBPhTRxAVFVzgdWu1ULPaBQGfaTuce7z3nnv/+Ux5/8s/ce/97z+M73733HAT/nDg1ln243HQckfoA0L0EQKj/tgHEM9EOkhsEtKNEBOhlUGKNzoHkPIQR2z397Rfrz6leXvvxqTuba1UctAs2+flOmghDFR8MADIyTjJkm2FS4hGlWNfn+RGOp5Yo/82XG8b56/uf/z1mG5udByyMVB0695BUUTA7MeY8lXVuDBmBhBFJmeqYM59ovFpe7Em991npWARwTGxz6yn2Ne6Tb+src3w/zFNj4nHbpbAW4nWGrc+mUriYtsZ8aowR89DDCxjcdYs4iBBDrr7ksik88cF6qCwYOH3mLi0sGDEuJgyhtikgEP9brQciY2o9zkwiY3XXUCa7tn/dSmexsS1rnH95/KN326GxEcEaAvt2rUGZb/TfzSGq2ZbvC5peluF+X2Q7yQ9g+KPzNYy7MWDBPhy227+/GXPZdBzrnd1NCTmJ9WA4DuKfN8wEfZEqMEYtdCgYZEP8JK9cpUC2JUX7djezYgf/12enyBmzs3sNiJwaG2uFIve9DGe9OiP/1gCBRmIXK/WKNQRujjHqFMGhvhZsbIzYgOJYBYq3y1gcW4BeawDHVtDXH11vbSdHS1SdxAZouIyHy8dbvHY2qGZnpIHeHc9Ab09zDP3knSUG5tLgHHVsaYSOTauF/sIhlHhrOD2yJjgYKXGY4sZ77yAU9iXCYaChAeBQPpfc5g4BJudosYyjFo1DB7MJ5CjeouRRFhIHpCMCgzHjOX4hZg4yEtx58ZGDrdCaS9cZUCpV0JMFLl2ZgY4tGXBIKOsdBwyZunAqp1w73gXipYSCuA+qnIXk1qZh/yvZOuWTdxahUqm5oHO4CsUyjd4uw2FrKPgd5bcwKBe0Tz7EEShU7KXfMjExa6iLP/lwI6x8ZmerMdQeYvzh2hxsfSHDb0A1EFuJ7gcwSsIvYybsAI/Cgb05C/2qRwwojM4zOkEG0c3f77Nhh19t84oZVX7DeRIIGgUPgJLk0bfV7m9nwOOe0uQCH/or1wz9OANbO5rg2Q2rMHF6xggz4Ul3gSeLQgX+FPOExCP97Y/13j2jxYeWqIb0aFUZv/z6Hzlu9O1rSxy9FMs1JlxMESTiIgjU/FkO9FLvWnh5V/YJ3ldiI2MEPWHL80s4ODzNaxtXY5jDlx6AhsO9kd/jCQIqKQ2+dngdPOmx8MtuISDQ9SZcOAND04LC/ja/G2oYOKZb0chdAHXEEx4469taG55oQKHwwAsWw7nNJ6BAXqksMwr5A+2QaUSMtzijQKh3TETBc+UHT5qeXiJ4ylOaKHto6z2Kr217iF0dmOK5zojkNR6ua4AouY/l0hCBhcJ9HLl577HKHbR/lcqkh1fyOpeTlTHBcnkZBgbuwsH8OsisTvlDzm9Lnl/jk5ADCSZYpjfa+fMTUC7XHjFgolTmgwtd7PnKFfLFJ50/952Qkd/mIJNJwe7dubpbUHYFQJoHknkchGR3ZqYGFy9OwtGjz6+Af95D7bI1ExJOkF3cZBXu2JGDzm0t0N29lsfL88uSqLj5Ltt1t7JVlWZLOI330kM+x/n2lStTtH17Dru6whV869YD9pgLAK+8a1szdHa2+LfZz7sPV6/+Ay6UjjMxqTh3FcPTJKaEdNpIKs4QSmmBZ88W6eTJF7GpSW7C6X8XaU0mws4uUbhnTzu4by7mIyNzcP36Xft/z/ar4pMvTIIWE2qbN9752XBOL3WIVEGcBFPIzu3n/v4N8Nbbm3j5hPWmra2BlU7YcPxhPb1xY5Y99pWUxzLUC+o61zPymXVZDtSGLW/6fP4sPhMluCACL1+exOc2ZqCnp9XGswo/XZuyXs7CzPRiHLa45oBQgwi6oGWaI46vU7ikG0kbwiFL5T5SjYqGhoupIKncd2cKgCsqJcGRMKiUy0lIGeo3t17mCVEjqflOR9HS0ld2e4zz2UySxerdnciIfVarx61va5oVb2HQu58omYyqHKpLTsYvfL/3XHThQv5eVDV5K/lPiG8s0hMtTqM0P6i/uPypR+F6tYWOuOtk2DoAJdFJOuXOnXGs1vIAUF/Vvv7m4DE7/7htduu5oFUZJEkZsJemJ4sQTCdFvEArZz9n2Fo0/NBWckPWcTf+P1HvUDsPU6onAAAAAElFTkSuQmCC",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "5 Ways to Host PostgreSQL Databases | PostgreSQL Hosting Guide",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.prisma.io%2Fdataguide%2Fpostgresql%2F5-ways-to-host-postgresql&title=5%20Ways%20to%20Host%20PostgreSQL%20Databases%20%7C%20PostgreSQL%20Hosting%20Guide&favIconUrl=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAaLSURBVHgBfVdLbJRVFD7nn6F0ii0zbQNBiYCFdmMoDUUh8uhgCrgwMSaoGxOi8ZGYCEtjQkLcucOVxhADW9mwYQGBPhTRxAVFVzgdWu1ULPaBQGfaTuce7z3nnv%2F%2BUx5%2F8s%2Fce%2F97z%2BM73733HAT%2FnDg1ln243HQckfoA0L0EQKj%2FtgHEM9EOkhsEtKNEBOhlUGKNzoHkPIQR2z397Rfrz6leXvvxqTuba1UctAs2%2BflOmghDFR8MADIyTjJkm2FS4hGlWNfn%2BRGOp5Yo%2F82XG8b56%2Fuf%2Fz1mG5udByyMVB0695BUUTA7MeY8lXVuDBmBhBFJmeqYM59ovFpe7Em991npWARwTGxz6yn2Ne6Tb%2Bsrc3w%2FzFNj4nHbpbAW4nWGrc%2BmUriYtsZ8aowR89DDCxjcdYs4iBBDrr7ksik88cF6qCwYOH3mLi0sGDEuJgyhtikgEP9brQciY2o9zkwiY3XXUCa7tn%2FdSmexsS1rnH95%2FKN326GxEcEaAvt2rUGZb%2FTfzSGq2ZbvC5peluF%2BX2Q7yQ9g%2BKPzNYy7MWDBPhy227%2B%2FGXPZdBzrnd1NCTmJ9WA4DuKfN8wEfZEqMEYtdCgYZEP8JK9cpUC2JUX7djezYgf%2F12enyBmzs3sNiJwaG2uFIve9DGe9OiP%2F1gCBRmIXK%2FWKNQRujjHqFMGhvhZsbIzYgOJYBYq3y1gcW4BeawDHVtDXH11vbSdHS1SdxAZouIyHy8dbvHY2qGZnpIHeHc9Ab09zDP3knSUG5tLgHHVsaYSOTauF%2FsIhlHhrOD2yJjgYKXGY4sZ77yAU9iXCYaChAeBQPpfc5g4BJudosYyjFo1DB7MJ5CjeouRRFhIHpCMCgzHjOX4hZg4yEtx58ZGDrdCaS9cZUCpV0JMFLl2ZgY4tGXBIKOsdBwyZunAqp1w73gXipYSCuA%2BqnIXk1qZh%2FyvZOuWTdxahUqm5oHO4CsUyjd4uw2FrKPgd5bcwKBe0Tz7EEShU7KXfMjExa6iLP%2FlwI6x8ZmerMdQeYvzh2hxsfSHDb0A1EFuJ7gcwSsIvYybsAI%2FCgb05C%2F2qRwwojM4zOkEG0c3f77Nhh19t84oZVX7DeRIIGgUPgJLk0bfV7m9nwOOe0uQCH%2For1wz9OANbO5rg2Q2rMHF6xggz4Ul3gSeLQgX%2BFPOExCP97Y%2F13j2jxYeWqIb0aFUZv%2Fz6Hzlu9O1rSxy9FMs1JlxMESTiIgjU%2FFkO9FLvWnh5V%2FYJ3ldiI2MEPWHL80s4ODzNaxtXY5jDlx6AhsO9kd%2FjCQIqKQ2%2BdngdPOmx8MtuISDQ9SZcOAND04LC%2Fja%2FG2oYOKZb0chdAHXEEx4469taG55oQKHwwAsWw7nNJ6BAXqksMwr5A%2B2QaUSMtzijQKh3TETBc%2BUHT5qeXiJ4ylOaKHto6z2Kr217iF0dmOK5zojkNR6ua4AouY%2Fl0hCBhcJ9HLl577HKHbR%2Flcqkh1fyOpeTlTHBcnkZBgbuwsH8OsisTvlDzm9Lnl%2Fjk5ADCSZYpjfa%2BfMTUC7XHjFgolTmgwtd7PnKFfLFJ50%2F952Qkd%2FmIJNJwe7dubpbUHYFQJoHknkchGR3ZqYGFy9OwtGjz6%2BAf95D7bI1ExJOkF3cZBXu2JGDzm0t0N29lsfL88uSqLj5Ltt1t7JVlWZLOI330kM%2Bx%2Fn2lStTtH17Dru6whV869YD9pgLAK%2B8a1szdHa2%2BLfZz7sPV6%2F%2BAy6UjjMxqTh3FcPTJKaEdNpIKs4QSmmBZ88W6eTJF7GpSW7C6X8XaU0mws4uUbhnTzu4by7mIyNzcP36Xft%2Fz%2Far4pMvTIIWE2qbN9752XBOL3WIVEGcBFPIzu3n%2Fv4N8Nbbm3j5hPWmra2BlU7YcPxhPb1xY5Y99pWUxzLUC%2Bo61zPymXVZDtSGLW%2F6fP4sPhMluCACL1%2BexOc2ZqCnp9XGswo%2FXZuyXs7CzPRiHLa45oBQgwi6oGWaI46vU7ikG0kbwiFL5T5SjYqGhoupIKncd2cKgCsqJcGRMKiUy0lIGeo3t17mCVEjqflOR9HS0ld2e4zz2UySxerdnciIfVarx61va5oVb2HQu58omYyqHKpLTsYvfL%2F3XHThQv5eVDV5K%2FlPiG8s0hMtTqM0P6i%2FuPypR%2BF6tYWOuOtk2DoAJdFJOuXOnXGs1vIAUF%2FVvv7m4DE7%2F7htduu5oFUZJEkZsJemJ4sQTCdFvEArZz9n2Fo0%2FNBWckPWcTf%2BP1HvUDsPU6onAAAAAElFTkSuQmCC&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      3,
+      2,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "group",
+      "marks": {
+        "relicons": [],
+        "customTitle": "Cloud Functions"
+      },
+      "colapsed": true,
+      "data": {
+        "rect": "undefined_undefined_undefined_undefined"
+      }
+    },
+    [
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": []
+      },
+      "colapsed": true,
+      "data": {
+        "type": "normal",
+        "rect": "0_8_960_1080",
+        "crashDetectedDate": 1641226750442
+      }
+    },
+    [
+      4,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Local Development  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/running/overview"
+      }
+    },
+    [
+      4,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Configuring Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/configuring"
+      }
+    },
+    [
+      4,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Testing Overview  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/testing/test-overview"
+      }
+    },
+    [
+      4,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Monitoring Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/monitoring"
+      }
+    },
+    [
+      4,
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Deploying Cloud Functions  |  Cloud Functions Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/functions/docs/deploying"
+      }
+    },
+    [
+      4,
+      0,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://gitlab.com/assets/favicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "fixed all the lint issues (6a77f00f) · Commits · Team LeagueStock / LeagueStockMasterRepo · GitLab",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgitlab.com%2Fteam-leaguestock%2Fleaguestockmasterrepo%2F-%2Fcommit%2F6a77f00fc1d676ec390654ca96110144b1d698ff&title=fixed%20all%20the%20lint%20issues%20(6a77f00f)%20%C2%B7%20Commits%20%C2%B7%20Team%20LeagueStock%20%2F%20LeagueStockMasterRepo%20%C2%B7%20GitLab&favIconUrl=https%3A%2F%2Fgitlab.com%2Fassets%2Ffavicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "why use vs code wsl - Google Search",
+        "url": "https://www.google.com/search?q=why+use+vs+code+wsl&rlz=1C1CHBF_enUS983US983&oq=why+use+vs+code+wsl&aqs=chrome..69i57j33i22i29i30l4.8423j0j9&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      4,
+      0,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://code.visualstudio.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Developing in the Windows Subsystem for Linux with Visual Studio Code",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fremote%2Fwsl&title=Developing%20in%20the%20Windows%20Subsystem%20for%20Linux%20with%20Visual%20Studio%20Code&favIconUrl=https%3A%2F%2Fcode.visualstudio.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "vscode wsl slow - Google Search",
+        "url": "https://www.google.com/search?q=vscode+wsl+slow&rlz=1C1CHBF_enUS983US983&oq=vscode+wsl+slow&aqs=chrome..69i57j0i22i30l4.9454j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      4,
+      0,
+      8
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Very slow performance when using Remote - WSL · Issue #5558 · microsoft/vscode-cpptools",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode-cpptools%2Fissues%2F5558&title=Very%20slow%20performance%20when%20using%20Remote%20-%20WSL%20%C2%B7%20Issue%20%235558%20%C2%B7%20microsoft%2Fvscode-cpptools&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      8,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.redditstatic.com/desktop2x/img/favicon/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "VS Code Terminal still slow and laggy : vscode",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fvscode%2Fcomments%2Fqafom3%2Fvs_code_terminal_still_slow_and_laggy%2F&title=VS%20Code%20Terminal%20still%20slow%20and%20laggy%20%3A%20vscode&favIconUrl=https%3A%2F%2Fwww.redditstatic.com%2Fdesktop2x%2Fimg%2Ffavicon%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      8,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "WSL2 distro failing to startup with code 4294967295 · Issue #5092 · microsoft/WSL",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2FWSL%2Fissues%2F5092&title=WSL2%20distro%20failing%20to%20startup%20with%20code%204294967295%20%C2%B7%20Issue%20%235092%20%C2%B7%20microsoft%2FWSL&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      9
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "netsh winsock reset - Google Search",
+        "url": "https://www.google.com/search?q=netsh+winsock+reset&rlz=1C1CHBF_enUS983US983&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      4,
+      0,
+      9,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Transactions and batched writes  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/firestore/manage-data/transactions"
+      }
+    },
+    [
+      4,
+      0,
+      10
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Functional Programming: Currying vs. Partial Application | by Moon | Better Programming",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fbetterprogramming.pub%2Ffunctional-programming-currying-vs-partial-application-53b8b05c73e3&title=Functional%20Programming%3A%20Currying%20vs.%20Partial%20Application%20%7C%20by%20Moon%20%7C%20Better%20Programming&favIconUrl=https%3A%2F%2Fmiro.medium.com%2F1*m-R_BkNf1Qjr1YbyOIJY2w.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      10,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "firestore add numeric - Google Search",
+        "url": "https://www.google.com/search?q=firestore+add+numeric&rlz=1C1CHBF_enUS983US983&oq=firestore+add+numeric&aqs=chrome..69i57j33i160l2.3407j1j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      4,
+      0,
+      10,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v84e6f6a61298bbae5bb110c196e834c7f21fe3fb34e722925433ddb936d280c9/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Incrementing a Firestore document field while using shards  |  Google Cloud",
+        "url": "https://cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-increment"
+      }
+    },
+    [
+      4,
+      0,
+      10,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "js functional partial application - Google Search",
+        "url": "https://www.google.com/search?q=js+functional+partial+application&rlz=1C1CHBF_enUS983US983&oq=js+functional+partial+application&aqs=chrome..69i57j0i22i30j69i64.8594j0j9&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      4,
+      0,
+      11
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.digitalocean.com/assets/community/favicon-32x32-e377577c425642ab495296dfec040ec903e36ffc4cd7a0a4281e84597891a774.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "JavaScript Functional Programming Explained: Partial Application and Currying | DigitalOcean",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.digitalocean.com%2Fcommunity%2Ftutorials%2Fjavascript-functional-programming-explained-partial-application-and-currying&title=JavaScript%20Functional%20Programming%20Explained%3A%20Partial%20Application%20and%20Currying%20%7C%20DigitalOcean&favIconUrl=https%3A%2F%2Fwww.digitalocean.com%2Fassets%2Fcommunity%2Ffavicon-32x32-e377577c425642ab495296dfec040ec903e36ffc4cd7a0a4281e84597891a774.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      4,
+      0,
+      11,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/fit/c/128/128/1*iETPsI-y6GMmx-AJEQRBnw@2x.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Functional JavaScript — Partial Application and Composition | by John Au-Yeung | JavaScript in Plain English",
+        "url": "https://javascript.plainenglish.io/functional-javascript-partial-application-and-composition-d4accd96d8b6"
+      }
+    },
+    [
+      4,
+      0,
+      11,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "TESTING",
+        "customFavicon": "img/group-icon.png"
+      },
+      "colapsed": true,
+      "data": {
+        "focused": true,
+        "type": "normal",
+        "rect": "0_406_960_1080"
+      }
+    },
+    [
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "APPIUM",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "data": {
+        "focused": true,
+        "state": "maximized",
+        "type": "normal",
+        "rect": "-8_-1928_1936_1096"
+      }
+    },
+    [
+      5,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Firebase Test Lab  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab"
+      }
+    },
+    [
+      5,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://firebase.googleblog.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "The Firebase Blog: Introducing Firebase Test Lab for Android",
+        "url": "https://firebase.googleblog.com/2016/06/introducing-firebase-test-lab-for.html"
+      }
+    },
+    [
+      5,
+      0,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Firebase Test Lab  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab"
+      }
+    },
+    [
+      5,
+      0,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://docs.appcircle.io/img/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1895,
+        "title": "Using Firebase Test Lab for Android Continuous Testing | Appcircle Docs",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fdocs.appcircle.io%2Fcontinuous-testing%2Ffirebase-test-lab-for-android%2F&title=Using%20Firebase%20Test%20Lab%20for%20Android%20Continuous%20Testing%20%7C%20Appcircle%20Docs&favIconUrl=https%3A%2F%2Fdocs.appcircle.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1895,
+        "title": "Usage levels, quotas, and pricing for Test Lab  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing"
+      }
+    },
+    [
+      5,
+      0,
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Firebase Documentation",
+        "url": "https://firebase.google.com/docs?gclid=Cj0KCQiAw9qOBhC-ARIsAG-rdn7zdGmThFr2WSEZPvf4lHg3qSJlPJkBMobH_Fe8SUOYjowp9cXZjDcaAiRZEALw_wcB&gclsrc=aw.ds"
+      }
+    },
+    [
+      5,
+      0,
+      0,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/ico/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Appium: Mobile App Automation Made Awesome.",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2F&title=Appium%3A%20Mobile%20App%20Automation%20Made%20Awesome.&favIconUrl=https%3A%2F%2Fappium.io%2Fico%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Appium - Wikipedia",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FAppium&title=Appium%20-%20Wikipedia&favIconUrl=https%3A%2F%2Fen.wikipedia.org%2Fstatic%2Ffavicon%2Fwikipedia.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "appium/appium: Automation for iOS, Android, and Windows Apps.",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fappium%2Fappium&title=appium%2Fappium%3A%20Automation%20for%20iOS%2C%20Android%2C%20and%20Windows%20Apps.&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      1,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "appium/sample-code at master · appium/appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fappium%2Fappium%2Ftree%2Fmaster%2Fsample-code&title=appium%2Fsample-code%20at%20master%20%C2%B7%20appium%2Fappium&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      1,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/img/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Introduction - Appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2Fdocs%2Fen%2Fabout-appium%2Fintro%2F&title=Introduction%20-%20Appium&favIconUrl=https%3A%2F%2Fappium.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "android - Appium support on Firebase Test Lab - Stack Overflow",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F51916556%2Fappium-support-on-firebase-test-lab&title=android%20-%20Appium%20support%20on%20Firebase%20Test%20Lab%20-%20Stack%20Overflow&favIconUrl=https%3A%2F%2Fcdn.sstatic.net%2FSites%2Fstackoverflow%2FImg%2Ffavicon.ico%3Fv%3Dec617d715196&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      5,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.guru99.com/images/Favicon_new_300x300-120x120.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "APPIUM Tutorial for Android & iOS Mobile Apps Testing",
+        "url": "https://www.guru99.com/introduction-to-appium.html"
+      }
+    },
+    [
+      5,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "ROBO SCRIPTS",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "focused": true,
+        "type": "normal",
+        "rect": "0_440_960_1080",
+        "crashDetectedDate": 1641517875142
+      }
+    },
+    [
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Test Robo Scripts Locally: Useful For Firebase Test Lab & Pre-launch Reports | by Rohit Surwase | AndroidPub | Medium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmedium.com%2Fandroid-news%2Ftest-robo-scripts-locally-useful-for-firebase-test-lab-pre-launch-reports-41da83d5769f&title=Test%20Robo%20Scripts%20Locally%3A%20Useful%20For%20Firebase%20Test%20Lab%20%26%20Pre-launch%20Reports%20%7C%20by%20Rohit%20Surwase%20%7C%20AndroidPub%20%7C%20Medium&favIconUrl=https%3A%2F%2Fmiro.medium.com%2F1*m-R_BkNf1Qjr1YbyOIJY2w.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/android/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Fundamentals of testing android apps  |  Android Developers",
+        "url": "https://developer.android.com/training/testing/fundamentals"
+      }
+    },
+    [
+      6,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Get started with Robo tests  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/android/robo-ux-test"
+      }
+    },
+    [
+      6,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/cloud/images/favicons/onecloud/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "gcloud firebase test android run  |  Cloud SDK Documentation  |  Google Cloud",
+        "url": "https://cloud.google.com/sdk/gcloud/reference/firebase/test/android/run?authuser=1"
+      }
+    },
+    [
+      6,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Get set up as a tester  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/app-distribution/ios/set-up-for-testing?authuser=1"
+      }
+    },
+    [
+      6,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 2287,
+        "title": "Test Lab troubleshooting  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/troubleshooting?authuser=1&platform=ios"
+      }
+    },
+    [
+      6,
+      2,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v58f8eddac3b6550de59aef35db6a54dd8d6b9bfd5277859b01b659996a6dcf43/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Get started with Firebase Test Lab for iOS  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/ios/get-started?authuser=1"
+      }
+    },
+    [
+      6,
+      2,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "automated e2e testing firebase - Google Search",
+        "url": "https://www.google.com/search?q=automated+e2e+testing+firebase&rlz=1C1CHBF_enUS983US983&sxsrf=AOaemvJqQ0-Xb7bmTS0OtLMpZl5Dc-14YQ%3A1641496997244&ei=pUHXYamqDpa_tQaugKOIDA&ved=0ahUKEwjpkK7r7J31AhWWX80KHS7ACMEQ4dUDCA4&uact=5&oq=automated+e2e+testing+firebase&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgcIABBHELADOggIIRAWEB0QHjoECAAQHjoGCAAQFhAeOgUIABCGAzoFCCEQqwJKBAhBGABKBAhGGABQ2wpYsz1g_T5oAXACeACAAYUBiAGaCZIBAzMuOJgBAKABAcgBCMABAQ&sclient=gws-wiz"
+      }
+    },
+    [
+      6,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://imgix.datadoghq.com/img/favicons/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Best Practices for Creating End-to-End Tests | Datadog",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.datadoghq.com%2Fblog%2Ftest-creation-best-practices%2F&title=Best%20Practices%20for%20Creating%20End-to-End%20Tests%20%7C%20Datadog&favIconUrl=https%3A%2F%2Fimgix.datadoghq.com%2Fimg%2Ffavicons%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      3,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.benmvp.com/favicon-32x32.png?v=2b60dd7e58e084c6192b8f4d7c81d91d",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "End-to-end testing with Firebase Emulator and Github Actions | Ben Ilegbodu",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.benmvp.com%2Fblog%2Fend-to-end-testing-firebase-emulator-github-actions%2F&title=End-to-end%20testing%20with%20Firebase%20Emulator%20and%20Github%20Actions%20%7C%20Ben%20Ilegbodu&favIconUrl=https%3A%2F%2Fwww.benmvp.com%2Ffavicon-32x32.png%3Fv%3D2b60dd7e58e084c6192b8f4d7c81d91d&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      3,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "e2e android testing test labs firebase - Google Search",
+        "url": "https://www.google.com/search?q=e2e+android+testing+test+labs+firebase&rlz=1C1CHBF_enUS983US983&oq=e2e+android+testing+test+labs+firebase&aqs=chrome..69i57j33i160l2.8716j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      6,
+      3,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Testing Android Apps with Firebase Test Lab… | by Mrudula | MindOrks | Medium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmedium.com%2Fmindorks%2Ftesting-android-app-with-freebase-test-lab-6550d3c7f4fc&title=Testing%20Android%20Apps%20with%20Firebase%20Test%20Lab%E2%80%A6%20%7C%20by%20Mrudula%20%7C%20MindOrks%20%7C%20Medium&favIconUrl=https%3A%2F%2Fmiro.medium.com%2F1*m-R_BkNf1Qjr1YbyOIJY2w.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      3,
+      1,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://support.google.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Run tests with Firebase Test Lab for Android - Firebase Help",
+        "url": "https://support.google.com/firebase/answer/6386654?hl=en#zippy=%2Cin-this-article"
+      }
+    },
+    [
+      6,
+      3,
+      1,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://assets-global.website-files.com/60447dd358d1b0e70d47e77b/604630697d25be921d833ffb_bitrise-fav.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "5 tips & tricks for mobile testing | Bitrise",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fblog.bitrise.io%2Fpost%2F5-tips-tricks-for-mobile-testing&title=5%20tips%20%26%20tricks%20for%20mobile%20testing%20%7C%20Bitrise&favIconUrl=https%3A%2F%2Fassets-global.website-files.com%2F60447dd358d1b0e70d47e77b%2F604630697d25be921d833ffb_bitrise-fav.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      3,
+      1,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.techotopia.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "A Firebase Test Lab Instrumentation Testing Example - Techotopia",
+        "url": "https://www.techotopia.com/index.php/A_Firebase_Test_Lab_Instrumentation_Testing_Example"
+      }
+    },
+    [
+      6,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://robotframework.org/img/icons/favicon-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Robot Framework",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Frobotframework.org%2F&title=Robot%20Framework&favIconUrl=https%3A%2F%2Frobotframework.org%2Fimg%2Ficons%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      6,
+      4,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.mappfia.com/wp-content/uploads/2017/07/cropped-siteicon-32x32.png",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Automating Android App Testing with Robo",
+        "url": "https://www.mappfia.com/blog/android-app-testing"
+      }
+    },
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "172.18.240.1",
+        "url": "http://172.18.240.1:50080/"
+      }
+    },
+    [
+      6,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://docs.microsoft.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Enable your device for development - Windows apps | Microsoft Docs",
+        "url": "https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development?OCID=WinClient_Ver1703_Settings_DevMode"
+      }
+    },
+    [
+      6,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "group",
+      "marks": {
+        "relicons": [],
+        "customTitle": "APPIUM"
+      },
+      "colapsed": true,
+      "data": {
+        "rect": "undefined_undefined_undefined_undefined"
+      }
+    },
+    [
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "id": 1811,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "protractor/config.ts at master · angular/protractor",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fangular%2Fprotractor%2Fblob%2Fmaster%2Flib%2Fconfig.ts&title=protractor%2Fconfig.ts%20at%20master%20%C2%B7%20angular%2Fprotractor&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "id": 1559,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Xamarin - Wikipedia",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FXamarin&title=Xamarin%20-%20Wikipedia&favIconUrl=https%3A%2F%2Fen.wikipedia.org%2Fstatic%2Ffavicon%2Fwikipedia.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "id": 1562,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Xamarin",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fxamarin&title=Xamarin&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1836,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1817,
+        "title": "ANDROID_HOME environment variable is NOT set - Google Search",
+        "url": "https://www.google.com/search?q=ANDROID_HOME+environment+variable+is+NOT+set&rlz=1C1CHBF_enUS983US983&oq=ANDROID_HOME+environment+variable+is+NOT+set&aqs=chrome..69i57.596832j0j4&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      7,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1848,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "PATH (variable) - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/PATH_(variable)"
+      }
+    },
+    [
+      7,
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "APPIUM",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "data": {
+        "id": 1376,
+        "type": "normal",
+        "rect": "20_10_1900_1060"
+      }
+    },
+    [
+      7,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/img/favicon.ico",
+        "groupId": -1,
+        "id": 1415,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Introduction - Appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2Fdocs%2Fen%2Fabout-appium%2Fintro%2F&title=Introduction%20-%20Appium&favIconUrl=https%3A%2F%2Fappium.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "id": 1377,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Tutorial: Automated Testing on iOS (with Appium, Test NG and Java on Mac) | by Benjamin ZY Tan | 2359media | Medium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmedium.com%2F2359media%2Ftutorial-automated-testing-on-ios-with-appium-test-ng-and-java-on-mac-bc115d0ec881&title=Tutorial%3A%20Automated%20Testing%20on%20iOS%20(with%20Appium%2C%20Test%20NG%20and%20Java%20on%20Mac)%20%7C%20by%20Benjamin%20ZY%20Tan%20%7C%202359media%20%7C%20Medium&favIconUrl=https%3A%2F%2Fmiro.medium.com%2F1*m-R_BkNf1Qjr1YbyOIJY2w.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1384,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1377,
+        "title": "get app ready to use appium - Google Search",
+        "url": "https://www.google.com/search?q=get+app+ready+to+use+appium&rlz=1C1CHBF_enUS983US983&oq=get+app+ready+to+use+appium&aqs=chrome..69i57.8541j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      7,
+      1,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/img/favicon.ico",
+        "groupId": -1,
+        "id": 1817,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Getting Started - Appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2Fdocs%2Fen%2Fabout-appium%2Fgetting-started%2F%3Flang%3Den&title=Getting%20Started%20-%20Appium&favIconUrl=https%3A%2F%2Fappium.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/img/favicon.ico",
+        "groupId": -1,
+        "id": 1823,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Espresso (Android) - Appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2Fdocs%2Fen%2Fdrivers%2Fandroid-espresso%2Findex.html&title=Espresso%20(Android)%20-%20Appium&favIconUrl=https%3A%2F%2Fappium.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "id": 1833,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "droid SDK and build tools - Google Search",
+        "url": "https://www.google.com/search?q=droid+SDK+and+build+tools&rlz=1C1CHBF_enUS983US983&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      7,
+      1,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "id": 1830,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "android/testing-samples: A collection of samples demonstrating different frameworks and techniques for automated testing",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fandroid%2Ftesting-samples&title=android%2Ftesting-samples%3A%20A%20collection%20of%20samples%20demonstrating%20different%20frameworks%20and%20techniques%20for%20automated%20testing&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://appium.io/img/favicon.ico",
+        "groupId": -1,
+        "id": 1826,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "UIAutomator2 (Android) - Appium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fappium.io%2Fdocs%2Fen%2Fdrivers%2Fandroid-uiautomator2%2Findex.html&title=UIAutomator2%20(Android)%20-%20Appium&favIconUrl=https%3A%2F%2Fappium.io%2Fimg%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://codecept.io/favicon/favicon.ico",
+        "groupId": -1,
+        "id": 1388,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Mobile Testing with Appium | CodeceptJS",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fcodecept.io%2Fmobile%2F%23setting-up&title=Mobile%20Testing%20with%20Appium%20%7C%20CodeceptJS&favIconUrl=https%3A%2F%2Fcodecept.io%2Ffavicon%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      8
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://ordina-jworks.github.io/img/favicons/favicon-32x32.png",
+        "groupId": -1,
+        "id": 1391,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Automated E2E (End-to-End) testing on Android and iOS with Ionic, Protractor and Appium. - Ryan de Gruyter — Ordina JWorks Tech Blog",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fordina-jworks.github.io%2Fionic%2F2018%2F09%2F30%2Fe2e-testing-ionic-protractor-appium-e2e-testing.html&title=Automated%20E2E%20(End-to-End)%20testing%20on%20Android%20and%20iOS%20with%20Ionic%2C%20Protractor%20and%20Appium.%20-%20Ryan%20de%20Gruyter%20%E2%80%94%20Ordina%20JWorks%20Tech%20Blog&favIconUrl=https%3A%2F%2Fordina-jworks.github.io%2Fimg%2Ffavicons%2Ffavicon-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      9
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1394,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "what is a test driver - Google Search",
+        "url": "https://www.google.com/search?q=what+is+a+test+driver&rlz=1C1CHBF_enUS983US983&oq=what+is+a+test+driver&aqs=chrome..69i57j0i512l2j0i22i30l7.2465j0j4&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      7,
+      1,
+      10
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.tutorialspoint.com/favicon.ico",
+        "groupId": -1,
+        "id": 1814,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Test Driver",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.tutorialspoint.com%2Fsoftware_testing_dictionary%2Ftest_driver.htm%23%3A~%3Atext%3DTest%2520Drivers%2520are%2520the%2520modules%2Care%2520usually%2520complex%2520than%2520stubs.&title=Test%20Driver&favIconUrl=https%3A%2F%2Fwww.tutorialspoint.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      11
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://github.githubassets.com/favicons/favicon-dark.svg",
+        "groupId": -1,
+        "id": 1397,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "appium/appium-desktop: Appium Server in Desktop GUIs for Mac, Windows, and Linux",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fgithub.com%2Fappium%2Fappium-desktop&title=appium%2Fappium-desktop%3A%20Appium%20Server%20in%20Desktop%20GUIs%20for%20Mac%2C%20Windows%2C%20and%20Linux&favIconUrl=https%3A%2F%2Fgithub.githubassets.com%2Ffavicons%2Ffavicon-dark.svg&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      12
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://ssl.gstatic.com/atari/images/public/favicon.ico",
+        "groupId": -1,
+        "id": 1400,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "ChromeDriver - WebDriver for Chrome",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fchromedriver.chromium.org%2Fhome&title=ChromeDriver%20-%20WebDriver%20for%20Chrome&favIconUrl=https%3A%2F%2Fssl.gstatic.com%2Fatari%2Fimages%2Fpublic%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      7,
+      1,
+      13
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1406,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1391,
+        "title": "alternatives to android studio - Google Search",
+        "url": "https://www.google.com/search?q=alternatives+to+android+studio&rlz=1C1CHBF_enUS983US983&oq=alternatives+to+android+studio&aqs=chrome..69i57j0i512.4547j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      7,
+      1,
+      14
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "group",
+      "marks": {
+        "relicons": [],
+        "customTitle": "TESTING 2"
+      },
+      "colapsed": true,
+      "data": {
+        "rect": "undefined_undefined_undefined_undefined"
+      }
+    },
+    [
+      8
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "Testing Window",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "focused": true,
+        "state": "maximized",
+        "type": "normal",
+        "rect": "-8_-8_1936_1096"
+      }
+    },
+    [
+      8,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://3fxtqy18kygf3on3bu39kh93-wpengine.netdna-ssl.com/wp-content/themes/browserstack/img/favicons/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Popular Test Automation Frameworks | BrowserStack",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.browserstack.com%2Fguide%2Fbest-test-automation-frameworks&title=Popular%20Test%20Automation%20Frameworks%20%7C%20BrowserStack&favIconUrl=https%3A%2F%2F3fxtqy18kygf3on3bu39kh93-wpengine.netdna-ssl.com%2Fwp-content%2Fthemes%2Fbrowserstack%2Fimg%2Ffavicons%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.testrigtechnologies.com/wp-content/uploads/2018/07/cropped-favicon1-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Ultimate Guide To Build Mobile App Device Testing Strategy",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.testrigtechnologies.com%2Fthe-ultimate-guide-to-build-mobile-device-testing-strategy%2F&title=Ultimate%20Guide%20To%20Build%20Mobile%20App%20Device%20Testing%20Strategy&favIconUrl=https%3A%2F%2Fwww.testrigtechnologies.com%2Fwp-content%2Fuploads%2F2018%2F07%2Fcropped-favicon1-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Quality Engineer Learning Roadmap | by Blake Norrish | Slalom Build | Medium",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmedium.com%2Fslalom-build%2Fquality-engineer-learning-roadmap-fddfcb77409e&title=Quality%20Engineer%20Learning%20Roadmap%20%7C%20by%20Blake%20Norrish%20%7C%20Slalom%20Build%20%7C%20Medium&favIconUrl=https%3A%2F%2Fmiro.medium.com%2F1*m-R_BkNf1Qjr1YbyOIJY2w.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.avi.com/wp-content/uploads/2016/10/cropped-applied_visionns_logo-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "The expert’s guide to mobile app quality assurance | Applied Visions Inc.",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.avi.com%2Fblog%2Fthe-experts-guide-to-mobile-app-quality-assurance%2F&title=The%20expert%E2%80%99s%20guide%20to%20mobile%20app%20quality%20assurance%20%7C%20Applied%20Visions%20Inc.&favIconUrl=https%3A%2F%2Fwww.avi.com%2Fwp-content%2Fuploads%2F2016%2F10%2Fcropped-applied_visionns_logo-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://topflightapps.com/wp-content/uploads/2018/04/cropped-topflight_favicon2-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Mobile App QA Testing Guide: Strategies, Tools, Process, Best Practices",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Ftopflightapps.com%2Fideas%2Fmobile-app-quality-assurance-guide%2F&title=Mobile%20App%20QA%20Testing%20Guide%3A%20Strategies%2C%20Tools%2C%20Process%2C%20Best%20Practices&favIconUrl=https%3A%2F%2Ftopflightapps.com%2Fwp-content%2Fuploads%2F2018%2F04%2Fcropped-topflight_favicon2-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://3fxtqy18kygf3on3bu39kh93-wpengine.netdna-ssl.com/wp-content/themes/browserstack/img/favicons/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "How to set up QA processes from scratch | BrowserStack",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.browserstack.com%2Fguide%2Fsetup-qa-process&title=How%20to%20set%20up%20QA%20processes%20from%20scratch%20%7C%20BrowserStack&favIconUrl=https%3A%2F%2F3fxtqy18kygf3on3bu39kh93-wpengine.netdna-ssl.com%2Fwp-content%2Fthemes%2Fbrowserstack%2Fimg%2Ffavicons%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      0,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://refactoring.guru/favicon.ico?id=e1894c5648d77c8db9cb",
+        "groupId": -1,
+        "highlighted": true,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Mediator",
+        "url": "https://refactoring.guru/design-patterns/mediator"
+      }
+    },
+    [
+      8,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "MARTIN FOWLER",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "id": 2215,
+        "type": "normal",
+        "rect": "0_812_960_1080"
+      }
+    },
+    [
+      8,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://martinfowler.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Software Architecture Guide",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmartinfowler.com%2Farchitecture%2F&title=Software%20Architecture%20Guide&favIconUrl=https%3A%2F%2Fmartinfowler.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      2,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://martinfowler.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "web development",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmartinfowler.com%2Ftags%2Fweb%2520development.html&title=web%20development&favIconUrl=https%3A%2F%2Fmartinfowler.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      2,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://martinfowler.com/favicon.ico",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "PageObject",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fmartinfowler.com%2Fbliki%2FPageObject.html&title=PageObject&favIconUrl=https%3A%2F%2Fmartinfowler.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      2,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2216,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Visual bookmarks",
+        "url": "chrome://newtab/"
+      }
+    },
+    [
+      8,
+      2,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "savedwin",
+      "marks": {
+        "relicons": [],
+        "customTitle": "SOFTWARE TESTING HELP.COM",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "id": 2217,
+        "type": "normal",
+        "rect": "0_846_960_1080"
+      }
+    },
+    [
+      8,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Mobile App Testing Tutorials (A Complete Guide with 30+ Tutorials)",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fbeginners-guide-to-mobile-application-testing%2Famp%2F&title=Mobile%20App%20Testing%20Tutorials%20(A%20Complete%20Guide%20with%2030%2B%20Tutorials)&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Important: Please Activate Your Subscription",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fimportant-please-activate-your-subscription%2F&title=Important%3A%20Please%20Activate%20Your%20Subscription&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1140,
+        "title": "Types of Software Testing: Different Testing Types with Details",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Ftypes-of-software-testing%2F%2315_End-to-End_Testing&title=Types%20of%20Software%20Testing%3A%20Different%20Testing%20Types%20with%20Details&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1102,
+        "title": "Robot Framework Tutorial - Features And Software Installation",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Frobot-framework-tutorial%2F&title=Robot%20Framework%20Tutorial%20-%20Features%20And%20Software%20Installation&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1102,
+        "title": "What Is END-TO-END Testing: E2E Testing Framework with Examples",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwhat-is-end-to-end-testing%2F&title=What%20Is%20END-TO-END%20Testing%3A%20E2E%20Testing%20Framework%20with%20Examples&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1099,
+        "title": "Best Software Testing Tools 2022 [QA Test Automation Tools]",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Ftools%2F&title=Best%20Software%20Testing%20Tools%202022%20%5BQA%20Test%20Automation%20Tools%5D&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2016/02/cropped-180x180-sth-32x32.png",
+        "groupId": -1,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "What is Test Data? Test Data Preparation Techniques with Example",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Ftips-to-design-test-data-before-executing-your-test-cases%2F&title=What%20is%20Test%20Data%3F%20Test%20Data%20Preparation%20Techniques%20with%20Example&favIconUrl=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fwp-content%2Fqa%2Fuploads%2F2016%2F02%2Fcropped-180x180-sth-32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      8,
+      3,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2218,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Visual bookmarks",
+        "url": "chrome://newtab/"
+      }
+    },
+    [
+      8,
+      3,
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "win",
+      "marks": {
+        "relicons": [],
+        "customTitle": "TESTING/FIREBASE",
+        "customFavicon": "img/chrome-window-icon-gold.png"
+      },
+      "colapsed": true,
+      "data": {
+        "id": 1039,
+        "type": "normal",
+        "rect": "0_687_1233_1080"
+      }
+    },
+    [
+      9
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1126,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Start testing with the Firebase console  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/android/firebase-console"
+      }
+    },
+    [
+      9,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1056,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Connect your app and start prototyping  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/emulator-suite/connect_and_prototype"
+      }
+    },
+    [
+      9,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1059,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Install, configure and integrate Local Emulator Suite  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/emulator-suite/install_and_configure"
+      }
+    },
+    [
+      9,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1071,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Get started testing for Android with Firebase Test Lab  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/android/get-started"
+      }
+    },
+    [
+      9,
+      2,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1129,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "Start testing with the gcloud CLI  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/test-lab/android/command-line"
+      }
+    },
+    [
+      9,
+      2,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://jsmobiledev.com/img/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1044,
+        "mutedInfo": {
+          "muted": false
+        },
+        "pinned": true,
+        "title": "How to set up Firebase Emulator for local development :: Js Mobile Dev — Jorge Vergara",
+        "url": "https://jsmobiledev.com/article/firebase-emulator/"
+      }
+    },
+    [
+      9,
+      2,
+      2
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.gstatic.com/devrel-devsite/prod/v0cb51633d618abe46a66cb213829eebf08ffc674824d203cafddde748d2d407e/firebase/images/favicon.png",
+        "groupId": -1,
+        "id": 1047,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 998,
+        "title": "Set up the Local Emulator Suite  |  Firebase Documentation",
+        "url": "https://firebase.google.com/docs/rules/emulator-setup"
+      }
+    },
+    [
+      9,
+      3
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.youtube.com/s/desktop/8cdf19c8/img/favicon_32x32.png",
+        "groupId": -1,
+        "id": 1050,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "How to set up CI using the Firebase Emulator Suite - YouTube",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DVgQwlMtxbAw&title=How%20to%20set%20up%20CI%20using%20the%20Firebase%20Emulator%20Suite%20-%20YouTube&favIconUrl=https%3A%2F%2Fwww.youtube.com%2Fs%2Fdesktop%2F8cdf19c8%2Fimg%2Ffavicon_32x32.png&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      9,
+      4
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://firebaseopensource.com/favicon.ico",
+        "groupId": -1,
+        "id": 1053,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Manual testing using the Emulator Suite",
+        "url": "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url=https%3A%2F%2Ffirebaseopensource.com%2Fprojects%2Ffirebase%2Fquickstart-testing%2Fmanual-emulator-testing%2Freadme%2F&title=Manual%20testing%20using%20the%20Emulator%20Suite&favIconUrl=https%3A%2F%2Ffirebaseopensource.com%2Ffavicon.ico&scroll_x=0&scroll_y=0&dark_mode=true"
+      }
+    },
+    [
+      9,
+      5
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1182,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "ubuntu install java - Google Search",
+        "url": "https://www.google.com/search?q=ubuntu+install+java&rlz=1C1CHBF_enUS983US983&oq=ubuntu+install+java&aqs=chrome..69i57j0i512l3j0i20i263i512j0i512l5.5916j0j4&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      9,
+      6
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.google.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1776,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 1202,
+        "title": "install appium linux - Google Search",
+        "url": "https://www.google.com/search?q=install+appium+linux&rlz=1C1CHBF_enUS983US983&oq=install+appium+linux&aqs=chrome..69i57j0i22i30l5.11132j0j1&sourceid=chrome&ie=UTF-8"
+      }
+    },
+    [
+      9,
+      7
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/img/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2180,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Tabs Outliner Options",
+        "url": "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/options.html"
+      }
+    },
+    [
+      9,
+      8
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "groupId": -1,
+        "id": 2244,
+        "mutedInfo": {
+          "muted": false
+        },
+        "openerTabId": 2180,
+        "status": "loading",
+        "title": "Google Drive",
+        "url": "https://drive.google.com/drive/u/0/",
+        "windowId": 1039
+      }
+    },
+    [
+      9,
+      8,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "separatorline",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "separatorIndx": 1
+      }
+    },
+    [
+      10
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "win",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "id": 2150,
+        "type": "normal",
+        "rect": "0_744_960_1080"
+      }
+    },
+    [
+      11
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "marks": {
+        "relicons": []
+      },
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://medium.com/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 1779,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Appium installation on Linux. Appium is a widely used automation tool… | by Iqra Bibi | Medium",
+        "url": "https://medium.com/@iqra.bibi/appium-installation-on-linux-ccb102ebdc1"
+      }
+    },
+    [
+      11,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "win",
+      "data": {
+        "id": 2093,
+        "type": "popup",
+        "rect": "1_1_400_1078"
+      }
+    },
+    [
+      12
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/img/favicon.png",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2094,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Tabs Outliner",
+        "url": "chrome-extension://eggkanocgddhmamlbiijnphhppkpkmkl/activesessionview.html?type=main&focusNodeId=1147&altFocusNodeId=1151&scrollToViewWinId=1151#"
+      }
+    },
+    [
+      12,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "win",
+      "data": {
+        "focused": true,
+        "id": 2229,
+        "state": "maximized",
+        "type": "normal",
+        "rect": "-8_-1928_1936_1096"
+      }
+    },
+    [
+      13
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "data": {
+        "active": true,
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.nch.com.au/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2230,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Audio Editing Software - Sound, Music, Voice & Mp3 Editor",
+        "url": "https://www.nch.com.au/wavepad/free-vst-plugins.html",
+        "windowId": 2229
+      }
+    },
+    [
+      13,
+      0
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.nch.com.au/favicon.ico",
+        "groupId": -1,
+        "id": 2234,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "MixPad - Multitrack Music Mixing Video Tutorial",
+        "url": "https://www.nch.com.au/mixpad/tutorial.html",
+        "windowId": 2229
+      }
+    },
+    [
+      13,
+      1
+    ]
+  ],
+  [
+    2001,
+    {
+      "type": "tab",
+      "data": {
+        "audible": false,
+        "autoDiscardable": true,
+        "discarded": false,
+        "favIconUrl": "https://www.nch.com.au/favicon.ico",
+        "groupId": -1,
+        "highlighted": true,
+        "id": 2237,
+        "mutedInfo": {
+          "muted": false
+        },
+        "title": "Frequently Asked Questions MixPad Multitrack Recording Software",
+        "url": "https://www.nch.com.au/mixpad/faq.html",
+        "windowId": 2229
+      }
+    },
+    [
+      13,
+      2
+    ]
+  ],
+  {
+    "type": 11111,
+    "time": 1642022500230
+  }
+]

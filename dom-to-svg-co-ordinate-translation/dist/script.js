@@ -67,12 +67,10 @@ function createCircle(event) {
 
 // translate page to SVG co-ordinate
 function svgPoint(element, x, y) {
-
   var pt = svg.createSVGPoint();
   pt.x = x;
   pt.y = y;
   return pt.matrixTransform(element.getScreenCTM().inverse());
-
 }
 
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SportTrade Clone</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/canvas.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="./css/nav.css" type="text/css" media="all" />
+	<script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+</head>
+
+<body>
+	<div class="app-nav">
+		<div class="nav-head">
+			<div @click="closeNav" class="close-nav">
+				X
+			</div>
+		</div>
+		<router-link class="home-link" v-bind:to="'/'">
+			<div class="nav-link" @click="closeNav">
+				Home
+			</div>
+		</router-link>
+		<router-link class="new-card-link" v-bind:to="'/add-shift-view'">
+			<div class="nav-link" @click="closeNav">
+				Add Shift
+			</div>
+		</router-link>
+		<div class="nav-link export-json-link" @click="exportJsonClicked" @click="closeNav">
+			Export JSON
+		</div>
+		<div class="nav-link export-csv-link" @click="exportCsvClicked" @click="closeNav">
+			Export CSV
+		</div>
+		<a class="tabbed-ui-link nav-link" href="./tabbed-ui/index.html">Tabbed UI</a>
+		<a class="music-link nav-link" href="https://hamilsauce.github.io/music-library-app/">ham radio</a>
+		<a class="github-link nav-link" href="#">github</a>
+		<div class="modal-dimmer"></div>
+	</div>
+	<div class="app">
+		<div class="header">
+			<img class="header-menu-button" src="./menu-icon.svg" alt="header-menu-button" />
+			<div class="header-title">Market</div>
+			<div class="header-funds">$1,220</div>
+		</div>
+		<div class="options-container">
+			<div class="option">See Games</div>
+			<div class="option">History</div>
+			<div class="option">News</div>
+			<div class="option">Account</div>
+			<div class="option">Buy</div>
+			<div class="option">Sell</div>
+			<div class="option">Buy</div>
+			<div class="option">Sell</div>
+		</div>
+		<div class="content-container">
+			<div class="card">
+				<div class="">
+					Phillies at WAS national
+				</div>
+				<div class="chart-container hide">
+					<canvas class="chart" width="250" height="200" id="chart"></canvas>
+				</div>
+			</div>
+			<div class="card">Phillies at WAS national</div>
+			<div class="card">Buy</div>
+			<div class="card">Buy</div>
+			<div class="card">Sell</div>
+		</div>
+	</div>
+	<script src="./canvas.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

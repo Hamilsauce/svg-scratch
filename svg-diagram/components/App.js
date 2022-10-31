@@ -35,9 +35,6 @@ export default class {
   handleOptionChange(e) {
     const { data, type } = e.detail
     if (typeof type != 'string' || !this.graph.optionActionMap.has(type)) return;
-    this.graph.optionActionMap.get((type))([undefined, null].includes(data) ? data : data.toUpperCase());
-    
-    
-    
+    this.graph.optionActionMap.get(type)([undefined, null].includes(data) ? data : data.toUpperCase());
   }
 }

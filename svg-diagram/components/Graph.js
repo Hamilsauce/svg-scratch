@@ -9,6 +9,7 @@ const { bufferTime, bufferCount, first, repeat, throttleTime, debounceTime, buff
 
 // const graphMode = 'EDGE' || 'SELECT' || 'DRAW' || 'DELETE'
 help('', 'event')
+
 const GRAPH_MODES = [
   ['DRAW', false],
   ['SELECT', false],
@@ -18,17 +19,14 @@ const GRAPH_MODES = [
 
 export class SelectionStack {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
-
   }
 }
 
 // Graph
 export default class {
   constructor(element, vertexFill, graphMode = 'DRAW', seedData = []) {
-    this._element = element//.parentElement
-    // this._element = element.parentElement;
+    this._element = element
     this.vertexSubjects = { click$: new Subject(), };
-    // this._vertices = new VertexCollection(seedData);
     this.optionActionMap = this.initOptionActions();
     this._vertices = new Map();
     this._redoList = [];
@@ -55,11 +53,12 @@ export default class {
       move: fromEvent(this.element, 'touchmove').pipe(map(x => this.drawMove(x))),
       end: fromEvent(this.element, 'touchend').pipe(map(x => this.drawEnd(x)), ),
     };
-    this.drawSubscription = this.drawActions$.start
-      .pipe(
-        switchMap(e => this.drawActions$.move.pipe(
+
+    this.drawSubscription = this.drawActions$.start.pipe(
+      switchMap(e => this.drawActions$.move
+        .pipe(
           switchMap(e => this.drawActions$.end)))
-      ).subscribe();
+    ).subscribe();
 
     /* 
       GRAPH listens for 'vertex:click' events,
@@ -82,11 +81,15 @@ export default class {
       ).subscribe(this.vertexSubjects.click$)
   }
 
-  /*TODO METHODS  TODO */
+  /**  METHODS  **/
 
   get focusedVertex() { return this._focusedVertex }
   set focusedVertex(newValue) {
-    if (![undefined, null].includes(this._focusedVertex)) this.setShapeZPosition(this._focusedVertex, this.vertices.get(this._focusedVertex).zIndex);
+    if (![undefined, null].includes(this._focusedVertex))
+      this.setShapeZPosition(
+        this._focusedVertex,
+        this.vertices.get(this._focusedVertex).zIndex
+      );
 
     if (this.vertices.has(newValue) && ![undefined, null].includes(newValue)) {
       this._focusedVertex = newValue
@@ -96,9 +99,14 @@ export default class {
   }
 
   setShapeZPosition(vertex, zPosition = null) {
-    zPosition = null ? -1 : zPosition;
-    const node = this.vertices.get(this.element.removeChild(vertex))
-    this.element.insertBefore(node.element, this.element.children[zPosition]);
+    // zPosition = null ? -1 : zPosition;
+    const node = this.vertices.get(vertex)
+
+    console.warn('zPosition', zPosition)
+    this.element.insertBefore(node.element, this.element.children[zPosition || -1]);
+
+
+    // this.current.element.remove()
   }
 
   resetShapeZPosition() {
@@ -108,23 +116,27 @@ export default class {
 
 
   drawStart(event) {
-    console.log('this', this)
     event.stopPropagation()
     this.isDrawing = true;
+
     if (this.drawMode === 'RECT') {
-      this.current = this.addVertex(new Vertex(
-      {
-        x: event.touches[0].pageX, //- event.target.offsetLeft,
-        y: event.touches[0].pageY, //- event.target.offsetTop,
-        width: 0,
-        height: 0,
-      }, this.vertexSubjects, this.children.length, this.vertexFill, this))
+      this.current = this.addVertex(new Vertex({
+          x: event.touches[0].pageX, //- event.target.offsetLeft,
+          y: event.touches[0].pageY, //- event.target.offsetTop,
+          width: 0,
+          height: 0,
+        },
+        this.vertexSubjects,
+        this.children.length,
+        this.vertexFill,
+        this));
+      return this.current
     }
-    return this.current;
   }
 
   drawMove(event) {
     event.preventDefault();
+
     if (this.isDrawing && this.drawMode === 'RECT') {
       this.current.setSize({
         width: event.touches[0].pageX - (this.current.x + 30),
@@ -137,7 +149,7 @@ export default class {
     this.isDrawing = false;
     if (!this.current) return;
     if (this.current.width + this.current.height < 40) {
-      this.element.removeChild(this.current.element)
+      this.current.element.remove()
     }
     this.current = null;
   }
@@ -150,12 +162,13 @@ export default class {
 
   handleEdgeMode(e) {
     if (this.addEdgeMode === true && this.vertices.has(e.detail.target)) {
-      this.selectedVertices.push(this.vertices.get(e.detail.target))
-      this.vertices.get(e.detail.target).value.classList.add('selected-vertex')
+      this.selectedVertices.push(this.vertices.get(e.detail.target));
+      this.vertices.get(e.detail.target).value.classList.add('selected-vertex');
 
       if (this.selectedVertices.length === 2) {
-        const [src, dest] = this.selectedVertices
-        this.addEdge(src, dest)
+        const [src, dest] = this.selectedVertices;
+
+        this.addEdge(src, dest);
         this.addEdgeMode = false;
         this.selectedVertices = [];
       }
@@ -163,8 +176,8 @@ export default class {
   }
 
   setSvgSize() {
-    this.element.setAttributeNS(null, 'width', window.innerWidth);
-    this.element.setAttributeNS(null, 'height', window.innerHeight);
+    this.element.setAttribute('width', window.innerWidth);
+    this.element.setAttribute('height', window.innerHeight);
   }
 
   changeGraphMode(incomingMode = '') {
@@ -183,12 +196,11 @@ export default class {
 
   get children() {
     console.log('[...this.element.children[0]]', [...this.element.children[0].children])
-    // console.log('[...this.element.children[0]]', [...this.element.children[0]])
     return [...this.element.children[0].children]
-    // return [...this.element.children]
   }
 
   get graphMode() { return this._graphMode }
+
   set graphMode(newValue) {
     if (this.graphMode === newValue) return;
     this._graphMode = newValue
@@ -218,7 +230,7 @@ export default class {
 
   get selectedVertices() {
     return this.children
-      .filter((ch, i) => this.vertices.get(ch).isSelected === true)
+      .filter((ch, i) => this.vertices.get(ch) ? this.vertices.get(ch).isSelected === true : false)
       .map((ch, i) => this.vertices.get(ch));
   };
   set selectedVertices(newValue) { this._selectedVertices = newValue };
@@ -237,8 +249,12 @@ export default class {
   removeVertex(value) {
     const current = this.vertices.get(value);
     if (!current) return;
-    for (const vertex of this.vertices.values()) vertex.removeAdjacent(current);
+
+    for (const vertex of this.vertices.values())
+      vertex.removeAdjacent(current);
+
     this.element.removeChild(value)
+
     return this.vertices.delete(value);
   }
 
@@ -257,8 +273,10 @@ export default class {
     }, this._vertexFill, this);
 
     this.element.appendChild(line.element);
+
     sourceVertex.edges.set(line.element, { vertexOrder: 0, element: line.element })
     destinationVertex.edges.set(line.element, { vertexOrder: 1, element: line.element })
+
     return [sourceVertex, destinationVertex];
   }
 
@@ -298,7 +316,6 @@ export default class {
       this.addVertex(vertex.element, vertex) //this.element.appendChild(this.redoList.pop())
     }
   }
-
 
   optionAction({ type, data }) {
     if (typeof type != 'string' || !this.optionActionMap.has(type)) return;
